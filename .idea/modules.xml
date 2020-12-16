@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UniStage.iml" filepath="$PROJECT_DIR$/.idea/modules/UniStage.iml" group="UniStage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/UniStage-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/UniStage-app.iml" group="UniStage/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="UniStage/app" />
     </modules>
   </component>
