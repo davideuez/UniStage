@@ -44,17 +44,17 @@ public class HomeActivity extends AppCompatActivity {
             Fragment fragment = null;
 
             switch (item.getItemId()){
-                case R.id.Tirocinio:
+                case R.id.iter_tirocinio:
                     fragment = new TiroFrag();
                     System.out.println("Tiro");
                     break;
 
-                case R.id.Search_id:
+                case R.id.ricerca:
                     fragment = new SearchFrag();
                     System.out.println("cerca");
                     break;
 
-                case R.id.Home:
+                case R.id.salvati:
                     fragment = new HomeFrag();
                     System.out.println("home");
                     break;

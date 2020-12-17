@@ -104,7 +104,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         if (pswText.equals(pswConfermaText)) {
                             u.ruolo = "Studente";
                             fdbr.child("email_utente_x").setValue(u);
-                            Intent k = new Intent(RegistrazioneActivity.this, HomeActivity.class);
+                            Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
                             } else

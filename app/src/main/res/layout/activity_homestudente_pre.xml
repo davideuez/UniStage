@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#7E191B">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#BE1129"
+    tools:context=".HomeStudentePREActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
         app:layout_constraintRight_toRightOf="parent"
@@ -39,15 +41,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome Cognome"
-                android:fontFamily="@font/montserrat_regular"
-                android:textColor="#7E191B"/>
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="#BE1129"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mat. 123456"
                 android:fontFamily="@font/montserrat_light"
-                android:textColor="#7E191B"/>
+                android:textColor="#BE1129"/>
         </LinearLayout>
 
         <ImageView
@@ -57,7 +59,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="172dp"
             android:src="@drawable/ic_baseline_add_circle_outline_24"
-            app:tint="#7E191B"/>
+            app:tint="#BE1129"/>
 
     </LinearLayout>
 
@@ -74,9 +76,10 @@
             android:id="@+id/testo_ricerca_studente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome professore/azienda"
+            android:hint="Nome professore/azienda"
             android:fontFamily="@font/montserrat_light"
             android:textSize="13dp"
+            android:textColor="#BE1129"
             android:layout_gravity="center"
             android:layout_marginStart="23dp"/>
 
@@ -87,14 +90,14 @@
             android:layout_gravity="center"
             android:layout_marginStart="120dp"
             android:src="@drawable/ic_baseline_search_24"
-            app:tint="#7E191B"/>
+            app:tint="#BE1129" />
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/card_container"
         android:layout_width="match_parent"
-        android:layout_height="526.7dp"
+        android:layout_height="456.7dp"
         android:layout_marginTop="23dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
