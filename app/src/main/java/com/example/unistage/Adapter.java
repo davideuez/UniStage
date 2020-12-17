@@ -38,7 +38,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             vh_azienda = itemView.findViewById(R.id.card_azienda_id);
             vh_data = itemView.findViewById(R.id.card_data_id);
             vh_title = itemView.findViewById(R.id.card_title_id);
-            salva = itemView.findViewById(R.id.salva);
             dettagli = itemView.findViewById(R.id.card_dettaglibutton_id);
 
 
@@ -54,17 +53,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 }
             });
 
-            salva.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
-                            listener.onSaveClick(position);
-                        }
-                    }
-                }
-            });
+            //salva.setOnClickListener(new View.OnClickListener() {
+              //  @Override
+                //public void onClick(View v) {
+                  //  if(listener != null){
+                    //    int position = getAdapterPosition();
+                      //  if (position != RecyclerView.NO_POSITION){
+                        //    listener.onSaveClick(position);
+                        //}
+                    //}
+                //}
+            //});
 
             dettagli.setOnClickListener(new View.OnClickListener() {
                 @Override
