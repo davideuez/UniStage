@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+import static com.example.unistage.Adapter.*;
+
+public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     private ArrayList<Home_card_itiem> lista_privata_adapter;
     private OnItemClickedListener mListener;
 
@@ -97,8 +99,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Home_card_itiem current_item = lista_privata_adapter.get(position);
 
         holder.vh_title.setText(current_item.getTitolo());
-        holder.vh_azienda.setText(current_item.getAzienda());
-        holder.vh_data.setText(current_item.getData_iscrizioni());
+
+        //RIMUOVERE COMMENTI UNA VOLTA CAPITO COME PRENDERE I VALORI DINAMICI DA FIREBASE
+        //holder.vh_azienda.setText(current_item.getAzienda());
+        //holder.vh_data.setText(current_item.getData_iscrizioni());
 
     }
 
