@@ -21,7 +21,7 @@ public class DettagliActivity extends AppCompatActivity {
         final TextView responsabile = findViewById(R.id.responsabile_dettagli_id);
         responsabile.setText(responsabile_s);
         final TextView data = findViewById(R.id.apertura_iscrizioni_dettagli_id);
-        data.setText(data_s);
+        data.setText(String.valueOf(data_s));
         final ImageButton back = findViewById(R.id.back_button_dettagli);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +32,7 @@ public class DettagliActivity extends AppCompatActivity {
         });
     }
 
-    public static void setDeatil(ModuloPropostaTirocinio moduloPropostaTirocinio){
+    public static void setDetail(ModuloPropostaTirocinio moduloPropostaTirocinio){
         luogo_s = moduloPropostaTirocinio.luogo;
         responsabile_s = moduloPropostaTirocinio.docente;
         data_s = moduloPropostaTirocinio.durata;

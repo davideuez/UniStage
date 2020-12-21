@@ -38,7 +38,7 @@ public class InattesaFrag extends Fragment {
         listAdapter.SetTheClick(new AdapterTirociniProfessore.ClickedListener() {
             @Override
             public void ClickDettagli(int position) {
-                DettagliActivity.setDeatil(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
+                DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
                 Intent i = new Intent(getActivity(),DettagliActivity.class);
                 startActivity(i);
             }
