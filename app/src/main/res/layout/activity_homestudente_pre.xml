@@ -9,112 +9,86 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottombar_studentepre"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-    <LinearLayout
-        android:id="@+id/barra_studente"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:background="#ffffff">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_pic"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/ic_baseline_account_circle_24"/>
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp">
+            android:id="@+id/barra_studente"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
 
-            <TextView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_baseline_account_circle_24" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome Cognome"
-                android:fontFamily="@font/montserrat_semibold"
-                android:textColor="#BE1129"/>
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mat. 123456"
-                android:fontFamily="@font/montserrat_light"
-                android:textColor="#BE1129"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Nome Cognome"
+                    android:textColor="#BE1129" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="Mat. 123456"
+                    android:textColor="#BE1129" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/aggiungi"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="172dp"
+                android:src="@drawable/ic_baseline_add_circle_outline_24"
+                app:tint="#BE1129" />
+
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/aggiungi"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="172dp"
-            android:src="@drawable/ic_baseline_add_circle_outline_24"
-            app:tint="#BE1129"/>
+        <FrameLayout
+            android:id="@+id/card_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ricerca_studente"
-        android:layout_width="356dp"
-        android:layout_height="46dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="22.5dp"
-        android:orientation="horizontal"
-        android:background="@drawable/rounded_corners_round">
-
-        <EditText
-            android:id="@+id/testo_ricerca_studente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Nome professore/azienda"
-            android:fontFamily="@font/montserrat_light"
-            android:textSize="13dp"
-            android:textColor="#BE1129"
-            android:layout_gravity="center"
-            android:layout_marginStart="23dp"/>
-
-        <ImageView
-            android:id="@+id/cerca"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="120dp"
-            android:src="@drawable/ic_baseline_search_24"
-            app:tint="#BE1129" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/card_container"
-        android:layout_width="match_parent"
-        android:layout_height="456.7dp"
-        android:layout_marginTop="23dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottombar_studentepre"
-        android:theme="@style/Widget.Design.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="center"
-        app:itemIconTint="@drawable/bottom_nav_color"
-        app:itemTextColor="@drawable/bottom_nav_color"
         android:background="#Ffffff"
+        android:theme="@style/Widget.Design.BottomNavigationView"
+        app:itemIconSize="26dp"
+        app:itemIconTint="@drawable/bottom_nav_color"
         app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
         app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"
-        app:menu="@menu/menu"
-        app:itemIconSize="26dp"
-        app:labelVisibilityMode="labeled" />
-
-    </LinearLayout>
+        app:itemTextColor="@drawable/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

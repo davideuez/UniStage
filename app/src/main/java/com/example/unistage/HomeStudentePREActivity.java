@@ -26,7 +26,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
             }
         });
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentepre);
-        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new HomeFrag()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new SearchFrag()).commit();
         btv.setOnNavigationItemSelectedListener(btnm);
 
     }
@@ -48,12 +48,12 @@ public class HomeStudentePREActivity extends AppCompatActivity {
                     break;
 
                 case R.id.salvati:
-                    fragment = new HomeFrag();
+                    fragment = new SearchFrag();
                     System.out.println("Salvati");
                     break;
 
                 case R.id.notifiche:
-                    fragment = new HomeFrag();
+                    fragment = new SearchFrag();
                     System.out.println("Notifiche");
                     break;
             }

@@ -1,5 +1,6 @@
 package com.example.unistage;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
                 public void onClick(View v) {
                     if(listener != null){
                         int position = getAdapterPosition();
+                        Log.d("Vedi dettagli", "Cliccato vedi dettagli alla posizione: "+position);
                         if (position != RecyclerView.NO_POSITION){
                             listener.onDetailClick(position);
                         }
@@ -99,8 +101,6 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
         final ModuloPropostaTirocinio current_item = lista_privata_adapter.get(position);
 
         holder.vh_title.setText(current_item.getTitolo());
-
-        //RIMUOVERE COMMENTI UNA VOLTA CAPITO COME PRENDERE I VALORI DINAMICI DA FIREBASE
         holder.vh_azienda.setText(current_item.getLuogo());
         holder.vh_data.setText(String.valueOf(current_item.getDurata()));
 
