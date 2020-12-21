@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder2> {
+public class AdapterTirociniProfessore extends RecyclerView.Adapter<AdapterTirociniProfessore.ViewHolder2> {
     private ArrayList<ModuloPropostaTirocinio> lista_privata_adapter;
     private ClickedListener listener;
 
@@ -53,7 +53,7 @@ public class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder2> {
 
     }
 
-    public Adapter2(ArrayList<ModuloPropostaTirocinio> adaptercardlist){
+    public AdapterTirociniProfessore(ArrayList<ModuloPropostaTirocinio> adaptercardlist){
         this.lista_privata_adapter = adaptercardlist;
     }
 

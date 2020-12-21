@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,48 +19,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Walkthrough1Activity extends AppCompatActivity {
-    public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinios = new ArrayList<>();
-    public static ArrayList<Home_card_itiem> home_card_itiems = new ArrayList<>();
-    public static ArrayList<Home_card_itiem> home_card_itiems_prefe = new ArrayList<>();
+    public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinio = new ArrayList<>();
 
-    public static void init_array(){
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
-        dbref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Home_card_itiem hci = snapshot.getValue(Home_card_itiem.class);
-                home_card_itiems.add(hci);
-                System.out.println(hci);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
     void init(){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
         dbref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 ModuloPropostaTirocinio hci = snapshot.getValue(ModuloPropostaTirocinio.class);
-                moduloPropostaTirocinios.add(hci);
+                moduloPropostaTirocinio.add(hci);
                 System.out.println(hci);
             }
 
@@ -90,10 +58,10 @@ public class Walkthrough1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough1);
-        init_array();
+        Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
         init();
 
-        String userid = "billy è un cazzo di negro";
+        String userid = "Sono inutile";
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final Button iniziamo = findViewById(R.id.getstartedbutton_id_main);

@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class DettagliActivity extends AppCompatActivity {
     public static String luogo_s;
     public static String responsabile_s;
-    public static String data_s;
+    public static int data_s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +33,9 @@ public class DettagliActivity extends AppCompatActivity {
     }
 
     public static void setDeatil(ModuloPropostaTirocinio moduloPropostaTirocinio){
-        luogo_s=moduloPropostaTirocinio.luogo;
-        responsabile_s=moduloPropostaTirocinio.docente;
-        data_s=moduloPropostaTirocinio.durata;
+        luogo_s = moduloPropostaTirocinio.luogo;
+        responsabile_s = moduloPropostaTirocinio.docente;
+        data_s = moduloPropostaTirocinio.durata;
         System.out.println(moduloPropostaTirocinio);
     }
 }

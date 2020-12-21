@@ -5,7 +5,7 @@ public class ModuloPropostaTirocinio {
     String luogo;
     String docente;
     int CFU;
-    String durata;
+    int durata;
     String descrizione;
 
     public ModuloPropostaTirocinio(){
@@ -24,7 +24,7 @@ public class ModuloPropostaTirocinio {
                 '}';
     }
 
-    public ModuloPropostaTirocinio(String titolo, String luogo, String docente, int CFU, String durata, String descrizione) {
+    public ModuloPropostaTirocinio(String titolo, String luogo, String docente, int CFU, int durata, String descrizione) {
         this.titolo = titolo;
         this.luogo = luogo;
         this.docente = docente;
@@ -33,12 +33,18 @@ public class ModuloPropostaTirocinio {
         this.descrizione = descrizione;
     }
 
-    public ModuloPropostaTirocinio(String titolo, String luogo, int CFU, String durata, String descrizione) {
+    public ModuloPropostaTirocinio(String titolo, String luogo, int CFU, int durata, String descrizione) {
         this.titolo = titolo;
         this.luogo = luogo;
         this.CFU = CFU;
         this.durata = durata;
         this.descrizione = descrizione;
+    }
+
+    public ModuloPropostaTirocinio(String titolo, String luogo, int durata) {
+        this.titolo = titolo;
+        this.luogo = luogo;
+        this.durata = durata;
     }
 
     public String getTitolo() {
@@ -73,11 +79,11 @@ public class ModuloPropostaTirocinio {
         this.CFU = CFU;
     }
 
-    public String getDurata() {
+    public int getDurata() {
         return durata;
     }
 
-    public void setDurata(String durata) {
+    public void setDurata(int durata) {
         this.durata = durata;
     }
 
@@ -89,8 +95,4 @@ public class ModuloPropostaTirocinio {
         this.descrizione = descrizione;
     }
 
-    public void addToHomeCardItem(){
-        Home_card_itiem hcm = new Home_card_itiem(this.titolo, this.durata, this.luogo);
-        Walkthrough1Activity.home_card_itiems.add(hcm);
-    }
 }

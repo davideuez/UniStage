@@ -42,7 +42,7 @@ public class PropostaTirocinioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    final ModuloPropostaTirocinio moduloPropostaTirocinio = new ModuloPropostaTirocinio(titolo.getText().toString(), durata.getText().toString(), Integer.parseInt(cfu.getText().toString()), descrizione.getText().toString(), luogo.getText().toString());
+                    final ModuloPropostaTirocinio moduloPropostaTirocinio = new ModuloPropostaTirocinio(titolo.getText().toString(), luogo.getText().toString(), Integer.parseInt(cfu.getText().toString()), Integer.parseInt(durata.getText().toString()),  descrizione.getText().toString());
                     reference.child(titolo.getText().toString()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

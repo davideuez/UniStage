@@ -27,8 +27,8 @@ public class SearchFrag extends Fragment {
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
 
-        Adapter listAdapter = new Adapter(Walkthrough1Activity.home_card_itiems_prefe);
-        rv.setAdapter(listAdapter);
+        AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(Walkthrough1Activity.moduloPropostaTirocinio);
+        rv.setAdapter(listAdapterTirociniStudente);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 

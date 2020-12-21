@@ -1,15 +1,11 @@
 package com.example.unistage;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -22,6 +18,8 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class HomeFrag extends Fragment {
 
+    public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,26 +30,25 @@ public class HomeFrag extends Fragment {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_home, container, false);
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
-        final Adapter listAdapter = new Adapter(Walkthrough1Activity.home_card_itiems);
-        rv.setAdapter(listAdapter);
+        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(Walkthrough1Activity.moduloPropostaTirocinio);
+        rv.setAdapter(listAdapterTirociniStudente);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        listAdapter.setOnItemClickListener(new Adapter.OnItemClickedListener() {
+        listAdapterTirociniStudente.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
             @Override
             public void onItemClick(int position) {
-                Walkthrough1Activity.home_card_itiems.get(position).setTitolo("a dave piace il ciccio nero");
-                listAdapter.notifyItemChanged(position);
+
             }
 
             @Override
             public void onSaveClick(int position) {
-                Walkthrough1Activity.home_card_itiems_prefe.add(Walkthrough1Activity.home_card_itiems.get(position));
-                Walkthrough1Activity.home_card_itiems.remove(position);
-                listAdapter.notifyItemChanged(position);
+                tirocini_salvati.add(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
+                Walkthrough1Activity.moduloPropostaTirocinio.remove(position);
+                listAdapterTirociniStudente.notifyItemChanged(position);
             }
 
             @Override

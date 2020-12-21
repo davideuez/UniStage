@@ -57,7 +57,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
                     System.out.println("Notifiche");
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.Container, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.card_container, fragment).commit();
             return true;
         }
     };

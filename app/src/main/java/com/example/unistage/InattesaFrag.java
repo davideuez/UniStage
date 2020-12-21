@@ -1,6 +1,5 @@
 package com.example.unistage;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -28,7 +27,7 @@ public class InattesaFrag extends Fragment {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_inattesa, container, false);
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_inattesa_id);
-        final Adapter2 listAdapter = new Adapter2(Walkthrough1Activity.moduloPropostaTirocinios);
+        final AdapterTirociniProfessore listAdapter = new AdapterTirociniProfessore(Walkthrough1Activity.moduloPropostaTirocinio);
         rv.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
@@ -36,10 +35,10 @@ public class InattesaFrag extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        listAdapter.SetTheClick(new Adapter2.ClickedListener() {
+        listAdapter.SetTheClick(new AdapterTirociniProfessore.ClickedListener() {
             @Override
             public void ClickDettagli(int position) {
-                DettagliActivity.setDeatil(Walkthrough1Activity.moduloPropostaTirocinios.get(position));
+                DettagliActivity.setDeatil(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
                 Intent i = new Intent(getActivity(),DettagliActivity.class);
                 startActivity(i);
             }
