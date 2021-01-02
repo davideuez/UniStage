@@ -25,7 +25,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        final BottomNavigationView btv = findViewById(R.id.bottombar_studentepre);
+        final BottomNavigationView btv = findViewById(R.id.bottombar_studentedurante);
         getSupportFragmentManager().beginTransaction().replace(R.id.card_container_durante, new TirocinioDuranteFrag()).commit();
         btv.setOnNavigationItemSelectedListener(btnm);
 
@@ -37,19 +37,19 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             Fragment fragment = null;
 
             switch (item.getItemId()){
-                case R.id.iter_tirocinio:
-                    fragment = new TiroFrag();
+                case R.id.home:
+                    fragment = new TirocinioDuranteFrag();
+                    System.out.println("Home");
+                    break;
+
+                case R.id.tasks:
+                    fragment = new SearchFrag();
+                    System.out.println("Tasks");
+                    break;
+
+                case R.id.iter_tirocinio_durante:
+                    fragment = new IterFrag();
                     System.out.println("Iter Tirocinio");
-                    break;
-
-                case R.id.ricerca:
-                    fragment = new SearchFrag();
-                    System.out.println("Ricerca");
-                    break;
-
-                case R.id.salvati:
-                    fragment = new SearchFrag();
-                    System.out.println("Salvati");
                     break;
 
                 case R.id.notifiche:
