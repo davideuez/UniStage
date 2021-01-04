@@ -43,7 +43,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
                     break;
 
                 case R.id.tasks:
-                    fragment = new SearchFrag();
+                    fragment = new TaskFrag();
                     System.out.println("Tasks");
                     break;
 
