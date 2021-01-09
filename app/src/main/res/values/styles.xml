@@ -31,5 +31,9 @@
         <item name="android:backgroundTint">@color/red</item>
         <item name="android:letterSpacing">0</item>
     </style>
+    
+    <style name="AlertDialogTheme">
+        <item name="colorPrimary">@color/red</item>
+    </style>
 
 </resources>

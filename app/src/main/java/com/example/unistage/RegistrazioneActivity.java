@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrazioneActivity extends AppCompatActivity {
-
+    public static Utente u;
     private DatabaseReference fdbr;
     String emailText, pswText, pswConfermaText;
 
@@ -74,8 +74,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utente u = new Utente();
-
+                u = new Utente();
                 pswText = psw.getText().toString();
                 emailText = email.getText().toString();
                 pswConfermaText = pswConferma.getText().toString();
@@ -102,8 +101,10 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
+                            u.setEmail(emailText);
+                            u.setPassword(pswText);
                             u.ruolo = "Studente";
-                            fdbr.child("email_utente_x").setValue(u);
+                            fdbr.child(u.email).setValue(u);
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
