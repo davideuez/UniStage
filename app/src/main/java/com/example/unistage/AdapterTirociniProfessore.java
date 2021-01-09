@@ -22,7 +22,7 @@ public class AdapterTirociniProfessore extends RecyclerView.Adapter<AdapterTiroc
         this.listener=listener;
     }
 
-    public static class ViewHolder2 extends  RecyclerView.ViewHolder{
+    public static class ViewHolder2 extends RecyclerView.ViewHolder{
         public TextView vh_title;
         public TextView vh_data;
         public TextView vh_azienda;

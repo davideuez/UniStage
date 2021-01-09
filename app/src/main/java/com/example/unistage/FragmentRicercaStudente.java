@@ -12,15 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
 import static android.widget.LinearLayout.VERTICAL;
 
-public class SearchFrag extends Fragment {
-
-    public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+public class FragmentRicercaStudente extends Fragment {
+    public static EditText ricerca;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,11 @@ public class SearchFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_search, container, false);
 
+        ricerca = frag_on_crate_view.findViewById(R.id.testo_ricerca_studente);
+        final ImageView lente = frag_on_crate_view.findViewById(R.id.cerca);
+
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
+
 
         final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(Walkthrough1Activity.moduloPropostaTirocinio);
         rv.setAdapter(listAdapterTirociniStudente);
@@ -42,6 +47,13 @@ public class SearchFrag extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
+        lente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
         listAdapterTirociniStudente.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
             @Override
             public void onItemClick(int position) {
@@ -50,9 +62,7 @@ public class SearchFrag extends Fragment {
 
             @Override
             public void onSaveClick(int position) {
-                tirocini_salvati.add(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
-                Walkthrough1Activity.moduloPropostaTirocinio.remove(position);
-                listAdapterTirociniStudente.notifyItemChanged(position);
+
             }
 
             @Override
@@ -65,4 +75,6 @@ public class SearchFrag extends Fragment {
 
         return frag_on_crate_view;
     }
+
+
 }

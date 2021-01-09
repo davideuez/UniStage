@@ -19,7 +19,7 @@ public class ModuloPropostaTirocinio {
                 ", luogo='" + luogo + '\'' +
                 ", docente='" + docente + '\'' +
                 ", CFU=" + CFU +
-                ", durata='" + durata + '\'' +
+                ", durata=" + durata +
                 ", descrizione='" + descrizione + '\'' +
                 '}';
     }
