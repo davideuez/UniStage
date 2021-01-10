@@ -1,7 +1,5 @@
 package com.example.unistage;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -11,6 +9,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
@@ -85,7 +85,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         if (pswText.equals(pswConfermaText)) {
                             u.ruolo = "Professore";
                             fdbr.child("email_utente_x").setValue(u);
-                            Intent j = new Intent(RegistrazioneActivity.this, HomeProfessoreActivity.class);
+                            Intent j = new Intent(RegistrazioneActivity.this, Tirocini_attivi_professore.class);
                             startActivity(j);
 
                         } else
