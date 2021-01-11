@@ -69,6 +69,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
         accediqui.setPaintFlags(accediqui.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
+        accediqui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(RegistrazioneActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
         fdbr = FirebaseDatabase.getInstance().getReference().child("Utenti");
 
         reg.setOnClickListener(new View.OnClickListener() {
