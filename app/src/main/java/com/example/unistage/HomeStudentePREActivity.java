@@ -1,6 +1,7 @@
 package com.example.unistage;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeStudentePREActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,14 @@ public class HomeStudentePREActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeStudentePREActivity.this, PropostaTirocinioActivity.class);
+                startActivity(i);
+            }
+        });
+        final CircleImageView vaiadurante = findViewById(R.id.profile_pic);
+        vaiadurante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeStudentePREActivity.this, HomeStudenteDURANTEActivity.class);
                 startActivity(i);
             }
         });

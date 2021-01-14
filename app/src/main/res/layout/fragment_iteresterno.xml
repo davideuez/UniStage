@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_gravity="center"
+                android:backgroundTint="#BE1129"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AVVIO TIROCINIO"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_gravity="center"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:textColor="#BE1129"/>
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_gravity="center"
+                android:backgroundTint="#BE1129"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:text="Accertarsi di aver acquisito il numero minimo di crediti formativi"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il Soggetto ospitante inserisce in Esse3
+il progetto di stage, ricercando lo
+studente attraverso il numero di
+matricola dello stesso"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il tirocinante individua un tutor
+universitario, ne inserisce il nome e
+accetta il progetto su Esse3"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il tirocinante effettua il download del
+progetto che condivide con il tutor
+universitario (e dove richiesto con il
+Delegato per gli stage del suo
+Dipartimento/Centro)"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il tutor universitario (e/o il Delegato
+per gli stage) verifica la validità dei
+contenuti del progetto e la sua
+opportunità e comunica la propria
+accettazione a Job Guidance via mail
+segnalando le eventuali modifiche da
+apportare al progetto"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Job Guidance abilita il tirocinante a
+effettuare il download del progetto"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il tirocinante recupera le firme
+richieste sul progetto e consegna
+copia in originale per posta o a mano
+a Job Guidance"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_gravity="center"
+                android:backgroundTint="#BE1129"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONCLUSIONE TIROCINIO"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textColor="#BE1129"/>
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_gravity="center"
+                android:backgroundTint="#BE1129"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkbox8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:text="Il soggetto ospitante compila la
+valutazione di fine stage e il modulo
+Certificato Parte Prima e ne consegna
+compia di entrambi i documenti
+firmati e timbrati al tirocinante o
+a Job Guidance"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <CheckBox
+            android:id="@+id/checkbox9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:text="Il tirocinante compila il modulo di
+valutazione fine stage e, laddove
+richiesta, una relazione sull’attività
+svolta"
+            android:textSize="14dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
