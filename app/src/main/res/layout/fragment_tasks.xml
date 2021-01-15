@@ -140,6 +140,7 @@
                         android:layout_marginTop="20dp">
 
                         <EditText
+                            android:id="@+id/commento"
                             android:layout_height="35dp"
                             android:layout_width="290dp"
                             android:hint="Aggiungi commento qui"
@@ -148,6 +149,7 @@
                             android:layout_gravity="center" />
 
                         <ImageView
+                            android:id="@+id/commenta"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/ic_baseline_send_24"
