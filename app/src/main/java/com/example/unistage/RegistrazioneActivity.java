@@ -92,7 +92,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
                             u.ruolo = "Professore";
-                            fdbr.child("email_utente_x").setValue(u);
+                            fdbr.child("Professori").child("email_utente_x").setValue(u);
                             Intent j = new Intent(RegistrazioneActivity.this, Tirocini_attivi_professore.class);
                             startActivity(j);
 
@@ -112,7 +112,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             u.setEmail(emailText);
                             u.setPassword(pswText);
                             u.ruolo = "Studente";
-                            fdbr.child(u.email).setValue(u);
+                            fdbr.child("Studenti").child(u.email).setValue(u);
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
@@ -123,25 +123,10 @@ public class RegistrazioneActivity extends AppCompatActivity {
                     }
 
                 }
-
-                if(i == 3) {
-
-                    if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
-                        if (pswText.equals(pswConfermaText)) {
-                            u.ruolo = "Tutor";
-                        } else
-                            Toast.makeText(RegistrazioneActivity.this, "Le password non coincidono.", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(RegistrazioneActivity.this, "Inserisci tutti i valori.", Toast.LENGTH_LONG).show();
-                    }
-
-                }
-
             }
         });
 
     }
-
 
     @Override
     public void onBackPressed() {

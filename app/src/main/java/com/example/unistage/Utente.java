@@ -10,6 +10,7 @@ public class Utente {
     public String  ruolo;
     public String password;
     ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+    ModuloPropostaTirocinio tirocinio_in_corso;
     boolean tirocinio_avviato;
 
     public Utente(){

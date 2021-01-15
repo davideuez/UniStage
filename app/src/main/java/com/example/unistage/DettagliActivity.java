@@ -2,6 +2,7 @@ package com.example.unistage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,19 @@ public class DettagliActivity extends AppCompatActivity {
         final Button salva = findViewById(R.id.salva_dettagli_id);
         final Button candidati = findViewById(R.id.candidati_dettagli_id);
 
+        candidati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getEmail()).child("tirocinio_avviato").setValue(true);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getEmail()).child("Tirocinio in corso").setValue(mpt);
+                dbref.child("Utenti").child("Professori").child("Tirocini avviati").child(RegistrazioneActivity.u.getEmail()).child(mpt.getTitolo()).setValue(mpt);
+                RegistrazioneActivity.u.tirocinio_in_corso = mpt;
+                Intent i = new Intent(DettagliActivity.this, HomeStudenteDURANTEActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,12 +61,6 @@ public class DettagliActivity extends AppCompatActivity {
             }
         });
 
-        candidati.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +78,4 @@ public class DettagliActivity extends AppCompatActivity {
         System.out.println(moduloPropostaTirocinio);
     }
 
-    public void openDialog() {
-        PopUp exampleDialog = new PopUp();
-        exampleDialog.show(getSupportFragmentManager(), "popup");
-    }
 }
