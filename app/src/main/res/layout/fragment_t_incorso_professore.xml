@@ -17,8 +17,8 @@
 
             android:text="TIROCINI ATTIVI"
             android:fontFamily="@font/montserrat_semibold"
-            android:textSize="23dp"
-            android:textColor="@color/colorBlack"
+            android:textSize="28dp"
+            android:textColor="@color/colorWhite"
             android:paddingTop="25dp"
             android:paddingLeft="20dp"
             android:paddingBottom="20dp"
