@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -91,8 +92,17 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
+                            u.setEmail(emailText);
+                            u.setPassword(pswText);
+
+                            String[] separaChiocciola = emailText.split("@");
+                            String[] separa = separaChiocciola[0].split("\\.");
+
+                            u.nome = separa[0].toString();
+                            u.cognome = separa[1].toString();
+
                             u.ruolo = "Professore";
-                            fdbr.child("Professori").child("email_utente_x").setValue(u);
+                            fdbr.child("Professori").child(u.cognome).setValue(u);
                             Intent j = new Intent(RegistrazioneActivity.this, Tirocini_attivi_professore.class);
                             startActivity(j);
 
@@ -111,8 +121,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         if (pswText.equals(pswConfermaText)) {
                             u.setEmail(emailText);
                             u.setPassword(pswText);
+
+                            String[] separaChiocciola = emailText.split("@");
+                            String[] separa = separaChiocciola[0].split("\\.");
+
+                            u.nome = separa[0].toString();
+                            u.cognome = separa[1].toString();
                             u.ruolo = "Studente";
-                            fdbr.child("Studenti").child(u.email).setValue(u);
+                            fdbr.child("Studenti").child(u.cognome).setValue(u);
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
