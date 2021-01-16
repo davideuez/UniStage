@@ -131,17 +131,6 @@
 
         </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/tutorrb_signup_id"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="TUTOR AZIENDALE"
-            android:textSize="11dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#ffffff"
-            android:layout_marginStart="35dp"
-            android:theme="@style/MyRadioButton"/>
-
         <Button
             android:id="@+id/registbutton_signup_id"
             android:layout_width="320dp"

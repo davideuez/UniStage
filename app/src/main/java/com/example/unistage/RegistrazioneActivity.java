@@ -32,7 +32,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
         final RadioButton rbprof = findViewById(R.id.profrb_signup_id);
         final RadioButton rbstud = findViewById(R.id.studenterb_signup_id);
-        final RadioButton rbtuto = findViewById(R.id.tutorrb_signup_id);
         final Button reg = findViewById(R.id.registbutton_signup_id);
         final TextView accediqui = findViewById(R.id.accediqui);
 
@@ -46,7 +45,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
             public void onClick(View v) {
                 i=1;
                 rbstud.setChecked(false);
-                rbtuto.setChecked(false);
             }
         });
 
@@ -54,16 +52,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i=2;
-                rbprof.setChecked(false);
-                rbtuto.setChecked(false);
-            }
-        });
-
-        rbtuto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i=3;
-                rbstud.setChecked(false);
                 rbprof.setChecked(false);
             }
         });
@@ -132,9 +120,9 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
-                            } else
-                                Toast.makeText(RegistrazioneActivity.this, "Le password non coincidono.", Toast.LENGTH_LONG).show();
-                        } else {
+                        } else
+                            Toast.makeText(RegistrazioneActivity.this, "Le password non coincidono.", Toast.LENGTH_LONG).show();
+                    } else {
                         Toast.makeText(RegistrazioneActivity.this, "Inserisci tutti i valori.", Toast.LENGTH_LONG).show();
                     }
 
@@ -146,6 +134,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        
+
     }
 }
