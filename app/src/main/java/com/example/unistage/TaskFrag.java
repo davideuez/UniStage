@@ -25,6 +25,7 @@ public class TaskFrag extends Fragment {
     String commentoText;
     View v = null;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,32 +39,29 @@ public class TaskFrag extends Fragment {
         final ImageView commenta = v.findViewById(R.id.commenta);
         final ArrayList<String> mComment = new ArrayList<String>();
 
-
         commenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 commentoText = commento.getText().toString();
-
                 if(!TextUtils.isEmpty(commentoText)){
 
-                    mComment.add(commento.getText().toString());
-                    RecyclerView rv = (RecyclerView) v.findViewById(R.id.recycler_commenttask);
-
-                    final AdapterCommenti listAdapterCommenti = new AdapterCommenti(mComment);
-                    rv.setAdapter(listAdapterCommenti);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-                    rv.setLayoutManager(layoutManager);
-
-                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
-                    rv.addItemDecoration(dividerItemDecoration);
-
+                    mComment.add(commentoText);
+                    System.out.println(mComment.toString());
                 }
                 else{
                     Toast.makeText(getActivity(), "Commento vuoto", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+        final RecyclerView rv = (RecyclerView) v.findViewById(R.id.recycler_commenttask);
+        final AdapterCommenti listAdapterCommenti = new AdapterCommenti(mComment);
+        rv.setAdapter(listAdapterCommenti);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        rv.setLayoutManager(layoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
+        rv.addItemDecoration(dividerItemDecoration);
         return v;
     }
 

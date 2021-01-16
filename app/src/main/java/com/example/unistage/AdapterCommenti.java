@@ -16,11 +16,11 @@ public class AdapterCommenti extends RecyclerView.Adapter<AdapterCommenti.ViewHo
     private ArrayList<String> lista;
 
     public static class ViewHolder1 extends RecyclerView.ViewHolder {
-        public EditText commento;
+        public TextView commento;
 
         public ViewHolder1(@NonNull View itemView) {
             super(itemView);
-            commento = itemView.findViewById(R.id.commento);
+            commento = itemView.findViewById(R.id.comment_layout);
         }
     }
 
@@ -29,7 +29,7 @@ public class AdapterCommenti extends RecyclerView.Adapter<AdapterCommenti.ViewHo
     }
 
     public ViewHolder1 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_tasks, null);
+        View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment, null);
         ViewHolder1 viewHolder = new ViewHolder1(itemLayoutView);
         return viewHolder;
     }
@@ -37,7 +37,7 @@ public class AdapterCommenti extends RecyclerView.Adapter<AdapterCommenti.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder1 holder, int position) {
         String current_item = lista.get(position);
-        holder.commento.setText(current_item.toString());
+        holder.commento.setText(current_item);
     }
 
     @Override
