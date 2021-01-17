@@ -3,6 +3,7 @@ package com.example.unistage;
 import java.util.ArrayList;
 
 public class Utente {
+
     public int userid;
     public String nome;
     public String cognome;

@@ -37,9 +37,9 @@ public class DettagliActivity extends AppCompatActivity {
         candidati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getEmail()).child("tirocinio_avviato").setValue(true);
-                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getEmail()).child("Tirocinio in corso").setValue(mpt);
-                dbref.child("Utenti").child("Professori").child("Tirocini avviati").child(RegistrazioneActivity.u.getEmail()).child(mpt.getTitolo()).setValue(mpt);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("tirocinio_avviato").setValue(true);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("Tirocinio in corso").setValue(mpt);
+                dbref.child("Utenti").child("Professori").child("Mauro Dragoni").child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
                 RegistrazioneActivity.u.tirocinio_in_corso = mpt;
                 Intent i = new Intent(DettagliActivity.this, HomeStudenteDURANTEActivity.class);
                 startActivity(i);
@@ -54,7 +54,7 @@ public class DettagliActivity extends AppCompatActivity {
                 t = mpt;
                 System.out.println(t);
                 System.out.println(RegistrazioneActivity.u);
-                dbref.child("Utenti").child(RegistrazioneActivity.u.getEmail()).child("tirocini salvati").child(t.getTitolo()+" a "+t.getLuogo()).setValue(t);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("tirocini salvati").child(t.getTitolo()+" a "+t.getLuogo()).setValue(t);
 
                 RegistrazioneActivity.u.tirocini_salvati.add(t);
                 finish();

@@ -3,6 +3,7 @@ package com.example.unistage;
 import java.util.ArrayList;
 
 public class ModuloPropostaTirocinio {
+
     String titolo;
     String docente;
     int CFU;
