@@ -24,13 +24,13 @@
             android:layout_marginTop="40dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -61,7 +61,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
                         <TextView
@@ -84,7 +84,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="5dp">
@@ -111,7 +111,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="22dp">
@@ -137,16 +137,16 @@
 
                 <TextView
                     android:id="@+id/card_email_tutor_universitario_id"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="abc@gmail.com"
+                    android:text=""
                     android:textColor="#006DED"
                     android:textSize="14dp"
                     android:layout_marginStart="135dp"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="32dp">
@@ -155,30 +155,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_regular"
-                        android:text="Tutor aziendale: "
+                        android:text="Tipo di tirocinio: "
                         android:textColor="#000000"
                         android:textSize="14dp" />
 
                     <TextView
-                        android:id="@+id/card_tutor_aziendale_id"
+                        android:id="@+id/card_tipotirocinio_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_regular"
-                        android:text="Luigi Bianchi"
+                        android:text="INTERNO/ESTERNO"
                         android:textColor="#000000"
                         android:textSize="14dp" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/card_email_tutor_aziendale_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:text="abc@gmail.com"
-                    android:textColor="#006DED"
-                    android:textSize="14dp"
-                    android:layout_marginStart="115dp"/>
 
             </LinearLayout>
 

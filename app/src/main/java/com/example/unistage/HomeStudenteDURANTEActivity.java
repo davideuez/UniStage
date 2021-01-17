@@ -17,14 +17,6 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
-        final ImageView add = findViewById(R.id.aggiungi);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeStudenteDURANTEActivity.this, PropostaTirocinioActivity.class);
-                startActivity(i);
-            }
-        });
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentedurante);
         getSupportFragmentManager().beginTransaction().replace(R.id.card_container_durante, new TirocinioDuranteFrag()).commit();
         btv.setOnNavigationItemSelectedListener(btnm);

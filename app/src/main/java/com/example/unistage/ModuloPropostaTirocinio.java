@@ -24,12 +24,12 @@ public class ModuloPropostaTirocinio {
         docente = "";
         CFU=6;
         durata=24;
-        dataInizio="01/01/2021";
-        dataFine="01/03/2021";
-        descrizione = "Lorem ipsum dolor sit amet lorem ipsum dolor";
+        dataInizio="";
+        dataFine="";
+        descrizione = "";
         tipologia = 0;
-        luogo = "Dolomeet";
-        studente = "Uez Davide";
+        luogo = "";
+        studente = "";
         listaTask = new ArrayList<>();
         listaObiettivi = new ArrayList<>();
 
