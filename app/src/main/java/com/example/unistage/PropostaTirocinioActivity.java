@@ -51,7 +51,7 @@ public class PropostaTirocinioActivity extends AppCompatActivity {
                                 Toast.makeText(PropostaTirocinioActivity.this, "Titolo non valido, scegliere un altro titolo", Toast.LENGTH_LONG).show();
                             } else if (!snapshot.exists()) {
                                 reference.child(titolo.getText().toString()).setValue(moduloPropostaTirocinio);
-                                Intent e = new Intent(PropostaTirocinioActivity.this, HomeProfessoreActivity.class);
+                                Intent e = new Intent(PropostaTirocinioActivity.this, T_incorso_professore.class);
                                 startActivity(e);
                                 finish();
 

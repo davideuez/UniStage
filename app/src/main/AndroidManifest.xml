@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tirocini_attivi_professore"></activity>
+        <activity android:name=".Tirocini_attivi_professore" />
+        <activity android:name=".GestisciTirocinio" />
         <activity android:name=".HomeStudentePREActivity" />
         <activity android:name=".PropostaTirocinioActivity" />
         <activity android:name=".HomeStudenteDURANTEActivity"/>

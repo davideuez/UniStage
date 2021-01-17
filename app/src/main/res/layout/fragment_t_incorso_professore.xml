@@ -25,12 +25,11 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/card_attivi_professore"
+            android:id="@+id/card_gestione_tirocini"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="25dp"
-
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             />
 
     </LinearLayout>

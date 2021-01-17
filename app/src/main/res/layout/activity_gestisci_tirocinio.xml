@@ -152,7 +152,7 @@
                             android:textSize="14dp" />
 
                         <TextView
-                            android:id="@+id/data"
+                            android:id="@+id/dataFine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"

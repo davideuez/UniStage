@@ -35,8 +35,22 @@ public class InattesaFrag extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        listAdapter.SetTheClick(new AdapterTirociniProfessore.ClickedListener() {
+        listAdapter.SetTheClick(new AdapterTirociniProfessore.OnItemClickedListener() {
             @Override
+            public void onItemClick(int position) {
+
+            }
+
+            @Override
+            public void onSaveClick(int position) {
+
+            }
+
+            @Override
+            public void onDetailClick(int position) {
+
+            }
+
             public void ClickDettagli(int position) {
                 DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
                 Intent i = new Intent(getActivity(),DettagliActivity.class);

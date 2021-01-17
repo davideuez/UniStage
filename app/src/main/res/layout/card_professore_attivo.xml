@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
     android:padding="10dp"
@@ -10,15 +10,15 @@
     <LinearLayout
         android:layout_width="356dp"
         android:layout_height="220dp"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/rounded_corners"
         android:orientation="vertical"
         android:padding="10dp">
+
         <LinearLayout
             android:layout_width="356dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_corners"
             android:orientation="horizontal">
 
             <TextView
@@ -44,13 +44,14 @@
                     android:textAllCaps="true"
                     android:textAlignment="textEnd"
                     android:paddingRight="10dp"/>
+
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="22dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -101,6 +102,8 @@
 
 
             </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +119,7 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:id="@+id/data"
+                    android:id="@+id/dataFine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
