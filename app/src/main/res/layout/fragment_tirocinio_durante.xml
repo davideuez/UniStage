@@ -209,7 +209,7 @@
                 android:tint="#ffffff"/>
 
             <TextView
-                android:id="@+id/obiettivo_formativo1"
+                android:id="@+id/obiettivo_formativo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sviluppo di competenze in ambito performance management"
@@ -220,31 +220,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="22dp"
-            android:layout_marginStart="7dp">
-
-            <ImageView
-                android:layout_width="11dp"
-                android:layout_height="11dp"
-                android:src="@drawable/ic_baseline_brightness_1_24"
-                android:layout_marginTop="10dp"
-                android:tint="#ffffff"/>
-
-            <TextView
-                android:id="@+id/obiettivo_formativo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sviluppo di competenze in ambito performance management"
-                android:fontFamily="@font/montserrat_regular"
-                android:textSize="15dp"
-                android:layout_marginStart="5dp"
-                android:textColor="#ffffff"/>
-
-        </LinearLayout>
 
 
     </LinearLayout>

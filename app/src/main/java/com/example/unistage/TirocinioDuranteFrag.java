@@ -63,6 +63,23 @@ public class TirocinioDuranteFrag extends Fragment {
         };
         fdbr.addValueEventListener(postListener);
 
+        DatabaseReference fdbr1 = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(RegistrazioneActivity.u.tirocinio_in_corso.docente);
+        ValueEventListener postListener1 = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                email = dataSnapshot.child("Obiettivi formativi").getValue(String.class);
+                final TextView obiettivi_formativi = frag_on_create_view.findViewById(R.id.obiettivo_formativo);
+                obiettivi_formativi.setText(email);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+            }
+        };
+        fdbr.addValueEventListener(postListener1);
+
+
 
         final TextView azienda = frag_on_create_view.findViewById(R.id.card_azienda_id);
         azienda.setText(RegistrazioneActivity.u.tirocinio_in_corso.luogo.toString());
