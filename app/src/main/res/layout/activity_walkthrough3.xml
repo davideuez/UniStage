@@ -57,39 +57,22 @@
 
         <ImageView
             android:layout_width="65dp"
-            android:layout_height="15dp"
+            android:layout_height="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/punti2" />
+            android:layout_marginTop="40dp"
+            android:src="@drawable/punti3" />
 
-        <LinearLayout
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="20dp">
-
-            <Button
-                android:id="@+id/skip2"
-                android:layout_width="145dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="salta"
-                android:textAlignment="center"
-                android:textColor="#7E191B" />
-
-            <Button
-                android:id="@+id/avanti2"
-                android:layout_width="145dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="avanti"
-                android:textAlignment="center"
-                android:textColor="#7E191B" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/registrati"
+            android:layout_width="302dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Registrati Qui"
+            android:textAlignment="center"
+            android:textColor="#7E191B" />
 
 
     </LinearLayout>

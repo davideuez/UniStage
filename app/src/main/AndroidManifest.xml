@@ -26,6 +26,5 @@
         </activity>
         <activity android:name=".Walkthrough2Activity" />
         <activity android:name=".Walkthrough3Activity" />
-        <activity android:name=".Walkthrough4Activity" />
     </application>
 </manifest>

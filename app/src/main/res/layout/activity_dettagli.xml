@@ -32,9 +32,9 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar_dettagli"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="380dp"
-        android:layout_height="447dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="22dp"
@@ -60,7 +60,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -112,28 +112,24 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Descrizione attività: "
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    android:layout_marginTop="20dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Descrizione attività: "
-                        android:textColor="#000000"
-                        android:textSize="14dp" />
-
-                    <TextView
-                        android:id="@+id/descrizione_tirocinio_dettagli_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="La società è alla ricerca di  una figura (laureando/a o laureato/a) da  coinvolgere nel progetto di trasformazione  digitale “SFBeyond19” avviato quest’anno."
-                        android:textColor="#000000"
-                        android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/descrizione_tirocinio_dettagli_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="La società è alla ricerca di  una figura (laureando/a o laureato/a) da  coinvolgere nel progetto di trasformazione  digitale “SFBeyond19” avviato quest’anno."
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
 
                 </LinearLayout>
 
@@ -147,7 +143,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_medium"
-                        android:text="iscrizioni aperte fino al: "
+                        android:text="Iscrizioni aperte fino al: "
                         android:textColor="#000000"
                         android:textSize="14dp" />
 
@@ -162,25 +158,21 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/salva_dettagli_id"
-                    style="@style/BottoneRosso"
                     android:layout_width="128dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:backgroundTint="#3D5AFE"
-                    android:text="Salva" />
+                    android:text="salva"
+                    style="@style/BottoneRosso"
+                    android:layout_marginEnd="20dp"/>
 
                 <Button
                     android:id="@+id/candidati_dettagli_id"
@@ -188,13 +180,14 @@
                     android:layout_width="128dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
                     android:text="Candidati" />
             </LinearLayout>
 
+            </LinearLayout>
 
-        </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
