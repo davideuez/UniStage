@@ -53,7 +53,7 @@ public class Walkthrough1Activity extends AppCompatActivity {
             }
         });
 
-        DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child("Mauro Dragoni").child("Tirocini_avviati");
+        DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child("Dragoni Mauro").child("Tirocini_avviati");
         tirocini.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -95,7 +95,6 @@ public class Walkthrough1Activity extends AppCompatActivity {
         Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
         init();
 
-        String userid = "Sono inutile";
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final Button iniziamo = findViewById(R.id.getstartedbutton_id_main);

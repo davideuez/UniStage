@@ -20,16 +20,16 @@ public class ModuloPropostaTirocinio {
 
     public ModuloPropostaTirocinio(){
 
-        titolo = "";
-        docente = "";
+        titolo = "prova";
+        docente = "prova";
         CFU=6;
         durata=24;
-        dataInizio="";
-        dataFine="";
-        descrizione = "";
+        dataInizio="12/10/14";
+        dataFine="12/10/24";
+        descrizione = "deadedad dadefa faewfefa efafdad afeadfwfa ";
         tipologia = 0;
-        luogo = "";
-        studente = "";
+        luogo = "Monclassico";
+        studente = "Davide Uez";
         listaTask = new ArrayList<>();
         listaObiettivi = new ArrayList<>();
 
