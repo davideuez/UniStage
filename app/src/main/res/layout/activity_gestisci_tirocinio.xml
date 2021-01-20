@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgprofessoreattivi"
-    tools:context=".Tirocini_attivi_professore">
+    tools:context=".GestisciTirocinio">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
                 android:background="#00FFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
                 app:layout_constraintStart_toStartOf="@+id/toolbar2"
@@ -38,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,10 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp">
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
                 android:orientation="vertical"
@@ -106,11 +111,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
                     android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -167,8 +173,10 @@
                         android:text="Visualizza dettagli"
                         android:layout_width="198dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
                         android:layout_marginTop="20dp" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -178,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
                 android:orientation="vertical"
-                android:layout_marginTop="210dp"
+                android:layout_marginTop="200dp"
                 android:padding="10dp">
 
                 <TextView
@@ -270,10 +278,13 @@
                 android:id="@+id/card_concluditirocinio_button"
                 style="@style/BottoneBianco"
                 android:text="concludi tirocinio"
+                android:background="@drawable/rounded_corners"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="250dp"
+                android:textColor="@color/red"
+                android:enabled="false"
                 android:textSize="20dp"/>
         </FrameLayout>
 

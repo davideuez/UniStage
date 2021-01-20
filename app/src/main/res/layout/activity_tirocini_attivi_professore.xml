@@ -23,44 +23,34 @@
             android:background="#ffffff"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_baseline_account_circle_24" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
-                android:orientation="vertical">
+                android:layout_marginEnd="15dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Nome Cognome"
+                    android:layout_gravity="center_vertical"
+                    android:text="Prof. Nome Cognome"
+                    android:textSize="18dp"
                     android:textColor="#BE1129" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_light"
-                    android:text="Mat. 123456"
-                    android:textColor="#BE1129" />
+                <ImageView
+                    android:id="@+id/aggiungi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_add_circle_outline_24"
+                    app:tint="#BE1129" />
+
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/aggiungi"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="172dp"
-                android:src="@drawable/ic_baseline_add_circle_outline_24"
-                app:tint="#BE1129" />
+
 
         </LinearLayout>
 
