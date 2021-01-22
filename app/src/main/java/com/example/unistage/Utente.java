@@ -4,53 +4,82 @@ import java.util.ArrayList;
 
 public class Utente {
 
-    public int userid;
     public String nome;
     public String cognome;
     public String email;
-    public String  ruolo;
     public String password;
+    public String ruolo;
+    public int matricola;
     ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+    ArrayList<ModuloPropostaTirocinio> tirocini_avviati;
+    ArrayList<ModuloPropostaTirocinio> tirocini_proposti;
     ModuloPropostaTirocinio tirocinio_in_corso;
     boolean tirocinio_avviato;
 
-    public Utente(){
-        tirocini_salvati= new ArrayList<>();
-        userid=0;
-        nome = "";
-        email = "";
-        cognome = "";
-        ruolo="";
-        tirocinio_avviato=false;
+    public Utente() {
+
+
     }
 
-    public Utente(int uid, String n, String cn, String em, String r){
-        nome=n;
-        cognome=cn;
-        email=em;
-        ruolo=r;
-        userid=uid;
+    // Costruttore professore
+    public Utente(String mail, String nomeE, String cognomeE, String passwordE){
+        email = mail;
+        nome = nomeE;
+        cognome = cognomeE;
+        password = passwordE;
+        ruolo = "professore";
+    }
+
+    // Costruttore studente
+    public Utente(String n, String cn, String em, String pass, int matr){
+        nome = n;
+        cognome = cn;
+        email = em;
+        password = pass;
+        matricola = matr;
+        tirocinio_avviato = false;
+        ruolo = "studente";
+    }
+
+    // Costruttore login
+
+
+    public Utente(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "Utente{" +
-                "userid=" + userid +
-                ", nome='" + nome + '\'' +
+                "nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", ruolo='" + ruolo + '\'' +
+                ", matricola=" + matricola +
                 ", tirocini_salvati=" + tirocini_salvati +
+                ", tirocini_avviati=" + tirocini_avviati +
+                ", tirocini_proposti=" + tirocini_proposti +
+                ", tirocinio_in_corso=" + tirocinio_in_corso +
                 ", tirocinio_avviato=" + tirocinio_avviato +
                 '}';
     }
 
-    public int getUserid() {
-        return userid;
+    public String getRuolo() {
+        return ruolo;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setRuolo(String ruolo) {
+        this.ruolo = ruolo;
+    }
+
+    public int getMatricola() {
+        return matricola;
+    }
+
+    public void setMatricola(int matricola) {
+        this.matricola = matricola;
     }
 
     public String getNome() {
@@ -77,14 +106,6 @@ public class Utente {
         this.email = email;
     }
 
-    public String getRuolo() {
-        return ruolo;
-    }
-
-    public void setRuolo(String ruolo) {
-        this.ruolo = ruolo;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -99,6 +120,30 @@ public class Utente {
 
     public void setTirocini_salvati(ArrayList<ModuloPropostaTirocinio> tirocini_salvati) {
         this.tirocini_salvati = tirocini_salvati;
+    }
+
+    public ArrayList<ModuloPropostaTirocinio> getTirocini_avviati() {
+        return tirocini_avviati;
+    }
+
+    public void setTirocini_avviati(ArrayList<ModuloPropostaTirocinio> tirocini_avviati) {
+        this.tirocini_avviati = tirocini_avviati;
+    }
+
+    public ArrayList<ModuloPropostaTirocinio> getTirocini_proposti() {
+        return tirocini_proposti;
+    }
+
+    public void setTirocini_proposti(ArrayList<ModuloPropostaTirocinio> tirocini_proposti) {
+        this.tirocini_proposti = tirocini_proposti;
+    }
+
+    public ModuloPropostaTirocinio getTirocinio_in_corso() {
+        return tirocinio_in_corso;
+    }
+
+    public void setTirocinio_in_corso(ModuloPropostaTirocinio tirocinio_in_corso) {
+        this.tirocinio_in_corso = tirocinio_in_corso;
     }
 
     public boolean isTirocinio_avviato() {

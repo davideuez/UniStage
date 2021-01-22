@@ -17,6 +17,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
+
 public class RegistrazioneActivity extends AppCompatActivity {
     public static Utente u;
     private DatabaseReference fdbr;
@@ -71,7 +73,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                u = new Utente();
+
                 pswText = psw.getText().toString();
                 emailText = email.getText().toString();
                 pswConfermaText = pswConferma.getText().toString();
@@ -80,24 +82,23 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
-                            u.setEmail(emailText);
-                            u.setPassword(pswText);
 
                             String[] separaChiocciola = emailText.split("@");
                             String[] separa = separaChiocciola[0].split("\\.");
 
-                            u.nome = separa[0].toString();
-                            u.cognome = separa[1].toString();
+                            String nome = separa[0].toString();
+                            String cognome = separa[1].toString();
 
-                            u.ruolo = "Professore";
+                            u = new Utente(emailText, nome, cognome, pswText);
+
                             fdbr.child("Professori").child(u.cognome).setValue(u);
                             Intent j = new Intent(RegistrazioneActivity.this, Tirocini_attivi_professore.class);
                             startActivity(j);
 
                         } else
-                            Toast.makeText(RegistrazioneActivity.this, "Le password non coincidono.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegistrazioneActivity.this, "Le password non coincidono", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(RegistrazioneActivity.this, "Inserisci tutti i valori.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrazioneActivity.this, "Completa tutti i campi", Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -107,16 +108,20 @@ public class RegistrazioneActivity extends AppCompatActivity {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
-                            u.setEmail(emailText);
-                            u.setPassword(pswText);
 
                             String[] separaChiocciola = emailText.split("@");
                             String[] separa = separaChiocciola[0].split("\\.");
 
-                            u.nome = separa[0].toString();
-                            u.cognome = separa[1].toString();
-                            u.ruolo = "Studente";
-                            fdbr.child("Studenti").child(u.cognome).setValue(u);
+
+                            String nome = separa[0].toString();
+                            String cognome = separa[1].toString();
+
+                            final Random myRandom = new Random();
+                            int matricola = myRandom.nextInt(987654 - 123456) + 123456;
+
+                            u = new Utente(nome, cognome, emailText, pswText, matricola);
+
+                            fdbr.child("Studenti").child(u.matricola+"").setValue(u);
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 

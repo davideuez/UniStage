@@ -32,7 +32,7 @@ public class GestisciTirocinio extends AppCompatActivity {
 
         if(posizione != -1){
 
-            ModuloPropostaTirocinio x = Walkthrough1Activity.listaTirocini.get(posizione);
+            ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
 
             nomeStudente.setText(x.getStudente());
 

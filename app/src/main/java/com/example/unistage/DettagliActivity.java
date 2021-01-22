@@ -4,19 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class DettagliActivity extends AppCompatActivity {
     public static String luogo_s;
     public static String responsabile_s;
     public static int data_s;
     public static ModuloPropostaTirocinio mpt;
+    public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati = new ArrayList<>();
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -37,8 +42,8 @@ public class DettagliActivity extends AppCompatActivity {
         candidati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("tirocinio_avviato").setValue(true);
-                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("Tirocinio in corso").setValue(mpt);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getMatricola()+"").child("tirocinio_avviato").setValue(true);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getMatricola()+"").child("Tirocinio in corso").setValue(mpt);
                 dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
                 RegistrazioneActivity.u.tirocinio_in_corso = mpt;
                 Intent i = new Intent(DettagliActivity.this, HomeStudenteDURANTEActivity.class);
@@ -50,14 +55,16 @@ public class DettagliActivity extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ModuloPropostaTirocinio t = new ModuloPropostaTirocinio();
-                t = mpt;
-                System.out.println(t);
-                System.out.println(RegistrazioneActivity.u);
-                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getCognome()).child("tirocini salvati").child(t.getTitolo()+" a "+t.getLuogo()).setValue(t);
 
-                RegistrazioneActivity.u.tirocini_salvati.add(t);
-                finish();
+                RegistrazioneActivity.u.tirocinio_in_corso = mpt;
+                System.out.println("Tirocinio salvato: " + mpt);
+                dbref.child("Utenti").child("Studenti").child(RegistrazioneActivity.u.getMatricola()+"").child("tirocini_salvati").child(mpt.getTitolo()).setValue(mpt);
+
+                tirocini_salvati.add(mpt);
+
+                Toast.makeText(DettagliActivity.this, "Tirocinio salvato", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(DettagliActivity.this, HomeStudentePREActivity.class);
+                startActivity(i);
             }
         });
 

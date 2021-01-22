@@ -40,7 +40,9 @@ public class T_incorso_professore extends Fragment {
 
         RecyclerView rv = (RecyclerView) v.findViewById(R.id.card_gestione_tirocini);
 
-        final AdapterTirociniProfessore listAdapterTirociniProfessore = new AdapterTirociniProfessore(Walkthrough1Activity.listaTirocini);
+        System.out.println("Lista tirocini: " + LoginActivity.listaTirocini);
+
+        final AdapterTirociniProfessore listAdapterTirociniProfessore = new AdapterTirociniProfessore(LoginActivity.listaTirocini);
         rv.setAdapter(listAdapterTirociniProfessore);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);

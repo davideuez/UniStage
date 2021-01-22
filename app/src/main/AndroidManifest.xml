@@ -16,8 +16,8 @@
         <activity android:name=".HomeStudenteDURANTEActivity"/>
         <activity android:name=".DettagliActivity" />
         <activity android:name=".RegistrazioneActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Walkthrough1Activity">
+        <activity android:name=".Walkthrough1Activity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

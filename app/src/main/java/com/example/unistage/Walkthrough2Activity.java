@@ -34,7 +34,7 @@ public class Walkthrough2Activity extends AppCompatActivity {
         salta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Walkthrough2Activity.this, RegistrazioneActivity.class);
+                Intent i = new Intent(Walkthrough2Activity.this, LoginActivity.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }

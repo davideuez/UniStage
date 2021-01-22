@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 public class Walkthrough1Activity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinio = new ArrayList<>();
-    public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
+
 
     void init(){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
@@ -53,37 +54,6 @@ public class Walkthrough1Activity extends AppCompatActivity {
             }
         });
 
-        DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child("Dragoni Mauro").child("Tirocini_avviati");
-        tirocini.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                System.out.println("Snapshot: " + snapshot.toString());
-                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
-                listaTirocini.add(x);
-                System.out.println("Elemento array: " + x);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
     }
 
@@ -92,6 +62,8 @@ public class Walkthrough1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough1);
+
+
         Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
         init();
 

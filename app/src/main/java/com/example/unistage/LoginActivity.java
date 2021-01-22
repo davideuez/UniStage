@@ -25,20 +25,181 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static Utente u;
-    private DatabaseReference fdbr;
+    public static Utente u_loggato;
+    private DatabaseReference studenti, professori;
+    public boolean found = false;
 
-    public ArrayList<Utente> listaUtenti = new ArrayList<>();
+    public static ArrayList<Utente> listaUtenti = new ArrayList<>();
+    public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
 
     void init(){
-        fdbr = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
-        fdbr.addChildEventListener(new ChildEventListener() {
+        studenti = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
+        studenti.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Utente x = snapshot.getValue(Utente.class);
                 listaUtenti.add(x);
-                System.out.println(x);
+                System.out.println("Studenti" + x);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        professori = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori");
+        professori.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Utente x = snapshot.getValue(Utente.class);
+                listaUtenti.add(x);
+                System.out.println("Professori" + x);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            //show sign up activity
+            startActivity(new Intent(LoginActivity.this, Walkthrough1Activity.class));
+        }
+
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).commit();
+
+        final TextView email = findViewById(R.id.email_login_id);
+        final TextView password = findViewById(R.id.password_login_id);
+        final Button loginbutton = findViewById(R.id.accedi_btn);
+        final TextView regbutton = findViewById(R.id.registratiqui);
+
+        init();
+        System.out.println(listaUtenti.toString());
+
+        loginbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("Tentato accesso");
+
+                String emailIns = email.getText().toString();
+                String passIns = password.getText().toString();
+
+                System.out.println("Email inserita: " + emailIns);
+                System.out.println("Pass inserita: " + passIns);
+
+                isRegistered(emailIns, passIns);
+
+                if(found == true) {
+
+                    if(u_loggato.getRuolo().equals("studente")){
+                        Intent k = new Intent(LoginActivity.this, HomeStudentePREActivity.class);
+                        startActivity(k);
+                    } else {
+                        inizializzaTirociniAttivi();
+                        Intent j = new Intent(LoginActivity.this, Tirocini_attivi_professore.class);
+                        startActivity(j);
+                    }
+
+                } else {
+                    System.out.println("Credenziali errate sopra");
+                    Toast.makeText(LoginActivity.this, "Credenziali errate", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        regbutton.setPaintFlags(regbutton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        regbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(LoginActivity.this, RegistrazioneActivity.class);
+                startActivity(i);
+            }
+        });
+
+    }
+
+    public void isRegistered(String emailI, String passI){
+        for(int i=0; i<listaUtenti.size(); i++){
+
+            if(emailI.equals(listaUtenti.get(i).getEmail())){
+                System.out.println("mail coincidono");
+                String dbPass = listaUtenti.get(i).getPassword();
+
+                if (passI.equals(dbPass)){
+                    System.out.println("Accesso consentito");
+                    u_loggato = listaUtenti.get(i);
+                    found = true;
+
+                } else {
+                    System.out.println("Password errata");
+                }
+
+            } else {
+                System.out.println("Email errata");
+            }
+        }
+    }
+
+    void inizializzaTirociniAttivi(){
+        DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati");
+        tirocini.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                System.out.println("Snapshot: " + snapshot.toString());
+                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                listaTirocini.add(x);
+                System.out.println("Elemento array: " + x);
             }
 
             @Override
@@ -63,57 +224,4 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        final TextView email = findViewById(R.id.email_login_id);
-        final TextView password = findViewById(R.id.password_login_id);
-        final Button loginbutton = findViewById(R.id.accedi_btn);
-        final TextView regbutton = findViewById(R.id.registratiqui);
-
-        init();
-        System.out.println(listaUtenti.toString());
-
-        loginbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String emailIns = email.getText().toString();
-                String passIns = password.getText().toString();
-
-                String[] separaChiocciola = emailIns.split("@");
-                String[] separa = separaChiocciola[0].split("\\.");
-
-                for(int i=0; i<listaUtenti.size(); i++){
-
-                    if(separa[1].toString().equals(listaUtenti.get(i).getCognome())){
-                        String dbEmail = listaUtenti.get(i).getEmail();
-                        String dbPass = listaUtenti.get(i).getPassword();
-
-                        if (emailIns.equals(dbEmail) && passIns.equals(dbPass)){
-                            System.out.println("Accesso consentito");
-                        } else {
-                            System.out.println("Credenziali errate");
-                            Toast.makeText(getApplication(), "Credenziali errate", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-                }
-            }
-        });
-
-        regbutton.setPaintFlags(regbutton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-        regbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(LoginActivity.this, RegistrazioneActivity.class);
-                startActivity(i);
-            }
-        });
-
-    }
 }
