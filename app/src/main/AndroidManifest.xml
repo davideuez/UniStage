@@ -28,5 +28,6 @@
         <activity android:name=".Walkthrough2Activity" />
         <activity android:name=".Walkthrough3Activity" />
         <activity android:name=".AggiungiTirocinio" />
+        <activity android:name=".GestisciTask" />
     </application>
 </manifest>

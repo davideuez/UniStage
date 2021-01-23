@@ -29,6 +29,7 @@ public class GestisciTirocinio extends AppCompatActivity {
         TextView nome_azienda = findViewById(R.id.nome_azienda);
         TextView dataFine = findViewById(R.id.dataFine);
         Button details = findViewById(R.id.vedi_dettagli);
+        Button gestTask = findViewById(R.id.card_gestiscitask_button);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
 
         Intent i = getIntent();
@@ -64,6 +65,16 @@ public class GestisciTirocinio extends AppCompatActivity {
                     j.putExtra("posizione", posizione);
                     j.putExtra("matricola", matrix);
                     startActivity(j);
+                }
+            });
+
+            gestTask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent k = new Intent(GestisciTirocinio.this, GestisciTask.class);
+                    k.putExtra("posizione", posizione);
+                    k.putExtra("matricola", matrix);
+                    startActivity(k);
                 }
             });
 
