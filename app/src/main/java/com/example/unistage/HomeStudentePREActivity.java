@@ -49,7 +49,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
             }
         });
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentepre);
-        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new FragmentRicercaStudente()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new SearchFrag()).commit();
         btv.setOnNavigationItemSelectedListener(btnm);
 
     }

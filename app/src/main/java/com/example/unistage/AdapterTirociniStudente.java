@@ -57,15 +57,15 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
             });
 
             //salva.setOnClickListener(new View.OnClickListener() {
-              //  @Override
-                //public void onClick(View v) {
-                  //  if(listener != null){
-                    //    int position = getAdapterPosition();
-                      //  if (position != RecyclerView.NO_POSITION){
-                        //    listener.onSaveClick(position);
-                        //}
-                    //}
-                //}
+            //  @Override
+            //public void onClick(View v) {
+            //  if(listener != null){
+            //    int position = getAdapterPosition();
+            //  if (position != RecyclerView.NO_POSITION){
+            //    listener.onSaveClick(position);
+            //}
+            //}
+            //}
             //});
 
             dettagli.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +102,7 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
 
         holder.vh_title.setText(current_item.getTitolo());
         holder.vh_azienda.setText(current_item.getLuogo());
-        holder.vh_data.setText(String.valueOf(current_item.getDurata()));
+        holder.vh_data.setText(String.valueOf(current_item.getDataInizio()));
 
     }
 
@@ -113,3 +113,4 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
 
 
 }
+

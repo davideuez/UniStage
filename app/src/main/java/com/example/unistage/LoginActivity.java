@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public static ArrayList<Utente> listaUtenti = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
+    public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
 
     void init(){
         studenti = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
         final TextView regbutton = findViewById(R.id.registratiqui);
 
         init();
+        inizializzaTirociniProposti();
         System.out.println(listaUtenti.toString());
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +200,40 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("Snapshot: " + snapshot.toString());
                 ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
                 listaTirocini.add(x);
+                System.out.println("Elemento array: " + x);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void inizializzaTirociniProposti() {
+        DatabaseReference tirociniProposti = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
+        tirociniProposti.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                System.out.println("Snapshot: " + snapshot.toString());
+                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                listaTirociniProposti.add(x);
                 System.out.println("Elemento array: " + x);
             }
 

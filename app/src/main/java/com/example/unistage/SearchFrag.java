@@ -34,7 +34,9 @@ public class SearchFrag extends Fragment {
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
 
-        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(Walkthrough1Activity.moduloPropostaTirocinio);
+        System.out.println("Grandezza array: " + LoginActivity.listaTirociniProposti.size());
+
+        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(LoginActivity.listaTirociniProposti);
         rv.setAdapter(listAdapterTirociniStudente);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
@@ -50,15 +52,15 @@ public class SearchFrag extends Fragment {
 
             @Override
             public void onSaveClick(int position) {
-                tirocini_salvati.add(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
-                Walkthrough1Activity.moduloPropostaTirocinio.remove(position);
+                tirocini_salvati.add(LoginActivity.listaTirociniProposti.get(position));
+                LoginActivity.listaTirociniProposti.remove(position);
                 listAdapterTirociniStudente.notifyItemChanged(position);
             }
 
             @Override
             public void onDetailClick(int position) {
                 Intent i = new Intent(getActivity(), DettagliActivity.class);
-                DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
+                DettagliActivity.setDetail(LoginActivity.listaTirociniProposti.get(position));
                 startActivity(i);
             }
         });
