@@ -1,7 +1,11 @@
 package com.example.unistage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +29,23 @@ public class Tirocini_attivi_professore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tirocini_attivi_professore);
+
+        String nome_prof = LoginActivity.u_loggato.getNome();
+        String cognome_prof = LoginActivity.u_loggato.getCognome();
+        String nome_completo = nome_prof.substring(0, 1).toUpperCase() + nome_prof.substring(1).toLowerCase() + " " + cognome_prof.substring(0, 1).toUpperCase() + cognome_prof.substring(1).toLowerCase();
+
+        TextView nome = findViewById(R.id.nome_prof);
+        nome.setText(nome_completo);
+
+        ImageView aggTirocinio = findViewById(R.id.aggiungi);
+        aggTirocinio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent k = new Intent(Tirocini_attivi_professore.this, AggiungiTirocinio.class);
+                startActivity(k);
+            }
+        });
+
         final BottomNavigationView btv = findViewById(R.id.bottombar_professore);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_professore, new T_incorso_professore()).commit();
         btv.setOnNavigationItemSelectedListener(btnm);

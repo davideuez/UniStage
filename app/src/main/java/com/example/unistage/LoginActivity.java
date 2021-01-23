@@ -107,7 +107,6 @@ public class LoginActivity extends AppCompatActivity {
                 .getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
-            //show sign up activity
             startActivity(new Intent(LoginActivity.this, Walkthrough1Activity.class));
         }
 

@@ -43,6 +43,7 @@
                 android:paddingRight="50dp">
 
                 <TextView
+                    android:id="@+id/nome_stud"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
@@ -51,6 +52,7 @@
                     android:textColor="#BE1129" />
 
                 <TextView
+                    android:id="@+id/matricola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_light"
@@ -168,7 +170,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/card_gestiscitirocinio_button"
+                        android:id="@+id/vedi_dettagli"
                         style="@style/BottoneBianco"
                         android:text="Visualizza dettagli"
                         android:layout_width="198dp"

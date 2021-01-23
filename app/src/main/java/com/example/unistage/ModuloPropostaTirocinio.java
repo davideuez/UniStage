@@ -14,8 +14,9 @@ public class ModuloPropostaTirocinio {
     int tipologia;
     String luogo;
     String studente;
+    String listaObiettivi;
     ArrayList<Task> listaTask;
-    ArrayList<ObiettiviFormativi> listaObiettivi;
+
 
 
     public ModuloPropostaTirocinio(){
@@ -31,7 +32,7 @@ public class ModuloPropostaTirocinio {
         luogo = "Monclassico";
         studente = "Davide Uez";
         listaTask = new ArrayList<>();
-        listaObiettivi = new ArrayList<>();
+        listaObiettivi = " obb1 ";
 
     }
 
@@ -51,7 +52,7 @@ public class ModuloPropostaTirocinio {
                 '}';
     }
 
-    public ModuloPropostaTirocinio(String titolo, String docente, int CFU, int durata, String dataInizio, String dataFine, String descrizione, int tipologia, String luogo, String studente, ArrayList<Task> listaTask, ArrayList<ObiettiviFormativi> listaObiettivi) {
+    public ModuloPropostaTirocinio(String titolo, String docente, int CFU, int durata, String dataInizio, String dataFine, String descrizione, int tipologia, String luogo, String studente, String listaObiettivi, ArrayList<Task> listaTask) {
         this.titolo = titolo;
         this.docente = docente;
         this.CFU = CFU;
@@ -62,8 +63,8 @@ public class ModuloPropostaTirocinio {
         this.tipologia = tipologia;
         this.luogo = luogo;
         this.studente = studente;
-        this.listaTask = listaTask;
         this.listaObiettivi = listaObiettivi;
+        this.listaTask = listaTask;
     }
 
     public ModuloPropostaTirocinio(String titolo, String luogo, String docente, int CFU, int durata, String descrizione) {
@@ -87,6 +88,14 @@ public class ModuloPropostaTirocinio {
         this.titolo = titolo;
         this.luogo = luogo;
         this.durata = durata;
+    }
+
+    public String getListaObiettivi() {
+        return listaObiettivi;
+    }
+
+    public void setListaObiettivi(String listaObiettivi) {
+        this.listaObiettivi = listaObiettivi;
     }
 
     public String getTitolo() {
