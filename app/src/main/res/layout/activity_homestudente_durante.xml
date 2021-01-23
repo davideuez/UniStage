@@ -39,6 +39,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/nomecognome_durante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
@@ -46,6 +47,7 @@
                     android:textColor="#BE1129" />
 
                 <TextView
+                    android:id="@+id/matricola_durante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_light"
