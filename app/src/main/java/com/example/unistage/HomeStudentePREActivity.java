@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +17,22 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeStudentePREActivity extends AppCompatActivity {
+    String nomecognome = "";
+    int mat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_pre);
         final ImageView add = findViewById(R.id.aggiungi);
+
+        nomecognome = LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome;
+        final TextView nome = findViewById(R.id.nomecognome);
+        nome.setText(nomecognome);
+
+        mat = LoginActivity.u_loggato.matricola;
+        final TextView matricola = findViewById(R.id.matricola);
+        matricola.setText("Matricola: "+mat);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
