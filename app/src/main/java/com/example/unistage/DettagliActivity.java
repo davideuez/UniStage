@@ -29,6 +29,7 @@ public class DettagliActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli);
 
+        final Task t = new Task("diocan", "22/02/22", 1, "ciao dave", "22/03/22");
         final TextView luogo = findViewById(R.id.luogo_dettagli_id);
         luogo.setText(luogo_s);
         final TextView responsabile = findViewById(R.id.responsabile_dettagli_id);
@@ -45,6 +46,7 @@ public class DettagliActivity extends AppCompatActivity {
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("Tirocinio in corso").setValue(mpt);
                 dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
+                mpt.listaTask.add(t);
                 LoginActivity.u_loggato.tirocinio_in_corso = mpt;
                 Intent i = new Intent(DettagliActivity.this, HomeStudenteDURANTEActivity.class);
                 startActivity(i);

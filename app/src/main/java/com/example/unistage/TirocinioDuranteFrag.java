@@ -66,7 +66,7 @@ public class TirocinioDuranteFrag extends Fragment {
 
         final TextView obiettivi_formativi = frag_on_create_view.findViewById(R.id.obiettivo_formativo);
         obiettivi_formativi.setText(LoginActivity.u_loggato.tirocinio_in_corso.listaObiettivi);
-        
+
         final TextView azienda = frag_on_create_view.findViewById(R.id.card_azienda_id);
         azienda.setText(LoginActivity.u_loggato.tirocinio_in_corso.luogo.toString());
 

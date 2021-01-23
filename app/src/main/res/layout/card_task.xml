@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:background="@drawable/rounded_corners"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="15dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -21,12 +21,13 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="2dp">
 
                 <TextView
+                    android:id="@+id/titolo_task"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
@@ -40,7 +41,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/list"
-                    android:layout_marginStart="130dp"/>
+                    android:layout_marginStart="113dp"/>
 
             </LinearLayout>
 
@@ -51,6 +52,7 @@
                 android:layout_marginTop="8dp">
 
                 <TextView
+                    android:id="@+id/descrizione_task"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
@@ -115,6 +117,7 @@
                     android:layout_marginTop="20dp">
 
                     <EditText
+                        android:id="@+id/commento_task"
                         android:layout_height="35dp"
                         android:layout_width="300dp"
                         android:hint="Aggiungi commento qui"
@@ -127,18 +130,10 @@
                         android:layout_height="20dp"
                         android:src="@drawable/ic_baseline_send_24"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="6dp"
                         android:tint="#000000"/>
 
                 </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_taskfrag_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:scrollbars="vertical" />
 
             </LinearLayout>
 

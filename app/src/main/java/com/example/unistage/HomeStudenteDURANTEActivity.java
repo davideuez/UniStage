@@ -13,13 +13,18 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     String nc;
     int m;
+    public static ArrayList<Task> mTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
+
+        mTask = new ArrayList<Task>();
 
         nc = LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome;
         final TextView nomeCognome = findViewById(R.id.nomecognome_durante);
