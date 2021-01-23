@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_corners"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Io"
+                android:textColor="@color/colorBlack"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/card_ora_commento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="18.28"
+                android:textColor="@color/red"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/card_data_commento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="13/09/2020"
+                android:textColor="@color/red"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/comment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Buongiorno prof, non ho capito il task potrei avere alcuni chiarimenti?"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/colorBlack"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

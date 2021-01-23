@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id = "@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item
+        android:id="@+id/tasks"
+        android:icon="@drawable/tasks"
+        android:title="Tasks" />
+    <item
+    android:id = "@+id/iter_tirocinio_durante"
+    android:title="Iter Tirocinio"
+    android:icon="@drawable/iter_tirocinio" />
+    <item
+        android:id = "@+id/notifiche"
+        android:title="Notifiche"
+        android:icon="@drawable/ic_notifications_black_24dp"/>
+
+</menu>

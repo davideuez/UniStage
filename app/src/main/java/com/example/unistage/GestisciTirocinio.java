@@ -1,0 +1,116 @@
+package com.example.unistage;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class GestisciTirocinio extends AppCompatActivity {
+
+    int posizione;
+    int matrix;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gestisci_tirocinio);
+
+        TextView nomeStudente = findViewById(R.id.nome_studente);
+        TextView nomeStud = findViewById(R.id.nome_stud);
+        TextView matricola = findViewById(R.id.matricola);
+        TextView tipologia = findViewById(R.id.tipologia);
+        TextView nome_azienda = findViewById(R.id.nome_azienda);
+        TextView dataFine = findViewById(R.id.dataFine);
+        Button details = findViewById(R.id.vedi_dettagli);
+        Button gestTask = findViewById(R.id.card_gestiscitask_button);
+        ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
+
+        Intent i = getIntent();
+        posizione = i.getIntExtra("posizione", -1);
+
+        if(posizione != -1){
+
+            ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
+
+            nomeStudente.setText(x.getStudente());
+            nomeStud.setText(x.getStudente());
+
+
+            String[] separated = x.getStudente().split(" ");
+            System.out.println("Cognome x matricola: " + separated[1].toLowerCase());
+
+            matrix = getMatricola(separated[1].toLowerCase());
+            matricola.setText("Mat. " + matrix);
+
+            if(x.getTipologia() == 0) {
+                tipologia.setText("INTERNO");
+            } else {
+                tipologia.setText("ESTERNO");
+            }
+
+            nome_azienda.setText(x.getLuogo());
+            dataFine.setText(x.getDataFine());
+
+            details.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent j = new Intent(GestisciTirocinio.this, DettagliTirocinio.class);
+                    j.putExtra("posizione", posizione);
+                    j.putExtra("matricola", matrix);
+                    startActivity(j);
+                }
+            });
+
+            gestTask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent k = new Intent(GestisciTirocinio.this, GestisciTask.class);
+                    k.putExtra("posizione", posizione);
+                    k.putExtra("matricola", matrix);
+                    startActivity(k);
+                }
+            });
+
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+
+
+        } else {
+
+        }
+
+
+    }
+
+    public int getMatricola(String cognomeI) {
+
+        for(int i=0; i<LoginActivity.listaUtenti.size(); i++){
+
+            if(cognomeI.equals(LoginActivity.listaUtenti.get(i).getCognome())){
+                System.out.println("cognomi coincidono " + cognomeI);
+                System.out.println("Matricola" + LoginActivity.listaUtenti.get(i).getMatricola());
+                return LoginActivity.listaUtenti.get(i).getMatricola();
+
+
+            } else {
+                System.out.println("Cognome non presente");
+            }
+        }
+
+        return -1;
+
+    }
+
+
+}
