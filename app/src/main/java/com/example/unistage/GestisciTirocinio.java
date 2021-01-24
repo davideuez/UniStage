@@ -39,6 +39,8 @@ public class GestisciTirocinio extends AppCompatActivity {
         TextView tipologia = findViewById(R.id.tipologia);
         TextView nome_azienda = findViewById(R.id.nome_azienda);
         TextView dataFine = findViewById(R.id.dataFine);
+        TextView taskAssegnati = findViewById(R.id.taskAssegnati);
+        TextView taskComp = findViewById(R.id.taskCompletati);
         Button details = findViewById(R.id.vedi_dettagli);
         Button gestTask = findViewById(R.id.card_gestiscitask_button);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
@@ -61,6 +63,9 @@ public class GestisciTirocinio extends AppCompatActivity {
 
             matrix = getMatricola(separated[1].toLowerCase());
             matricola.setText("Mat. " + matrix);
+
+            taskAssegnati.setText(String.valueOf(listaTask.size()));
+            taskComp.setText(String.valueOf(contaCompletati(listaTask)));
 
             if(x.getTipologia() == 0) {
                 tipologia.setText("INTERNO");
@@ -126,6 +131,7 @@ public class GestisciTirocinio extends AppCompatActivity {
     }
 
     void init() {
+        listaTask.clear();
         tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).child("Tasks");
         System.out.println(tasks.toString());
         tasks.addChildEventListener(new ChildEventListener() {
@@ -157,6 +163,22 @@ public class GestisciTirocinio extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public int contaCompletati(ArrayList<Task> x){
+
+        int j=0;
+
+        for(int i=0; i<x.size(); i++) {
+
+            if(x.get(i).getCompletata() == 1){
+                j++;
+            }
+
+        }
+
+        return j;
 
     }
 

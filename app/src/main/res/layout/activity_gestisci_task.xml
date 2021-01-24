@@ -69,6 +69,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,17 +95,18 @@
                     app:srcCompat="@drawable/add_white_big"
                     android:layout_marginLeft="100dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:layout_marginTop="60dp">
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:padding="10dp">
                     <TextView
                         android:id="@+id/task_assegnati"
@@ -110,7 +116,21 @@
                         android:text="10"
                         android:textSize="50dp"
                         android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="60dp"/>
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="ASSEGNATI"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
                     <TextView
                         android:id="@+id/task_completati"
                         android:layout_width="wrap_content"
@@ -119,21 +139,8 @@
                         android:text="7"
                         android:textSize="50dp"
                         android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="100dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat_light"
-                        android:text="ASSEGNATI"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="30dp"/>
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -141,8 +148,9 @@
                         android:text="COMPLETATI"
                         android:textSize="20dp"
                         android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="25dp"/>
+                        android:layout_gravity="center"/>
                 </LinearLayout>
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -152,8 +160,9 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:scrollbars="vertical"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
 
         </FrameLayout>
 

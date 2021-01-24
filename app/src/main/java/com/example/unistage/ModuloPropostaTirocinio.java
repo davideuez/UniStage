@@ -177,4 +177,5 @@ public class ModuloPropostaTirocinio {
     public void setTipologia(int tipologia) {
         this.tipologia = tipologia;
     }
+
 }

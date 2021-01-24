@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 import static android.widget.LinearLayout.VERTICAL;
 
 public class GestisciTask extends AppCompatActivity {
@@ -35,7 +37,10 @@ public class GestisciTask extends AppCompatActivity {
 
         ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
 
-        taskAssegnati.setText(GestisciTirocinio.listaTask.size());
+        int taskCompl = contaCompletati(GestisciTirocinio.listaTask);
+
+        taskAssegnati.setText(String.valueOf(GestisciTirocinio.listaTask.size()));
+        taskCompletati.setText(String.valueOf(taskCompl));
         matricolaT.setText("Mat. " + matricola);
         nomeStud.setText(x.getStudente());
 
@@ -57,4 +62,21 @@ public class GestisciTask extends AppCompatActivity {
 
 
     }
+
+    public int contaCompletati(ArrayList<Task> x){
+
+        int j=0;
+
+        for(int i=0; i<x.size(); i++) {
+
+            if(x.get(i).getCompletata() == 1){
+                j++;
+            }
+
+        }
+
+        return j;
+
+    }
+
 }

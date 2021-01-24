@@ -77,4 +77,5 @@ public class Task {
         this.dataScadenza = dataScadenza;
     }
 
+
 }

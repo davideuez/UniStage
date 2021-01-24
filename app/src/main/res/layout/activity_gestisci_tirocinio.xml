@@ -229,6 +229,7 @@
                     android:orientation="horizontal"
                     android:padding="10dp">
                     <TextView
+                        android:id="@+id/taskAssegnati"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"
@@ -237,6 +238,7 @@
                         android:textColor="@color/colorBlack"
                         android:layout_marginLeft="60dp"/>
                     <TextView
+                        android:id="@+id/taskCompletati"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"
