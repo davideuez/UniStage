@@ -37,7 +37,7 @@ public class TirocinioInCorsoAdapter extends RecyclerView.Adapter<TirocinioInCor
             tipologia = itemView.findViewById(R.id.tipologia);
             presso = itemView.findViewById(R.id.nome_azienda);
             task = itemView.findViewById(R.id.task);
-            data = itemView.findViewById(R.id.data);
+            data = itemView.findViewById(R.id.dataFine);
             gestione= itemView.findViewById(R.id.card_gestiscitirocinio_button);
 
             gestione.setOnClickListener(new View.OnClickListener() {

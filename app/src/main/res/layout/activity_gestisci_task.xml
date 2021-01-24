@@ -103,6 +103,7 @@
                     android:orientation="horizontal"
                     android:padding="10dp">
                     <TextView
+                        android:id="@+id/task_assegnati"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"
@@ -111,6 +112,7 @@
                         android:textColor="@color/colorBlack"
                         android:layout_marginLeft="60dp"/>
                     <TextView
+                        android:id="@+id/task_completati"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"
@@ -142,112 +144,17 @@
                         android:layout_marginLeft="25dp"/>
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_task"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:layout_marginTop="220dp"
-                android:padding="10dp">
-                <LinearLayout
-                    android:layout_width="356dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
-                    android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"/>
 
-                    <TextView
-                        android:id="@+id/nome_studente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="left"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:paddingLeft="10dp"
-                        android:text="PAOLO STEFANOLLI"
-                        android:textAllCaps="true"
-                        android:textColor="#000000"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/tipologia"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_light"
-                        android:paddingRight="10dp"
-                        android:text="esterno"
-                        android:textAlignment="textEnd"
-                        android:textAllCaps="true"
-                        android:textColor="#000000"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Presso: "
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/nome_azienda"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="SANIFONDS TRENTINO - FONDO SANITARIO INTEGRATIVO"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/rounded_corners"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Fine tirocinio: "
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="15/01/2020"
-                            android:textColor="@color/red"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/card_gestiscitirocinio_button"
-                        style="@style/BottoneBianco"
-                        android:text="Visualizza dettagli"
-                        android:layout_width="198dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp" />
-                </LinearLayout>
-
-            </LinearLayout>
         </FrameLayout>
 
     </LinearLayout>

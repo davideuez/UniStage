@@ -1,5 +1,7 @@
 package com.example.unistage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,13 +11,22 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class GestisciTirocinio extends AppCompatActivity {
 
     int posizione;
     int matrix;
+    private DatabaseReference tasks;
+    ModuloPropostaTirocinio x;
+
+    public static ArrayList<Task> listaTask = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +48,9 @@ public class GestisciTirocinio extends AppCompatActivity {
 
         if(posizione != -1){
 
-            ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
+            x = LoginActivity.listaTirocini.get(posizione);
+
+            init();
 
             nomeStudente.setText(x.getStudente());
             nomeStud.setText(x.getStudente());
@@ -112,5 +125,39 @@ public class GestisciTirocinio extends AppCompatActivity {
 
     }
 
+    void init() {
+        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).child("Tasks");
+        System.out.println(tasks.toString());
+        tasks.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Task y = snapshot.getValue(Task.class);
+                listaTask.add(y);
+                System.out.println("Tasks: " + y);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 
 }

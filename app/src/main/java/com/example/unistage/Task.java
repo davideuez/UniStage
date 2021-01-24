@@ -10,6 +10,12 @@ public class Task {
 
     public Task() {
 
+        titolo = "Task n";
+        assegnataIl = "10/10/20";
+        completata = 0;
+        descrizione = "Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit";
+        dataScadenza = "12/12/20";
+
     }
 
     public Task(String titolo, String assegnataIl, int completata, String descrizione, String dataScadenza) {
@@ -18,6 +24,17 @@ public class Task {
         this.completata = completata;
         this.descrizione = descrizione;
         this.dataScadenza = dataScadenza;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "titolo='" + titolo + '\'' +
+                ", assegnataIl='" + assegnataIl + '\'' +
+                ", completata=" + completata +
+                ", descrizione='" + descrizione + '\'' +
+                ", dataScadenza='" + dataScadenza + '\'' +
+                '}';
     }
 
     public String getTitolo() {
