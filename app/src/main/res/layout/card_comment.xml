@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_corners">
+        android:background="@drawable/rounded_corners"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +44,7 @@
                 android:id="@+id/card_data_commento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="13/09/2020"
                 android:textColor="@color/red"
@@ -53,7 +54,7 @@
 
         <TextView
             android:id="@+id/comment_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="7dp"

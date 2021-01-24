@@ -16,9 +16,7 @@ public class Walkthrough2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough2);
 
-        String userid = "billy è un cazzo di negro";
-        DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         final Button avanti = findViewById(R.id.avanti);
         final Button salta = findViewById(R.id.skip);
 

@@ -2,14 +2,17 @@ package com.example.unistage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -33,30 +36,30 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
         public TextView descrizione_task;
         public TextView data_assegnazione;
         public TextView data_scadenza;
-        public EditText commento_task;
+        public ImageView check;
 
 
-    public ViewHolder1(@NonNull View itemView, final OnItemClickedListener listener) {
-        super(itemView);
-        titolo = itemView.findViewById(R.id.titolo_task);
-        descrizione_task = itemView.findViewById(R.id.descrizione_task);
-        data_assegnazione = itemView.findViewById(R.id.card_data_inizio_task);
-        data_scadenza = itemView.findViewById(R.id.card_data_fine_task);
-        commento_task = itemView.findViewById(R.id.commento_task);
+        public ViewHolder1(@NonNull View itemView, final OnItemClickedListener listener) {
+            super(itemView);
+            titolo = itemView.findViewById(R.id.titolo_task);
+            descrizione_task = itemView.findViewById(R.id.descrizione_task);
+            data_assegnazione = itemView.findViewById(R.id.card_data_inizio_task);
+            data_scadenza = itemView.findViewById(R.id.card_data_fine_task);
+            check = itemView.findViewById(R.id.check);
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(listener != null){
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                        listener.onItemClick(position);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
-}
 
     public AdapterTask(ArrayList<Task> lista) {
         this.lista = lista;
@@ -75,6 +78,9 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
         holder.descrizione_task.setText(current_item.getDescrizione());
         holder.data_assegnazione.setText(current_item.getAssegnataIl());
         holder.data_scadenza.setText(current_item.getDataScadenza());
+
+        if(current_item.getCompletata() == 0)
+            holder.check.setImageResource(R.drawable.listgray);
     }
 
     @Override

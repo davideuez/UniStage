@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
     android:padding="10dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/rounded_corners"
@@ -28,7 +28,7 @@
 
                 <TextView
                     android:id="@+id/titolo_task"
-                    android:layout_width="290dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="CREAZIONE HOME PAGE"
@@ -37,15 +37,17 @@
                     android:layout_gravity="center"/>
 
                 <ImageView
+                    android:id="@+id/check"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/list"/>
+                    android:src="@drawable/list"
+                    android:layout_marginStart="10dp"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="8dp">
@@ -113,26 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp">
-
-                    <EditText
-                        android:id="@+id/commento_task"
-                        android:layout_height="35dp"
-                        android:layout_width="290dp"
-                        android:hint="Aggiungi commento qui"
-                        android:textSize="12dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:layout_gravity="center" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_baseline_send_24"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="6dp"
-                        android:tint="#000000"/>
-
-                </LinearLayout>
+                    android:layout_marginTop="20dp"/>
 
             </LinearLayout>
 

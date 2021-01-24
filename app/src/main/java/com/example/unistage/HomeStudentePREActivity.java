@@ -31,7 +31,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
 
         mat = LoginActivity.u_loggato.matricola;
         final TextView matricola = findViewById(R.id.matricola);
-        matricola.setText("Matricola: "+mat);
+        matricola.setText("Mat. "+mat);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

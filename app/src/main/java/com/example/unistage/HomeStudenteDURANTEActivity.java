@@ -1,3 +1,4 @@
+
 package com.example.unistage;
 
 import android.content.Intent;
@@ -32,7 +33,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
 
         m = LoginActivity.u_loggato.matricola;
         final TextView matricolaDurante = findViewById(R.id.matricola_durante);
-        matricolaDurante.setText("Matricola: "+m);
+        matricolaDurante.setText("Mat. "+m);
 
 
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentedurante);
