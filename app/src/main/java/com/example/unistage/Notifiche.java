@@ -1,5 +1,8 @@
 package com.example.unistage;
 
+import android.content.Intent;
+import android.util.Log;
+
 import java.util.Date;
 
 public class Notifiche {
@@ -12,6 +15,7 @@ public class Notifiche {
         this.descrizione = descrizione;
         this.data = data;
     }
+
 
     public String getTitolo() {
         return titolo;

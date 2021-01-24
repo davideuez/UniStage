@@ -1,8 +1,11 @@
 package com.example.unistage;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +24,7 @@ import static android.widget.LinearLayout.VERTICAL;
 public class SearchFrag extends Fragment {
 
     public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+    View frag_on_crate_view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,9 @@ public class SearchFrag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View frag_on_crate_view = inflater.inflate(R.layout.fragment_search, container, false);
+        frag_on_crate_view = inflater.inflate(R.layout.fragment_search, container, false);
+
+
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
 
@@ -67,4 +73,6 @@ public class SearchFrag extends Fragment {
 
         return frag_on_crate_view;
     }
+
+
 }

@@ -2,9 +2,12 @@ package com.example.unistage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -43,6 +46,7 @@ public class DettagliActivity extends AppCompatActivity {
         candidati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                triggerService();
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("Tirocinio in corso").setValue(mpt);
                 dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
@@ -85,6 +89,27 @@ public class DettagliActivity extends AppCompatActivity {
         responsabile_s = moduloPropostaTirocinio.docente;
         data_s = moduloPropostaTirocinio.durata;
         System.out.println(moduloPropostaTirocinio);
+    }
+
+    private void triggerService() {
+        Log.d("MYTAG", "triggerService()");
+        if (isMyServiceRunning(AppService.class)) {
+            stopService(new Intent(this, AppService.class));
+        } else {
+            Log.d("MYTAG","startService");
+            startService(new Intent(this, AppService.class));
+        }
+    }
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        Log.d("MYTAG","isMyServiceRunning");
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

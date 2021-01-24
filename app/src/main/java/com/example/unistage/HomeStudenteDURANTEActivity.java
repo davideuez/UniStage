@@ -1,8 +1,11 @@
 
 package com.example.unistage;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +27,12 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
+
+        try {
+            triggerService();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         mTask = new ArrayList<Task>();
 
@@ -72,4 +81,23 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    private void triggerService() throws InterruptedException {
+        Log.d("MYTAG", "triggerService()");
+        if (isMyServiceRunning(AppService.class)) {
+            Thread.sleep(2000);
+            stopService(new Intent(this, AppService.class));
+        }
+    }
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        Log.d("MYTAG","isMyServiceRunning");
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
