@@ -209,14 +209,14 @@
                     android:padding="10dp">
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Prossima task:"
                         android:textSize="15dp"
                         android:textColor="@color/colorBlack" />
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:fontFamily="@font/montserrat_light"
                         android:text="Disegnare UI"
                         android:textSize="15dp"
@@ -225,49 +225,55 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-                    <TextView
-                        android:id="@+id/taskAssegnati"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="10"
-                        android:textSize="50dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="60dp"/>
-                    <TextView
-                        android:id="@+id/taskCompletati"
-                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/task_assegnati"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="10"
+                            android:textSize="50dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat_light"
+                            android:text="ASSEGNATI"
+                            android:textSize="20dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="7"
-                        android:textSize="50dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="100dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat_light"
-                        android:text="ASSEGNATI"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="30dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat_light"
-                        android:text="COMPLETATI"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginLeft="25dp"/>
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/task_completati"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="7"
+                            android:textSize="50dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat_light"
+                            android:text="COMPLETATI"
+                            android:textSize="20dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <Button
                     android:id="@+id/card_gestiscitask_button"

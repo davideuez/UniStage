@@ -1,15 +1,15 @@
 package com.example.unistage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -39,8 +39,8 @@ public class GestisciTirocinio extends AppCompatActivity {
         TextView tipologia = findViewById(R.id.tipologia);
         TextView nome_azienda = findViewById(R.id.nome_azienda);
         TextView dataFine = findViewById(R.id.dataFine);
-        TextView taskAssegnati = findViewById(R.id.taskAssegnati);
-        TextView taskComp = findViewById(R.id.taskCompletati);
+        TextView taskAssegnati = findViewById(R.id.task_assegnati);
+        TextView taskComp = findViewById(R.id.task_completati);
         Button details = findViewById(R.id.vedi_dettagli);
         Button gestTask = findViewById(R.id.card_gestiscitask_button);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
