@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     public static ArrayList<Utente> listaUtenti = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
+    public static ArrayList<ArrayList<Task>> listaTask = new ArrayList<>();
 
     void init(){
         studenti = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
@@ -199,6 +200,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 System.out.println("Snapshot: " + snapshot.toString());
                 ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                getTasks(x.titolo, x);
                 listaTirocini.add(x);
                 System.out.println("Elemento array: " + x);
             }
@@ -223,6 +225,33 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void getTasks(String titolo, final ModuloPropostaTirocinio tir){
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(titolo);
+        DatabaseReference friendsRef = rootRef.child("listaTask");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Task> listaProvvisoria = new ArrayList<>();
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Task task = ds.getValue(Task.class);
+                    listaProvvisoria.add(task);
+                    tir.listaTask.add(task);
+                    Log.d("Singolo Task", task.toString());
+                }
+                Log.d("Singola", String.valueOf(listaProvvisoria));
+                listaTask.add(listaProvvisoria);
+                Log.d("Gruppo", String.valueOf(listaTask));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        friendsRef.addListenerForSingleValueEvent(eventListener);
+
     }
 
     public void inizializzaTirociniProposti() {

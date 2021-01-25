@@ -64,8 +64,8 @@ public class GestisciTirocinio extends AppCompatActivity {
             matrix = getMatricola(separated[1].toLowerCase());
             matricola.setText("Mat. " + matrix);
 
-            taskAssegnati.setText(String.valueOf(listaTask.size()));
-            taskComp.setText(String.valueOf(contaCompletati(listaTask)));
+            taskAssegnati.setText(String.valueOf(LoginActivity.listaTask.get(posizione).size()));
+            taskComp.setText(String.valueOf(contaCompletati(LoginActivity.listaTask.get(posizione))));
 
             if(x.getTipologia() == 0) {
                 tipologia.setText("INTERNO");
@@ -132,7 +132,7 @@ public class GestisciTirocinio extends AppCompatActivity {
 
     void init() {
         listaTask.clear();
-        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).child("Tasks");
+        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).child("listaTask");
         System.out.println(tasks.toString());
         tasks.addChildEventListener(new ChildEventListener() {
 

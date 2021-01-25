@@ -17,8 +17,6 @@ public class ModuloPropostaTirocinio {
     String listaObiettivi;
     ArrayList<Task> listaTask;
 
-
-
     public ModuloPropostaTirocinio(){
 
         titolo = "prova";
@@ -49,6 +47,8 @@ public class ModuloPropostaTirocinio {
                 ", tipologia=" + tipologia +
                 ", luogo='" + luogo + '\'' +
                 ", studente='" + studente + '\'' +
+                ", listaObiettivi='" + listaObiettivi + '\'' +
+                ", listaTask=" + listaTask +
                 '}';
     }
 
@@ -89,6 +89,7 @@ public class ModuloPropostaTirocinio {
         this.luogo = luogo;
         this.durata = durata;
     }
+
 
     public String getListaObiettivi() {
         return listaObiettivi;
