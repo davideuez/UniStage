@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
 
 public class Walkthrough1Activity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinio = new ArrayList<>();
-
+    public static String CHANNEL_1_ID = "channel1";
 
     void init(){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
@@ -62,7 +65,7 @@ public class Walkthrough1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough1);
-
+        createNotificationChannel();
 
         Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
         init();
@@ -79,6 +82,19 @@ public class Walkthrough1Activity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+    }
+
+    private void createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Student Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
     }
 
 }

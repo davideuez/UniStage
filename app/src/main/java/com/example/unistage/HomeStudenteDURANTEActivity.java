@@ -1,6 +1,7 @@
 package com.example.unistage;
 
 import android.app.ActivityManager;
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,20 +23,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import static com.example.unistage.Walkthrough1Activity.CHANNEL_1_ID;
+
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     String nc;
     int m;
     public static ArrayList<Task> mTask;
+    private NotificationManagerCompat nmc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
-
-        try {
-            triggerService();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        nmc = NotificationManagerCompat.from(this);
+        sendOnChannel();
 
         mTask = new ArrayList<Task>();
 
@@ -83,21 +86,17 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
         }
     };
 
-    private void triggerService() throws InterruptedException {
-        Log.d("MYTAG", "triggerService()");
-        if (isMyServiceRunning(AppService.class)) {
-            stopService(new Intent(this, AppService.class));
-        }
-    }
+    public void sendOnChannel(){
 
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
-        Log.d("MYTAG","isMyServiceRunning");
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-        return false;
+        String messaggio = LoginActivity.u_loggato.tirocinio_in_corso.titolo;
+        String titolo = "Ti sei candidato a ";
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+                .setContentTitle(titolo)
+                .setContentText(messaggio)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .build();
+        System.out.println(notification.toString());
+        nmc.notify(1, notification);
     }
 }
