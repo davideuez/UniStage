@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     public static Utente u_loggato;
     private DatabaseReference studenti, professori;
     public boolean found = false;
+    public static String CHANNEL_1_ID = "channel1";
 
     public static ArrayList<Utente> listaUtenti = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
@@ -104,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        createNotificationChannel();
 
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
@@ -287,5 +292,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Student Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+    }
+
 
 }

@@ -23,7 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-import static com.example.unistage.Walkthrough1Activity.CHANNEL_1_ID;
+import static com.example.unistage.LoginActivity.CHANNEL_1_ID;
+
 
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     String nc;

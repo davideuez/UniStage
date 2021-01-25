@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-import static com.example.unistage.Walkthrough1Activity.CHANNEL_1_ID;
 
 public class DettagliActivity extends AppCompatActivity {
     public static String luogo_s;

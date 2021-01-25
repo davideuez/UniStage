@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class Walkthrough1Activity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinio = new ArrayList<>();
-    public static String CHANNEL_1_ID = "channel1";
 
     void init(){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
@@ -65,7 +64,6 @@ public class Walkthrough1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough1);
-        createNotificationChannel();
 
         Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
         init();
@@ -84,17 +82,5 @@ public class Walkthrough1Activity extends AppCompatActivity {
         });
     }
 
-    private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_1_ID,
-                    "Student Channel",
-                    NotificationManager.IMPORTANCE_DEFAULT
-            );
-
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-    }
 
 }
