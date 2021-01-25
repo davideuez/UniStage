@@ -157,8 +157,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="40dp">
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="15dp">
 
                         <RadioButton
                             android:id="@+id/interno_tirocinio"
@@ -206,7 +206,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:gravity="left"
                         android:text="Descrizione e Competenze online"
                         android:textColor="@color/colorBlack"
@@ -215,7 +215,6 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:textAlignment="textStart"
                         android:textColorHint="@color/colorBlack">
 
@@ -223,9 +222,10 @@
                             android:id="@+id/descrizione_tirocinio_nuovo"
                             android:layout_width="match_parent"
                             android:layout_height="300dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:textColor="#ffffff"
+                            android:gravity="start"
+                            android:textColor="@color/colorBlack"
                             android:textSize="15dp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -234,8 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:gravity="left"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Obiettivi formativi"
                         android:textColor="@color/colorBlack"
                         android:textSize="15dp" />
@@ -243,7 +242,6 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:textAlignment="textStart"
                         android:textColorHint="@color/colorBlack">
 
@@ -251,10 +249,11 @@
                             android:id="@+id/obiettiviformativi_tirocinio_nuovo"
                             android:layout_width="match_parent"
                             android:layout_height="300dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:textColor="#ffffff"
-                            android:textSize="15dp" />
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp"
+                            android:gravity="start"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <LinearLayout
@@ -262,6 +261,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="10dp">
+
                         <Button
                             android:id="@+id/annulla_tirocinio_nuovo"
                             android:layout_width="150dp"
@@ -271,6 +271,7 @@
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="annulla"
                             android:textColor="@color/colorWhite" />
+
                         <Button
                             android:id="@+id/inoltra_tirocinio_nuovo"
                             android:layout_width="150dp"
