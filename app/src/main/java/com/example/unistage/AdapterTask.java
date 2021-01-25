@@ -21,6 +21,8 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
     private ArrayList<Task> lista;
     private OnItemClickedListener mListener;
 
+    Task current_item;
+
     public interface OnItemClickedListener{
         void onItemClick(int position);
         void onSaveClick(int position);
@@ -58,6 +60,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
                     }
                 }
             });
+
         }
     }
 
@@ -73,7 +76,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder1 holder, int position) {
-        Task current_item = lista.get(position);
+        current_item = lista.get(position);
         holder.titolo.setText(current_item.getTitolo());
         holder.descrizione_task.setText(current_item.getDescrizione());
         holder.data_assegnazione.setText(current_item.getAssegnataIl());
@@ -81,6 +84,20 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
 
         if(current_item.getCompletata() == 0)
             holder.check.setImageResource(R.drawable.listgray);
+
+        holder.check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(current_item.getCompletata() == 0){
+                    System.out.println("Completata");
+                } else {
+                    System.out.println("Non completata");
+                }
+
+            }
+        });
+
     }
 
     @Override

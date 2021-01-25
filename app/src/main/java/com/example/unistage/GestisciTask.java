@@ -52,7 +52,7 @@ public class GestisciTask extends AppCompatActivity {
         });
 
         final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler_task);
-        final AdapterTask listAdapterTask = new AdapterTask(GestisciTirocinio.listaTask);
+        final AdapterTask listAdapterTask = new AdapterTask(LoginActivity.listaTask.get(posizione));
         rv.setAdapter(listAdapterTask);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
