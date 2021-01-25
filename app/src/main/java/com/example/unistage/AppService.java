@@ -21,20 +21,14 @@ public class AppService extends Service {
 
     Handler handler = new Handler();
     Runnable runnable;
-    int delay = 2000;
+    int delay = 1000;
     String valore = "";
     static private int id = 0;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("MYTAG","onstartCommand");
-        handler.postDelayed(runnable = new Runnable() {
-            public void run() {
-                handler.postDelayed(runnable, delay);
-                checkDataChanges();
-            }
-        }, delay);
-
+        checkDataChanges();
         return START_STICKY;
     }
 

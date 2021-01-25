@@ -1,4 +1,3 @@
-
 package com.example.unistage;
 
 import android.app.ActivityManager;
@@ -16,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -85,7 +86,6 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     private void triggerService() throws InterruptedException {
         Log.d("MYTAG", "triggerService()");
         if (isMyServiceRunning(AppService.class)) {
-            Thread.sleep(2000);
             stopService(new Intent(this, AppService.class));
         }
     }
