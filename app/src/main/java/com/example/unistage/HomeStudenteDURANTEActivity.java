@@ -22,8 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static com.example.unistage.LoginActivity.CHANNEL_1_ID;
+import static com.example.unistage.LoginActivity.currentTime;
+import static com.example.unistage.LoginActivity.notifiche;
 
 
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
@@ -78,7 +82,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
                     break;
 
                 case R.id.notifiche:
-                    fragment = new SearchFrag();
+                    fragment = new FragmentNotifiche();
                     System.out.println("Notifiche");
                     break;
             }
@@ -97,7 +101,8 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
                 .setContentText(messaggio)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
-        System.out.println(notification.toString());
+        LoginActivity.notifiche.add(new Notifiche(titolo,messaggio,currentTime));
+        System.out.println(notifiche.toString());
         nmc.notify(1, notification);
     }
 }

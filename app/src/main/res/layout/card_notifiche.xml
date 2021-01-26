@@ -1,52 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners"
         android:layout_gravity="center"
+        android:background="@drawable/rounded_corners"
         android:orientation="vertical"
-        >
+        android:padding="15dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="left"
-            android:padding="10dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/titolo_notifica_id"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:id="@+id/titolo_notifica_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="NOTIFICA"
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CANDIDATURA TIROCINIO"
-                android:layout_marginBottom="8dp"
-                android:textColor="#000000"/>
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
-            <TextView
-                android:id="@+id/testo_notifica_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="testo candidatura"/>
+                <TextView
+                    android:id="@+id/testo_notifica_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="MESSAGGIO NOTIFICA"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/data_notifica_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="data"
+                    android:textColor="@color/red"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_medium"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="right">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/data_notifica_id"
-                android:text="giorno"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/red"/>
-
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

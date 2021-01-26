@@ -8,9 +8,9 @@ import java.util.Date;
 public class Notifiche {
     String titolo;
     String descrizione;
-    Date data;
+    String data;
 
-    public Notifiche(String titolo, String descrizione, Date data) {
+    public Notifiche(String titolo, String descrizione, String data) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.data = data;
@@ -33,11 +33,11 @@ public class Notifiche {
         this.descrizione = descrizione;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 }

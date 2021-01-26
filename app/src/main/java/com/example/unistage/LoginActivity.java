@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -23,8 +24,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +42,10 @@ public class LoginActivity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
     public static ArrayList<ArrayList<Task>> listaTask = new ArrayList<>();
+    public static ArrayList<Notifiche> notifiche = new ArrayList<>();
+
+    static SimpleDateFormat sdfStopTime = new SimpleDateFormat("dd/MM/yy - HH:mm:ss", Locale.ITALY);
+    public static String currentTime = sdfStopTime.format(new Date(System.currentTimeMillis() + 3600000));
 
     void init(){
         studenti = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
