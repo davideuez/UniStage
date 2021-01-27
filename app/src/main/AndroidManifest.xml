@@ -31,8 +31,7 @@
         <activity android:name=".Walkthrough3Activity" />
         <activity android:name=".AggiungiTirocinio" />
         <activity android:name=".GestisciTask" />
-
-        <service android:name=".AppService" />
+        
     </application>
 
 </manifest>
