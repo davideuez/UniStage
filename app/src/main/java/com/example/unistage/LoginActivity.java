@@ -155,8 +155,15 @@ public class LoginActivity extends AppCompatActivity {
                 if(found == true) {
 
                     if(u_loggato.getRuolo().equals("studente")){
-                        Intent k = new Intent(LoginActivity.this, HomeStudentePREActivity.class);
-                        startActivity(k);
+                        if(u_loggato.isTirocinio_avviato() == false){
+                            Intent k = new Intent(LoginActivity.this, HomeStudentePREActivity.class);
+                            startActivity(k);
+                        } else {
+                            inizializzaTirocinioInCorso();
+                            Intent m = new Intent(LoginActivity.this, HomeStudenteDURANTEActivity.class);
+                            startActivity(m);
+                        }
+
                     } else {
                         inizializzaTirociniAttivi();
                         Intent j = new Intent(LoginActivity.this, Tirocini_attivi_professore.class);
@@ -239,6 +246,44 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    void inizializzaTirocinioInCorso(){
+
+        DatabaseReference tirocinioInCorso = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.getMatricola())).child("tirocinio_in_corso");
+        tirocinioInCorso.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                System.out.println("Tirocinio in corso snap: " + snapshot.toString());
+                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                getTasks(x.titolo, x);
+                u_loggato.tirocinio_in_corso = x;
+                System.out.println("Tirocinio in corso oggetto: " + x.toString());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
     public void getTasks(String titolo, final ModuloPropostaTirocinio tir){

@@ -93,7 +93,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
 
     public void sendOnChannel(){
 
-        String messaggio = LoginActivity.u_loggato.tirocinio_in_corso.titolo;
+        String messaggio = LoginActivity.u_loggato.tirocinio_in_corso.getTitolo();
         String titolo = "Ti sei candidato a ";
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)
