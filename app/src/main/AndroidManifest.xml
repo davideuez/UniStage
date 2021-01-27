@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AggiungiTask"></activity>
         <activity android:name=".Tirocini_attivi_professore" />
         <activity android:name=".GestisciTirocinio" />
         <activity android:name=".HomeStudentePREActivity" />
         <activity android:name=".PropostaTirocinioActivity" />
-        <activity android:name=".HomeStudenteDURANTEActivity"/>
+        <activity android:name=".HomeStudenteDURANTEActivity" />
         <activity android:name=".DettagliActivity" />
         <activity android:name=".DettagliTirocinio" />
         <activity android:name=".RegistrazioneActivity" />
         <activity android:name=".Walkthrough1Activity" />
-        <activity android:name=".Commenti"/>
+        <activity android:name=".Commenti" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +31,8 @@
         <activity android:name=".Walkthrough3Activity" />
         <activity android:name=".AggiungiTirocinio" />
         <activity android:name=".GestisciTask" />
+
         <service android:name=".AppService" />
     </application>
+
 </manifest>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgprofessoreattivi"
+    tools:context=".AggiungiTask">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottombar_studentepre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/barra_studente"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backarrow_proposta_tirocinio_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+                app:layout_constraintStart_toStartOf="@+id/toolbar2"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="50dp">
+
+                <TextView
+                    android:id="@+id/nome_stud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textSize="20dp"
+                    android:text="Nome Cognome"
+                    android:textColor="#BE1129" />
+
+                <TextView
+                    android:id="@+id/matricola"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textSize="15dp"
+                    android:text="Mat. 123456"
+                    android:textColor="#BE1129" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_professore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="AGGIUNGI TASK"
+                    android:fontFamily="@font/montserrat_semibold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="TITOLO"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/titolo_new_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:layout_gravity="center"
+                    android:gravity="left"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:gravity="center"
+                            android:text="ASSEGNATO IL"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12dp" />
+
+                        <EditText
+                            android:id="@+id/assegnatoIl_new_task"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:enabled="true"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:layout_marginLeft="50dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:gravity="center"
+                            android:text="ENTRO IL"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12dp" />
+
+                        <EditText
+                            android:id="@+id/entroIl_new_task"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:enabled="true"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="DESCRIZIONE"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/descrizione_new_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:enabled="true"
+                    android:layout_gravity="center"
+                    android:gravity="left"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/annulla_tirocinio_nuovo"
+                        android:layout_width="150dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/red"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="annulla"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/inoltra_tirocinio_nuovo"
+                        android:layout_width="150dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25dp"
+                        android:backgroundTint="#92DE76"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="ASSSEGNA"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

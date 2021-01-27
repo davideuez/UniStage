@@ -33,6 +33,7 @@ public class GestisciTask extends AppCompatActivity {
         TextView matricolaT = findViewById(R.id.matricola);
         TextView taskAssegnati = findViewById(R.id.task_assegnati);
         TextView taskCompletati = findViewById(R.id.task_completati);
+        ImageButton aggTask = findViewById(R.id.aggiungitask);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
 
         ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
@@ -48,6 +49,18 @@ public class GestisciTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        aggTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent j = new Intent(GestisciTask.this, AggiungiTask.class);
+                j.putExtra("posizione", posizione);
+                j.putExtra("matricola", matricola);
+                startActivity(j);
+
             }
         });
 
