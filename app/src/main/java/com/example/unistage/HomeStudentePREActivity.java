@@ -25,7 +25,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
         setContentView(R.layout.activity_homestudente_pre);
         final ImageView add = findViewById(R.id.aggiungi);
 
-        nomecognome = LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome;
+        nomecognome = LoginActivity.u_loggato.nome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.nome.substring(1).toLowerCase() + " " + LoginActivity.u_loggato.cognome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.cognome.substring(1).toLowerCase();
         final TextView nome = findViewById(R.id.nomecognome);
         nome.setText(nomecognome);
 
@@ -49,7 +49,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
             }
         });
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentepre);
-        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new SearchFrag()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.card_container, new SearchFrag(LoginActivity.listaTirociniProposti)).commit();
         btv.setOnNavigationItemSelectedListener(btnm);
 
     }
@@ -66,7 +66,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
                     break;
 
                 case R.id.ricerca:
-                    fragment = new FragmentRicercaStudente();
+                    fragment = new SearchFrag(LoginActivity.listaTirociniProposti);
                     System.out.println("Ricerca");
                     break;
 

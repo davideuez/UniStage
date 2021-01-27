@@ -25,6 +25,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import static com.example.unistage.LoginActivity.CHANNEL_1_ID;
+import static com.example.unistage.LoginActivity.currentTime;
+import static com.example.unistage.LoginActivity.notifiche;
+
 
 public class DettagliActivity extends AppCompatActivity {
     public static String luogo_s;
@@ -33,6 +37,7 @@ public class DettagliActivity extends AppCompatActivity {
     public static ModuloPropostaTirocinio mpt;
     public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati = new ArrayList<>();
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
+    private NotificationManagerCompat nmc;
 
 
     @Override
@@ -60,6 +65,8 @@ public class DettagliActivity extends AppCompatActivity {
                 dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
                 mpt.listaTask.add(t);
                 LoginActivity.u_loggato.tirocinio_in_corso = mpt;
+                nmc = NotificationManagerCompat.from(v.getContext());
+                sendOnChannel();
                 Intent i = new Intent(DettagliActivity.this, HomeStudenteDURANTEActivity.class);
                 startActivity(i);
             }
@@ -97,6 +104,21 @@ public class DettagliActivity extends AppCompatActivity {
         responsabile_s = moduloPropostaTirocinio.docente;
         data_s = moduloPropostaTirocinio.durata;
         System.out.println(moduloPropostaTirocinio);
+    }
+
+    public void sendOnChannel(){
+
+        String messaggio = LoginActivity.u_loggato.tirocinio_in_corso.getTitolo();
+        String titolo = "Ti sei candidato a ";
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+                .setContentTitle(titolo)
+                .setContentText(messaggio)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .build();
+        LoginActivity.notifiche.add(new Notifiche(titolo,messaggio,currentTime));
+        System.out.println(notifiche.toString());
+        nmc.notify(1, notification);
     }
 
 

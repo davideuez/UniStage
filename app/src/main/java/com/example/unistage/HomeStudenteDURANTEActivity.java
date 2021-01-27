@@ -45,7 +45,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
 
         mTask = new ArrayList<Task>();
 
-        nc = LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome;
+        nc = LoginActivity.u_loggato.nome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.nome.substring(1).toLowerCase() + " " + LoginActivity.u_loggato.cognome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.cognome.substring(1).toLowerCase();
         final TextView nomeCognome = findViewById(R.id.nomecognome_durante);
         nomeCognome.setText(nc);
 
@@ -94,7 +94,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     public void sendOnChannel(){
 
         String messaggio = LoginActivity.u_loggato.tirocinio_in_corso.getTitolo();
-        String titolo = "Ti sei candidato a ";
+        String titolo = "Tirocinio avviato ";
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                 .setContentTitle(titolo)

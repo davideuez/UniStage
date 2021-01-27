@@ -24,6 +24,7 @@ import static android.widget.LinearLayout.VERTICAL;
 public class SearchFrag extends Fragment {
 
     public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
+    public static ArrayList<ModuloPropostaTirocinio> tirocini_proposti;
     View frag_on_crate_view;
 
     @Override
@@ -32,17 +33,18 @@ public class SearchFrag extends Fragment {
 
     }
 
+    public SearchFrag(ArrayList<ModuloPropostaTirocinio> a){
+        tirocini_proposti = a;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         frag_on_crate_view = inflater.inflate(R.layout.fragment_search, container, false);
-
-
-
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
-
+        tirocini_proposti = LoginActivity.listaTirociniProposti;
         System.out.println("Grandezza array: " + LoginActivity.listaTirociniProposti.size());
 
-        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(LoginActivity.listaTirociniProposti);
+        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(tirocini_proposti);
         rv.setAdapter(listAdapterTirociniStudente);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
