@@ -99,7 +99,8 @@ public class GestisciTirocinio extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onBackPressed();
+                    Intent k = new Intent(GestisciTirocinio.this, Tirocini_attivi_professore.class);
+                    startActivity(k);
                 }
             });
 

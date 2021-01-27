@@ -180,7 +180,7 @@
                 <EditText
                     android:id="@+id/descrizione_new_task"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="200dp"
                     android:enabled="true"
                     android:layout_gravity="center"
                     android:gravity="left"
@@ -195,9 +195,11 @@
                     android:padding="10dp">
 
                     <Button
-                        android:id="@+id/annulla_tirocinio_nuovo"
+                        android:id="@+id/annulla_task_new"
                         android:layout_width="150dp"
-                        android:layout_height="46dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
                         android:layout_gravity="center"
                         android:backgroundTint="@color/red"
                         android:fontFamily="@font/montserrat_semibold"
@@ -205,14 +207,16 @@
                         android:textColor="#FFFFFF" />
 
                     <Button
-                        android:id="@+id/inoltra_tirocinio_nuovo"
+                        android:id="@+id/assegna_new"
                         android:layout_width="150dp"
-                        android:layout_height="46dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="25dp"
                         android:backgroundTint="#92DE76"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="ASSSEGNA"
+                        android:text="ASSEGNA"
                         android:textColor="#FFFFFF" />
 
                 </LinearLayout>
