@@ -72,7 +72,6 @@ public class AggiungiTask extends AppCompatActivity {
                 x.setCompletata(0);
 
                 LoginActivity.listaTask.get(posizione).add(x);
-                //dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
                 dbref.child("Utenti").child("Studenti").child(matricola+"").child("tirocinio_in_corso").child(y.getTitolo()).child("listaTask").child(x.titolo).setValue(x);
                 dbref.child("Utenti").child("Professori").child(y.docente).child("Tirocini_avviati").child(y.getTitolo()).child("listaTask").child(x.titolo).setValue(x);
 
