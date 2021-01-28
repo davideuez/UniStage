@@ -191,30 +191,33 @@
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/elimina_task"
                         android:layout_marginLeft="100dp"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="10dp">
+
                         <Button
-                            android:id="@+id/annulla_tirocinio_nuovo"
+                            android:id="@+id/annulla_modifica_task"
                             android:layout_width="150dp"
                             android:layout_height="46dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/rounded_corners"
+                            android:backgroundTint="@color/red"
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="annulla"
-                            android:textColor="#7E191B" />
+                            android:textColor="@color/colorWhite" />
+
                         <Button
-                            android:id="@+id/inoltra_tirocinio_nuovo"
+                            android:id="@+id/inoltra_modifica_task"
                             android:layout_width="150dp"
-                            android:layout_height="46dp"
+                            android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="25dp"
-                            android:background="@drawable/rounded_corners"
+                            android:layout_marginLeft="30dp"
+                            android:backgroundTint="#287233"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="salva"
-                            android:textColor="#287233" />
+                            android:text="inoltra"
+                            android:textColor="@color/colorWhite" />
                     </LinearLayout>
                 </LinearLayout>
             </FrameLayout>
