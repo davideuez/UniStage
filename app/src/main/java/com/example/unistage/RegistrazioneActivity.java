@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Random;
 
 public class RegistrazioneActivity extends AppCompatActivity {
-    public static Utente u;
     private DatabaseReference fdbr;
     String emailText, pswText, pswConfermaText;
 
@@ -89,9 +88,9 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             String nome = separa[0].toString();
                             String cognome = separa[1].toString();
 
-                            u = new Utente(emailText, nome, cognome, pswText);
+                            LoginActivity.u_loggato = new Utente(emailText, nome, cognome, pswText);
 
-                            fdbr.child("Professori").child(u.cognome).setValue(u);
+                            fdbr.child("Professori").child(LoginActivity.u_loggato.getCognome()).setValue(LoginActivity.u_loggato);
                             Intent j = new Intent(RegistrazioneActivity.this, Tirocini_attivi_professore.class);
                             startActivity(j);
 
@@ -119,9 +118,9 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             final Random myRandom = new Random();
                             int matricola = myRandom.nextInt(987654 - 123456) + 123456;
 
-                            u = new Utente(nome, cognome, emailText, pswText, matricola);
+                            LoginActivity.u_loggato = new Utente(nome, cognome, emailText, pswText, matricola);
 
-                            fdbr.child("Studenti").child(u.matricola+"").setValue(u);
+                            fdbr.child("Studenti").child(LoginActivity.u_loggato.matricola+"").setValue(LoginActivity.u_loggato);
                             Intent k = new Intent(RegistrazioneActivity.this, HomeStudentePREActivity.class);
                             startActivity(k);
 
