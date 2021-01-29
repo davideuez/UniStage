@@ -22,9 +22,10 @@ import java.util.ArrayList;
 public class GestisciTirocinio extends AppCompatActivity {
 
     int posizione;
+    public static String nomeTirocinio;
     int matrix;
     private DatabaseReference tasks;
-    ModuloPropostaTirocinio x;
+    public static ModuloPropostaTirocinio x;
 
     public static ArrayList<Task> listaTask = new ArrayList<>();
 

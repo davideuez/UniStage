@@ -17,7 +17,7 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class GestisciTask extends AppCompatActivity {
 
-    int posizione, matricola;
+    public static int posizione, matricola;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,25 @@ public class GestisciTask extends AppCompatActivity {
         rv.setAdapter(listAdapterTask);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
+
+        listAdapterTask.setOnItemClickListener(new AdapterTask.OnItemClickedListener() {
+            @Override
+            public void onItemClick(int position) {
+
+                System.out.println("Cliccata card " + position);
+
+            }
+
+            @Override
+            public void onSaveClick(int position) {
+
+            }
+
+            @Override
+            public void onDetailClick(int position) {
+
+            }
+        });
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);

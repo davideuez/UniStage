@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
@@ -22,6 +25,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
     private OnItemClickedListener mListener;
 
     Task current_item;
+    private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
     public interface OnItemClickedListener{
         void onItemClick(int position);
@@ -75,7 +79,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder1 holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder1 holder, final int position) {
         current_item = lista.get(position);
         holder.titolo.setText(current_item.getTitolo());
         holder.descrizione_task.setText(current_item.getDescrizione());
@@ -89,10 +93,16 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
             @Override
             public void onClick(View view) {
 
+                System.out.println("Oggetto cliccato: " + current_item.toString());
+
                 if(current_item.getCompletata() == 0){
-                    System.out.println("Completata");
+                    LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(1);
+                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
+                    notifyItemChanged(position);
                 } else {
-                    System.out.println("Non completata");
+                    LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(0);
+                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(0);
+                    notifyItemChanged(position);
                 }
 
             }
