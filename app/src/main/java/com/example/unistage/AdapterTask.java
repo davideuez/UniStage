@@ -95,14 +95,19 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
 
                 System.out.println("Oggetto cliccato: " + current_item.toString());
 
-                if(current_item.getCompletata() == 0){
-                    LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(1);
-                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
-                    notifyItemChanged(position);
-                } else {
-                    LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(0);
-                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(0);
-                    notifyItemChanged(position);
+                if(LoginActivity.u_loggato.ruolo.equals("professore")){
+                    if(current_item.getCompletata() == 0){
+                        LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(1);
+                        dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
+                        dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
+                        notifyItemChanged(position);
+
+                    } else {
+                        LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(0);
+                        dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(0);
+                        dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
+                        notifyItemChanged(position);
+                    }
                 }
 
             }

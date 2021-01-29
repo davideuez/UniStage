@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AggiungiTask"></activity>
+        <activity android:name=".ModificaTask"></activity>
         <activity android:name=".Tirocini_attivi_professore" />
         <activity android:name=".GestisciTirocinio" />
         <activity android:name=".HomeStudentePREActivity" />

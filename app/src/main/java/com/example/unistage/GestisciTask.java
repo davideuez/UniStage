@@ -76,6 +76,10 @@ public class GestisciTask extends AppCompatActivity {
 
                 System.out.println("Cliccata card " + position);
 
+                Intent i = new Intent(GestisciTask.this, ModificaTask.class);
+                i.putExtra("position", position);
+                startActivity(i);
+
             }
 
             @Override
