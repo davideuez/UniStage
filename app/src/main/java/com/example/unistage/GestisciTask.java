@@ -38,9 +38,9 @@ public class GestisciTask extends AppCompatActivity {
 
         ModuloPropostaTirocinio x = LoginActivity.listaTirocini.get(posizione);
 
-        int taskCompl = contaCompletati(GestisciTirocinio.listaTask);
+        int taskCompl = contaCompletati(LoginActivity.listaTask.get(posizione));
 
-        taskAssegnati.setText(String.valueOf(GestisciTirocinio.listaTask.size()));
+        taskAssegnati.setText(String.valueOf(LoginActivity.listaTask.get(posizione).size()));
         taskCompletati.setText(String.valueOf(taskCompl));
         matricolaT.setText("Mat. " + matricola);
         nomeStud.setText(x.getStudente());
@@ -48,7 +48,12 @@ public class GestisciTask extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+
+                Intent j = new Intent(GestisciTask.this, GestisciTirocinio.class);
+                j.putExtra("posizione", posizione);
+                j.putExtra("matricola", matricola);
+                startActivity(j);
+
             }
         });
 

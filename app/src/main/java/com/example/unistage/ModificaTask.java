@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ModificaTask extends AppCompatActivity {
 
     Task x;
+    int posizione;
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -25,7 +26,7 @@ public class ModificaTask extends AppCompatActivity {
         setContentView(R.layout.activity_modifica_task);
 
         Intent i = getIntent();
-        final int posizione = i.getIntExtra("position", -1);
+        posizione = i.getIntExtra("position", -1);
 
         TextView nomeStud = findViewById(R.id.nome_stud);
         TextView matricolaT = findViewById(R.id.matricola);
@@ -57,11 +58,12 @@ public class ModificaTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                LoginActivity.listaTask.get(GestisciTask.posizione).remove(posizione);
                 dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(null);
                 dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(null);
 
-                Intent i = new Intent(ModificaTask.this, GestisciTirocinio.class);
-                i.putExtra("posizione", posizione);
+                Intent i = new Intent(ModificaTask.this, GestisciTask.class);
+                i.putExtra("posizione", GestisciTask.posizione);
                 i.putExtra("matricola", GestisciTask.matricola);
                 startActivity(i);
 
