@@ -31,7 +31,6 @@ public class DettagliActivity extends AppCompatActivity {
     public static String responsabile_s;
     public static int data_s;
     public static ModuloPropostaTirocinio mpt;
-    public static ArrayList<ModuloPropostaTirocinio> tirocini_salvati = new ArrayList<>();
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
 
@@ -69,16 +68,14 @@ public class DettagliActivity extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                LoginActivity.u_loggato.tirocinio_in_corso = mpt;
+                LoginActivity.lista_tirocini_salvati.add(mpt);
                 System.out.println("Tirocinio salvato: " + mpt);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocini_salvati").child(mpt.getTitolo()).setValue(mpt);
-
-                tirocini_salvati.add(mpt);
-
+                System.out.println(LoginActivity.u_loggato.toString());
                 Toast.makeText(DettagliActivity.this, "Tirocinio salvato", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(DettagliActivity.this, HomeStudentePREActivity.class);
                 startActivity(i);
+
             }
         });
 

@@ -30,7 +30,7 @@ public class FragmentSalvatiStudente extends Fragment {
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_salvatistudente_id);
 
-        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(DettagliActivity.tirocini_salvati);
+        final AdapterTirociniStudente listAdapterTirociniStudente = new AdapterTirociniStudente(LoginActivity.lista_tirocini_salvati);
         rv.setAdapter(listAdapterTirociniStudente);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);

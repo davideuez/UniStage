@@ -17,8 +17,9 @@ public class Utente {
     boolean tirocinio_avviato;
 
     public Utente() {
-
-
+        tirocini_salvati = new ArrayList<>();
+        tirocini_avviati = new ArrayList<>();
+        tirocini_proposti = new ArrayList<>();
     }
 
     // Costruttore professore

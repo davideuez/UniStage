@@ -31,6 +31,7 @@ import static com.example.unistage.LoginActivity.notifiche;
 
 
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
+    int i=0;
     String nc;
     int m;
     public static ArrayList<Task> mTask;
@@ -40,8 +41,11 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
-        nmc = NotificationManagerCompat.from(this);
-        sendOnChannel();
+        if(i==0) {
+            i++;
+            nmc = NotificationManagerCompat.from(this);
+            sendOnChannel();
+        }
 
         mTask = new ArrayList<Task>();
 
