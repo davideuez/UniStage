@@ -12,12 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,6 +40,9 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     int m;
     public static ArrayList<Task> mTask;
     private NotificationManagerCompat nmc;
+    int posizione;
+    private DatabaseReference tasks;
+    ModuloPropostaTirocinio x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,9 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             nmc = NotificationManagerCompat.from(this);
             sendOnChannel();
         }
+
+        HomeStudenteDURANTEActivity.mTask = LoginActivity.u_loggato.tirocinio_in_corso.listaTask;
+        //x = LoginActivity.listaTirocini.get(posizione);
 
         mTask = new ArrayList<Task>();
 
@@ -94,6 +104,41 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    public void getTasks(){
+
+        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.getMatricola())).child("tirocinio_in_corso").child(x.getTitolo()).child("listaTask");
+        tasks.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Task y = snapshot.getValue(Task.class);
+                mTask.add(y);
+                System.out.println("Tasks: " + y);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 
     public void sendOnChannel(){
 

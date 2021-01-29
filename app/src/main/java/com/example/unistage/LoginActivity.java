@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
     public static ArrayList<ArrayList<Task>> listaTask = new ArrayList<>();
+    public static ArrayList<Task> listaTaskStudenti = new ArrayList<>();
     public static ArrayList<Notifiche> notifiche = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> lista_tirocini_salvati = new ArrayList<>();
 
@@ -266,6 +267,7 @@ public class LoginActivity extends AppCompatActivity {
                 ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
                 lista_tirocini_salvati.add(x);
                 System.out.println("Elemento array: " + x);
+                System.out.println("Elemento array: " + x);
             }
 
             @Override
@@ -289,6 +291,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
     void inizializzaTirocinioInCorso(){
 
         DatabaseReference tirocinioInCorso = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.getMatricola())).child("tirocinio_in_corso");
@@ -298,7 +302,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 System.out.println("Tirocinio in corso snap: " + snapshot.toString());
                 ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
-                getTasks(x.titolo, x);
+                getTasksStudente(x.getTitolo());
                 u_loggato.tirocinio_in_corso = x;
                 System.out.println("Tirocinio in corso oggetto: " + x.toString());
             }
@@ -353,6 +357,28 @@ public class LoginActivity extends AppCompatActivity {
         friendsRef.addListenerForSingleValueEvent(eventListener);
 
     }
+
+    public void getTasksStudente(String titolo) {
+        DatabaseReference tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.matricola)).child("tirocinio_in_corso").child(titolo);
+        DatabaseReference task = tasks.child("listaTask");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Task task = ds.getValue(Task.class);
+                    listaTaskStudenti.add(task);
+                    Log.d("Singolo Task", task.toString());
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        task.addListenerForSingleValueEvent(eventListener);
+
+    }
+
 
     public void inizializzaTirociniProposti() {
         DatabaseReference tirociniProposti = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
