@@ -38,6 +38,26 @@ public class FragmentSalvatiStudente extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
+        listAdapterTirociniStudente.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
+            @Override
+            public void onItemClick(int position) {
+                Log.d(TAG, "onItemClick: Cliccata card");
+            }
+
+            @Override
+            public void onSaveClick(int position) {
+                SearchFrag.tirocini_salvati.add(LoginActivity.listaTirociniProposti.get(position));
+                LoginActivity.listaTirociniProposti.remove(position);
+                listAdapterTirociniStudente.notifyItemChanged(position);
+            }
+
+            @Override
+            public void onDetailClick(int position) {
+                Intent i = new Intent(getActivity(), DettagliActivity.class);
+                DettagliActivity.setDetail(LoginActivity.listaTirociniProposti.get(position));
+                startActivity(i);
+            }
+        });
 
 
         return frag_on_crate_view;

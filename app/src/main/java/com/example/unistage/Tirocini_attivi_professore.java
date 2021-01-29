@@ -63,9 +63,9 @@ public class Tirocini_attivi_professore extends AppCompatActivity {
                     System.out.println("Iter Tirocinio");
                     break;
 
-                case R.id.ricerca:
+                case R.id.tirocini:
                     fragment = new FragmentRicercaStudente();
-                    System.out.println("Ricerca");
+                    System.out.println("Tirocini");
                     break;
 
                 case R.id.notifiche:

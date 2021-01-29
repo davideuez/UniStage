@@ -11,7 +11,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="90dp">
+        android:paddingBottom="75dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,20 +30,20 @@
             android:backgroundTint="#ffffff"
             android:layout_marginBottom="20dp"/>
 
-            <LinearLayout
-                android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/rounded_corners"
-                android:layout_gravity="center">
-                
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:layout_gravity="center">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/tirocinio_interno"
@@ -74,16 +74,16 @@
             <ScrollView
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="90dp">
+                android:paddingBottom="10dp">
 
-            <FrameLayout
-                android:id="@+id/container_iter"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/container_iter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </ScrollView>
 
-            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

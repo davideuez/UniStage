@@ -33,8 +33,6 @@ public class FragmentRicercaStudente extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        ricerca = frag_on_crate_view.findViewById(R.id.testo_ricerca_studente);
-        final ImageView lente = frag_on_crate_view.findViewById(R.id.cerca);
 
         RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_homefrag_id);
 
@@ -47,12 +45,6 @@ public class FragmentRicercaStudente extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        lente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
 
         listAdapterTirociniStudente.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
             @Override
