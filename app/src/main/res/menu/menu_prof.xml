@@ -7,13 +7,13 @@
         android:icon="@drawable/incorsoiconblack"
         />
     <item
+        android:id="@+id/Proposti"
+        android:title="Proposti"
+        android:icon="@drawable/ic_baseline_work_24"
+        />
+    <item
         android:id="@+id/Inattesa"
         android:title="In attesa"
         android:icon="@drawable/attesa_icon"
-        />
-    <item
-        android:id="@+id/Notifiche"
-        android:title="Notifiche"
-        android:icon="@drawable/ic_notifications_black_24dp"
         />
 </menu>

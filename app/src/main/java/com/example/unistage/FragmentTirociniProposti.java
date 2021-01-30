@@ -8,13 +8,15 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import static android.content.ContentValues.TAG;
 import static android.widget.LinearLayout.VERTICAL;
 
-public class InattesaFrag extends Fragment {
+public class FragmentTirociniProposti extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,10 @@ public class InattesaFrag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View frag_on_crate_view = inflater.inflate(R.layout.fragment_inattesa, container, false);
+        View frag_on_crate_view = inflater.inflate(R.layout.fragment_tirocini_proposti, container, false);
 
-        RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_inattesa_id);
-        final AdapterTirociniProfessore listAdapter = new AdapterTirociniProfessore(Walkthrough1Activity.moduloPropostaTirocinio);
+        RecyclerView rv = (RecyclerView) frag_on_crate_view.findViewById(R.id.recycler_proposti_id);
+        final AdapterTirociniStudente listAdapter = new AdapterTirociniStudente(LoginActivity.listaTirociniPropostiSingle);
         rv.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
@@ -35,10 +37,10 @@ public class InattesaFrag extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        listAdapter.SetTheClick(new AdapterTirociniProfessore.OnItemClickedListener() {
+        listAdapter.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
             @Override
             public void onItemClick(int position) {
-
+                Log.d(TAG, "onItemClick: Cliccata card");
             }
 
             @Override
@@ -48,12 +50,8 @@ public class InattesaFrag extends Fragment {
 
             @Override
             public void onDetailClick(int position) {
-
-            }
-
-            public void ClickDettagli(int position) {
-                DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
-                Intent i = new Intent(getActivity(),DettagliActivity.class);
+                Intent i = new Intent(getActivity(), DettagliTirocinioProposto.class);
+                i.putExtra("position", position);
                 startActivity(i);
             }
         });

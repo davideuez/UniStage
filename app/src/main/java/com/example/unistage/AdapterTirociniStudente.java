@@ -1,5 +1,6 @@
 package com.example.unistage;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,7 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
                         if (position != RecyclerView.NO_POSITION){
                             listener.onDetailClick(position);
                         }
+
                     }
                 }
             });

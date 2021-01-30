@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     public static ArrayList<Utente> listaUtenti = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
+    public static ArrayList<ModuloPropostaTirocinio> listaTirociniPropostiSingle = new ArrayList<>();
     public static ArrayList<ArrayList<Task>> listaTask = new ArrayList<>();
     public static ArrayList<Task> listaTaskStudenti = new ArrayList<>();
     public static ArrayList<Notifiche> notifiche = new ArrayList<>();
@@ -176,6 +177,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
                         inizializzaTirociniAttivi();
+                        inizializzaTirociniPropostiProf();
                         Intent j = new Intent(LoginActivity.this, Tirocini_attivi_professore.class);
                         startActivity(j);
                     }
@@ -257,6 +259,41 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    void inizializzaTirociniPropostiProf(){
+        DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_Proposti");
+        tirocini.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                System.out.println("Snapshot: " + snapshot.toString());
+                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                listaTirociniPropostiSingle.add(x);
+                System.out.println("Elemento array: " + x);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     void inizializzaTirociniSalvati(){
         DatabaseReference tirocini = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.matricola)).child("tirocini_salvati");
         tirocini.addChildEventListener(new ChildEventListener() {

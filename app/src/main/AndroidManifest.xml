@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AggiungiTask"></activity>
-        <activity android:name=".ModificaTask"></activity>
+        <activity android:name=".DettagliTirocinioProposto"></activity>
+        <activity android:name=".AggiungiTask" />
+        <activity android:name=".ModificaTask" />
         <activity android:name=".Tirocini_attivi_professore" />
         <activity android:name=".GestisciTirocinio" />
         <activity android:name=".HomeStudentePREActivity" />
@@ -32,7 +33,6 @@
         <activity android:name=".Walkthrough3Activity" />
         <activity android:name=".AggiungiTirocinio" />
         <activity android:name=".GestisciTask" />
-        
     </application>
 
 </manifest>

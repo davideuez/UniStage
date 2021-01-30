@@ -60,20 +60,20 @@ public class Tirocini_attivi_professore extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.Incorso:
                     fragment = new T_incorso_professore();
-                    System.out.println("Iter Tirocinio");
+                    System.out.println("Tirocini in corso");
                     break;
 
-                case R.id.tirocini:
-                    fragment = new FragmentRicercaStudente();
-                    System.out.println("Tirocini");
+                case R.id.Proposti:
+                    fragment = new FragmentTirociniProposti();
+                    System.out.println("Tirocini proposti");
                     break;
 
-                case R.id.notifiche:
+                case R.id.Inattesa:
                     fragment = new FragmentRicercaStudente();
-                    System.out.println("Notifiche");
+                    System.out.println("Tirocini in attesa");
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.card_container, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_professore, fragment).commit();
             return true;
         }
     };

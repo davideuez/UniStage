@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgprofessoreattivi"
+    tools:context=".DettagliTirocinioProposto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottombar_studentepre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/barra_studente"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backarrow_proposta_tirocinio_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+                app:layout_constraintStart_toStartOf="@+id/toolbar2"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="50dp">
+
+                <TextView
+                    android:id="@+id/nome_tirocinio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textSize="20dp"
+                    android:text="Nome tirocinio"
+                    android:textColor="#BE1129" />
+
+                <TextView
+                    android:id="@+id/interno_esterno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textSize="15dp"
+                    android:text="INTERNO"
+                    android:textColor="#BE1129" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_professore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:text="DETTAGLI TIROCINIO"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="Presso: "
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/luogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="SANIFONDS TRENTINO - FONDO SANITARIO INTEGRATIVO"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="CFU: "
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/cfu_modifica_tirocinio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="12"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="Data inizio tirocinio: "
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/inizio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="13/09/2020"
+                            android:textColor="@color/red"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="Data fine tirocinio: "
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/fine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="13/09/2020"
+                            android:textColor="@color/red"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Descrizione attività: "
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:layout_marginTop="20dp"/>
+
+                    <TextView
+                        android:id="@+id/descrizione"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="La società è alla ricerca di  una figura (laureando/a o laureato/a) da  coinvolgere nel progetto di trasformazione  digitale “SFBeyond19” avviato quest’anno."
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Obiettivi formativi: "
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:layout_marginTop="20dp"/>
+
+                    <TextView
+                        android:id="@+id/obiettivi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="La società è alla ricerca di  una figura (laureando/a o laureato/a) da  coinvolgere nel progetto di trasformazione  digitale “SFBeyond19” avviato quest’anno."
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:layout_marginBottom="20dp"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/elimina_tirocinio"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/red"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="ELIMINA"
+                        android:letterSpacing="0"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/modifica_tirocinio"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25dp"
+                        android:backgroundTint="#FFA500"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:letterSpacing="0"
+                        android:text="MODIFICA"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".T_incorso_professore">
+    tools:context=".Tirocini_attivi_professore">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="75dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TIROCINI ATTIVI"
+            android:text="TIROCINI PROPOSTI"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="23dp"
             android:layout_marginTop="24dp"
@@ -32,16 +32,16 @@
             android:layout_marginStart="20dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/card_gestione_tirocini"
+            android:id="@+id/recycler_proposti_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:paddingBottom="80dp"
-            />
+            android:orientation="horizontal"
+            android:scrollbars="vertical" />
+
+
 
     </LinearLayout>
-
-
 
 </FrameLayout>
