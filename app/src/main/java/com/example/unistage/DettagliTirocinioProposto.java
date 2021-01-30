@@ -9,12 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static android.content.ContentValues.TAG;
 
 public class DettagliTirocinioProposto extends AppCompatActivity {
 
     int posizione;
+    ModuloPropostaTirocinio x;
+    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +39,10 @@ public class DettagliTirocinioProposto extends AppCompatActivity {
         TextView descrizione = findViewById(R.id.descrizione);
         TextView obiettivi = findViewById(R.id.obiettivi);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
-        Button elimina = findViewById(R.id.salva_dettagli_id);
-        Button modifica = findViewById(R.id.candidati_dettagli_id);
+        Button elimina = findViewById(R.id.elimina_tirocinio);
+        Button modifica = findViewById(R.id.modifica_tirocinio);
 
-        ModuloPropostaTirocinio x = LoginActivity.listaTirociniPropostiSingle.get(posizione);
+        x = LoginActivity.listaTirociniPropostiSingle.get(posizione);
 
         titolo.setText(x.getTitolo());
         luogo.setText(x.getLuogo());
@@ -56,6 +62,21 @@ public class DettagliTirocinioProposto extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        elimina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LoginActivity.listaTirociniPropostiSingle.remove(posizione);
+                dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_Proposti").child(x.getTitolo()).setValue(null);
+                dbref.child("Tirocini_Proposti_Professori").child(x.getTitolo()).setValue(null);
+
+                Toast.makeText(DettagliTirocinioProposto.this, "Il tirocinio è stato eliminato correttamente", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(DettagliTirocinioProposto.this, Tirocini_attivi_professore.class);
+                startActivity(i);
+
             }
         });
 
