@@ -80,6 +80,15 @@ public class DettagliTirocinioProposto extends AppCompatActivity {
             }
         });
 
+        modifica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DettagliTirocinioProposto.this, ModificaTirocinioProposto.class);
+                i.putExtra("position", posizione);
+                startActivity(i);
+            }
+        });
+
 
 
     }

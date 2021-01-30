@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgprofessoreattivi"
+    tools:context=".AggiungiTirocinio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottombar_studentepre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/barra_studente"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backarrow_proposta_tirocinio_id"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+                app:layout_constraintStart_toStartOf="@+id/toolbar2"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textSize="18dp"
+                    android:text="MODIFICA TIROCINIO"
+                    android:layout_marginLeft="50dp"
+                    android:textColor="#BE1129" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_professore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="center"
+                        android:text="SCHEDA TIROCINIO"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/NewStageInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:hint="Titolo"
+                        android:textColorHint="@color/colorBlack"
+                        app:hintTextColor="@color/colorBlack"
+                        app:suffixTextColor="@color/colorBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/titolo_tirocinio_nuovo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/NewStageInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:hint="Luogo"
+                        android:textColorHint="@color/colorBlack"
+                        app:hintTextColor="@color/colorBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/luogo_tirocinio_nuovo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/NewStageInput"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:hint="Data inizio"
+                            android:textColorHint="@color/colorBlack"
+                            app:hintTextColor="@color/colorBlack">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/datainizio_nuovo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/NewStageInput"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginTop="15dp"
+                            android:hint="Data fine"
+                            android:textColorHint="@color/colorBlack"
+                            app:hintTextColor="@color/colorBlack">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/datafine_nuovo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="15dp">
+
+                        <RadioButton
+                            android:id="@+id/interno_tirocinio"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/colorBlack"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="INTERNO"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12dp"
+                            android:theme="@style/MyRadioButton" />
+
+                        <RadioButton
+                            android:id="@+id/esterno_tirocinio"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:buttonTint="@color/colorBlack"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="ESTERNO"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12dp"
+                            android:theme="@style/MyRadioButton" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/NewStageInput"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="CFU"
+                        android:textColorHint="@color/colorBlack"
+                        app:hintTextColor="@color/colorBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cfu_tirocinio_nuovo"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:gravity="left"
+                        android:text="Descrizione e Competenze online"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/NewStageInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:textColorHint="@color/colorBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/descrizione_tirocinio_nuovo"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="start"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Obiettivi formativi"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/NewStageInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:textColorHint="@color/colorBlack">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/obiettiviformativi_tirocinio_nuovo"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="start"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <Button
+                            android:id="@+id/annulla_tirocinio_nuovo"
+                            android:layout_width="150dp"
+                            android:layout_height="46dp"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/red"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="annulla"
+                            android:textColor="@color/colorWhite" />
+
+                        <Button
+                            android:id="@+id/inoltra_tirocinio_nuovo"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="30dp"
+                            android:backgroundTint="#287233"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="inoltra"
+                            android:textColor="@color/colorWhite" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
