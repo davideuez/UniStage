@@ -61,11 +61,12 @@ public class DettagliActivity extends AppCompatActivity {
             public void onClick(View v) {
                 sendOnChannel();
                 mpt.setStudente(LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome);
-                dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
-                dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_in_corso").child(mpt.getTitolo()).setValue(mpt);
-                dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_avviati").child(mpt.getTitolo()).setValue(mpt);
-                mpt.listaTask.add(t);
-                LoginActivity.u_loggato.tirocinio_in_corso = mpt;
+                //dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
+                //dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_in_corso").child(mpt.getTitolo()).setValue(mpt);
+                dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_candidati").child(LoginActivity.u_loggato.getMatricola()+"").setValue(mpt);
+                //mpt.listaTask.add(t);
+                //LoginActivity.u_loggato.tirocinio_in_corso = mpt;
+                Toast.makeText(DettagliActivity.this, "Ti sei candidato al tirocinio", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(DettagliActivity.this, HomeStudentePREActivity.class);
                 startActivity(i);
             }

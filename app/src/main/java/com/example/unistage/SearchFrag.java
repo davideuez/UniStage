@@ -33,6 +33,8 @@ public class SearchFrag extends Fragment {
 
     }
 
+    public SearchFrag() { }
+
     public SearchFrag(ArrayList<ModuloPropostaTirocinio> a){
         tirocini_proposti = a;
     }

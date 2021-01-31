@@ -13,6 +13,7 @@ public class Utente {
     ArrayList<ModuloPropostaTirocinio> tirocini_salvati;
     ArrayList<ModuloPropostaTirocinio> tirocini_avviati;
     ArrayList<ModuloPropostaTirocinio> tirocini_proposti;
+    ArrayList<ModuloPropostaTirocinio> tirocini_candidati;
     ModuloPropostaTirocinio tirocinio_in_corso;
     boolean tirocinio_avviato;
 
@@ -20,6 +21,7 @@ public class Utente {
         tirocini_salvati = new ArrayList<>();
         tirocini_avviati = new ArrayList<>();
         tirocini_proposti = new ArrayList<>();
+        tirocini_candidati = new ArrayList<>();
     }
 
     // Costruttore professore
@@ -65,6 +67,14 @@ public class Utente {
                 ", tirocinio_in_corso=" + tirocinio_in_corso +
                 ", tirocinio_avviato=" + tirocinio_avviato +
                 '}';
+    }
+
+    public ArrayList<ModuloPropostaTirocinio> getTirocini_candidati() {
+        return tirocini_candidati;
+    }
+
+    public void setTirocini_candidati(ArrayList<ModuloPropostaTirocinio> tirocini_candidati) {
+        this.tirocini_candidati = tirocini_candidati;
     }
 
     public String getRuolo() {

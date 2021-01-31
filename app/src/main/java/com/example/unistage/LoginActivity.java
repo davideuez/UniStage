@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     public static ArrayList<ModuloPropostaTirocinio> listaTirocini = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniProposti = new ArrayList<>();
     public static ArrayList<ModuloPropostaTirocinio> listaTirociniPropostiSingle = new ArrayList<>();
+    public static ArrayList<ModuloPropostaTirocinio> listaTirociniCandidati = new ArrayList<>();
     public static ArrayList<ArrayList<Task>> listaTask = new ArrayList<>();
     public static ArrayList<Task> listaTaskStudenti = new ArrayList<>();
     public static ArrayList<Notifiche> notifiche = new ArrayList<>();
@@ -177,6 +178,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
                         inizializzaTirociniAttivi();
+                        inizializzaTirociniCandidati();
                         inizializzaTirociniPropostiProf();
                         Intent j = new Intent(LoginActivity.this, Tirocini_attivi_professore.class);
                         startActivity(j);
@@ -427,6 +429,40 @@ public class LoginActivity extends AppCompatActivity {
                 ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
                 listaTirociniProposti.add(x);
                 System.out.println("Elemento array: " + x);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void inizializzaTirociniCandidati() {
+        DatabaseReference tirociniCandidati = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(u_loggato.cognome).child("Tirocini_candidati");
+        tirociniCandidati.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                System.out.println("Tirocini candidati: " + snapshot.toString());
+                ModuloPropostaTirocinio x = snapshot.getValue(ModuloPropostaTirocinio.class);
+                listaTirociniCandidati.add(x);
+                System.out.println("Elemento candidato: " + x);
             }
 
             @Override

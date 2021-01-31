@@ -276,7 +276,7 @@
                         android:padding="10dp">
 
                         <Button
-                            android:id="@+id/annulla_tirocinio_nuovo"
+                            android:id="@+id/annulla_modifica_tirocinio"
                             android:layout_width="150dp"
                             android:layout_height="46dp"
                             android:layout_gravity="center"
@@ -286,14 +286,14 @@
                             android:textColor="@color/colorWhite" />
 
                         <Button
-                            android:id="@+id/inoltra_tirocinio_nuovo"
+                            android:id="@+id/salva_modifica_tirocinio"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_marginLeft="30dp"
                             android:backgroundTint="#287233"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="inoltra"
+                            android:text="salva"
                             android:textColor="@color/colorWhite" />
                     </LinearLayout>
                 </LinearLayout>
