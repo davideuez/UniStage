@@ -69,7 +69,7 @@ public class Tirocini_attivi_professore extends AppCompatActivity {
                     break;
 
                 case R.id.Inattesa:
-                    fragment = new FragmentRicercaStudente();
+                    fragment = new FragmentTirociniCandidati();
                     System.out.println("Tirocini in attesa");
                     break;
             }
