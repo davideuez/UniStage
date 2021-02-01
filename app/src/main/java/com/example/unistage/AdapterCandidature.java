@@ -16,14 +16,14 @@ public class AdapterCandidature extends RecyclerView.Adapter<AdapterCandidature.
     private OnItemClickedListener listener;
 
     public interface  OnItemClickedListener{
-        void onItemClick(int position);
-        void onSaveClick(int position);
-        void onDetailClick(int position);
+        void onAccettaClick(int position);
+        void onDeclinaClick(int position);
     }
 
-    public void SetTheClick (OnItemClickedListener listener){
+    public void SetTheClick (AdapterCandidature.OnItemClickedListener listener){
         this.listener=listener;
     }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView vh_nomeStudente, vh_matricola, vh_tirocinio;
@@ -44,7 +44,19 @@ public class AdapterCandidature extends RecyclerView.Adapter<AdapterCandidature.
                     if(listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
+                            listener.onAccettaClick(position);
+                        }
+                    }
+                }
+            });
+
+            rifiutaCandidatura.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onDeclinaClick(position);
                         }
                     }
                 }
@@ -61,7 +73,7 @@ public class AdapterCandidature extends RecyclerView.Adapter<AdapterCandidature.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_candidatura, null);
-        ViewHolder viewHolder = new ViewHolder(itemLayoutView,listener);
+        ViewHolder viewHolder = new ViewHolder(itemLayoutView, listener);
         return viewHolder;
     }
 

@@ -185,7 +185,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    System.out.println("Credenziali errate sopra");
                     Toast.makeText(LoginActivity.this, "Credenziali errate", Toast.LENGTH_SHORT).show();
                 }
 
@@ -370,7 +369,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void getTasks(String titolo, final ModuloPropostaTirocinio tir){
+    public static void getTasks(String titolo, final ModuloPropostaTirocinio tir){
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(titolo);
         DatabaseReference friendsRef = rootRef.child("listaTask");
