@@ -56,6 +56,16 @@ public class FragmentTirociniCandidati extends Fragment {
                     if(LoginActivity.listaUtenti.get(i).getCognome().equals(separa[1])){
 
                         emailStud = LoginActivity.listaUtenti.get(i).getEmail();
+                        matricolaStud = LoginActivity.listaUtenti.get(i).getMatricola();
+
+                        dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_candidati").child(String.valueOf(matricolaStud)).setValue(null);
+                        for(int w=0; w < LoginActivity.listaTirociniCandidati.size(); w++){
+
+                            if(LoginActivity.listaTirociniCandidati.get(w).getTitolo().equals(x.getTitolo())){
+                                LoginActivity.listaTirociniCandidati.remove(w);
+                            }
+
+                        }
 
                         Intent intent = new Intent(Intent.ACTION_SEND);
                         intent.setType("plain/text");
@@ -63,6 +73,10 @@ public class FragmentTirociniCandidati extends Fragment {
                         intent.putExtra(Intent.EXTRA_SUBJECT, "Esito candidatura tirocinio " + x.getTitolo());
                         intent.putExtra(Intent.EXTRA_TEXT, "Siamo spiacenti, ma la sua candidatura per il tirocinio: " + x.getTitolo() + " è stata DECLINATA. \n\nSiamo dispiaciuti per l'esito ma la invitiamo a restare fiducioso e a candidarsi ad altri tirocini proposti. \n\nGrazie dell'attenzione \nArrivederci");
                         startActivity(Intent.createChooser(intent, ""));
+
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_professore, new FragmentTirociniCandidati()).commit();
+
+
 
                     }
 
@@ -120,7 +134,6 @@ public class FragmentTirociniCandidati extends Fragment {
 
                             if(LoginActivity.listaTirociniCandidati.get(w).getTitolo().equals(x.getTitolo())){
                                 LoginActivity.listaTirociniCandidati.remove(w);
-                                
                             }
 
                         }
