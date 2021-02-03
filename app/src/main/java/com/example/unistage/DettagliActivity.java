@@ -44,8 +44,7 @@ public class DettagliActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli);
         nmc = NotificationManagerCompat.from(this);
-
-        final Task t = new Task("diocan", "22/02/22", 1, "ciao dave", "22/03/22");
+        
         final TextView luogo = findViewById(R.id.luogo_dettagli_id);
         luogo.setText(luogo_s);
         final TextView responsabile = findViewById(R.id.responsabile_dettagli_id);
