@@ -60,7 +60,7 @@ public class FragmentRicercaStudente extends Fragment {
             @Override
             public void onDetailClick(int position) {
                 Intent i = new Intent(getActivity(), DettagliActivity.class);
-                DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
+                //DettagliActivity.setDetail(Walkthrough1Activity.moduloPropostaTirocinio.get(position));
                 startActivity(i);
             }
         });

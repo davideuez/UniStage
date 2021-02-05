@@ -31,9 +31,6 @@ import static com.example.unistage.LoginActivity.notifiche;
 
 
 public class DettagliActivity extends AppCompatActivity {
-    public static String luogo_s;
-    public static String responsabile_s;
-    public static int data_s;
     public static ModuloPropostaTirocinio mpt;
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
     private NotificationManagerCompat nmc;
@@ -44,16 +41,48 @@ public class DettagliActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli);
         nmc = NotificationManagerCompat.from(this);
-        
-        final TextView luogo = findViewById(R.id.luogo_dettagli_id);
-        luogo.setText(luogo_s);
-        final TextView responsabile = findViewById(R.id.responsabile_dettagli_id);
-        responsabile.setText(responsabile_s);
-        final TextView data = findViewById(R.id.apertura_iscrizioni_dettagli_id);
-        data.setText(String.valueOf(data_s));
+
+        Intent i = getIntent();
+        int pos = i.getIntExtra("posizione", -1);
+
+        mpt = LoginActivity.listaTirociniProposti.get(pos);
+
+        final TextView titoloSopra = findViewById(R.id.nome_tirocinio);
+        final TextView tipologia = findViewById(R.id.interno_est);
+        final TextView prof = findViewById(R.id.detail_nomeProf);
+        final TextView dataInizio = findViewById(R.id.detail_dataInizio);
+        final TextView dataFine = findViewById(R.id.detail_dataFine);
+        final TextView luogo = findViewById(R.id.detail_luogo);
+        final TextView CFU = findViewById(R.id.CFU);
+        final TextView descrizione = findViewById(R.id.descrizione_tir);
+        final TextView obiettivi = findViewById(R.id.detail_obiettivi);
         final ImageButton back = findViewById(R.id.back_button_dettagli);
         final Button salva = findViewById(R.id.salva_dettagli_id);
         final Button candidati = findViewById(R.id.candidati_dettagli_id);
+
+        titoloSopra.setText(mpt.getTitolo());
+
+        if(mpt.getTipologia() == 0) {
+            tipologia.setText("INTERNO");
+        } else {
+            tipologia.setText("ESTERNO");
+        }
+
+        String cognome_prof = mpt.docente;
+        //String nome_prof = cercaNome(mpt.docente);
+
+        //String nome_completo = nome_prof.substring(0, 1).toUpperCase() + nome_prof.substring(1).toLowerCase() + " " + cognome_prof.substring(0, 1).toUpperCase() + cognome_prof.substring(1).toLowerCase();
+
+        prof.setText(cognome_prof);
+        dataInizio.setText(mpt.getDataInizio());
+        dataFine.setText(mpt.getDataFine());
+        luogo.setText(mpt.luogo);
+        CFU.setText(String.valueOf(mpt.getCFU()));
+        descrizione.setText(mpt.getDescrizione());
+        obiettivi.setText(mpt.getListaObiettivi());
+
+
+
 
         candidati.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,16 +124,8 @@ public class DettagliActivity extends AppCompatActivity {
         });
     }
 
-    public static void setDetail(ModuloPropostaTirocinio moduloPropostaTirocinio){
-        mpt = moduloPropostaTirocinio;
-        luogo_s = moduloPropostaTirocinio.luogo;
-        responsabile_s = moduloPropostaTirocinio.docente;
-        data_s = moduloPropostaTirocinio.durata;
-        System.out.println(moduloPropostaTirocinio);
-    }
-
     public void sendOnChannel(){
-        String messaggio = luogo_s;
+        String messaggio = mpt.luogo;
         String titolo = "Ti sei candidato a ";
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)

@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:text="Nome tirocinio"
                     android:textColor="#BE1129" />
 

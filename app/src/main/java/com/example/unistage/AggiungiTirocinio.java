@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -37,6 +38,8 @@ public class AggiungiTirocinio extends AppCompatActivity {
         final TextInputEditText cfu = findViewById(R.id.cfu_tirocinio_nuovo);
         final TextInputEditText descrizione = findViewById(R.id.descrizione_tirocinio_nuovo);
         final TextInputEditText obiettivi = findViewById(R.id.obiettiviformativi_tirocinio_nuovo);
+        final RadioButton interno = findViewById(R.id.interno_tirocinio);
+        final RadioButton esterno = findViewById(R.id.esterno_tirocinio);
         Button aggTirocinio = findViewById(R.id.inoltra_tirocinio_nuovo);
         Button annTirocinio = findViewById(R.id.annulla_tirocinio_nuovo);
 
@@ -58,7 +61,15 @@ public class AggiungiTirocinio extends AppCompatActivity {
                 x.setDocente((LoginActivity.u_loggato.cognome));
                 x.setStudente("");
                 x.setListaObiettivi(obiettivi.getText().toString());
-                x.setTipologia(1);
+
+                if(interno.isChecked()){
+                    x.setTipologia(0);
+                }
+
+                if(esterno.isChecked()){
+                    x.setTipologia(1);
+                }
+
 
                 fdbr.child(x.getTitolo()).setValue(x);
                 fdbr2.child(x.getTitolo()).setValue(x);

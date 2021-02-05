@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="left"
+                android:layout_marginLeft="40dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textSize="18dp"
-                    android:text="PROPOSTA TIROCINIO INTERNO"
+                    android:text="PROPOSTA TIROCINIO"
                     android:textColor="#BE1129" />
             </LinearLayout>
         </LinearLayout>

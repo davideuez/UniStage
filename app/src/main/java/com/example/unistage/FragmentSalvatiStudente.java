@@ -54,7 +54,7 @@ public class FragmentSalvatiStudente extends Fragment {
             @Override
             public void onDetailClick(int position) {
                 Intent i = new Intent(getActivity(), DettagliActivity.class);
-                DettagliActivity.setDetail(LoginActivity.listaTirociniProposti.get(position));
+                i.putExtra("posizione", position);
                 startActivity(i);
             }
         });

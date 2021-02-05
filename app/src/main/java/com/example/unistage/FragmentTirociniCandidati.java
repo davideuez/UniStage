@@ -93,7 +93,7 @@ public class FragmentTirociniCandidati extends Fragment {
 
                 for(int i=0; i<LoginActivity.listaUtenti.size(); i++){
 
-                    if(LoginActivity.listaUtenti.get(i).getCognome().equals(separa[1])){
+                    if(LoginActivity.listaUtenti.get(i).getCognome().equals(separa[1]+"")){
 
                         emailStud = LoginActivity.listaUtenti.get(i).getEmail();
                         matricolaStud = LoginActivity.listaUtenti.get(i).getMatricola();

@@ -38,7 +38,7 @@ public class Commenti extends AppCompatActivity {
         data_inizio.setText(t.getAssegnataIl());
         final TextView data_fine = findViewById(R.id.card_data_fine);
         data_fine.setText(t.getDataScadenza());
-        final TextView descrizione = findViewById(R.id.descrizione_tirocinio_dettagli_id);
+        final TextView descrizione = findViewById(R.id.descrizione_tir);
         //descrizione.setText(t.getDescrizione());
         final ImageView checkComment = findViewById(R.id.check_comment);
         if(t.getCompletata() == 0)
