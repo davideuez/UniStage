@@ -139,7 +139,9 @@
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/montserrat_regular"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="15dp" />
+                                android:textSize="15dp"
+                                android:clickable="true"
+                                android:focusable="false"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -159,39 +161,42 @@
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/montserrat_regular"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="15dp" />
+                                android:textSize="15dp"
+                                android:clickable="true"
+                                android:focusable="false" />
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="15dp">
-
-                        <RadioButton
-                            android:id="@+id/interno_tirocinio"
-                            android:layout_width="110dp"
+                        <RadioGroup
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorBlack"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="INTERNO"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="12dp"
-                            android:theme="@style/MyRadioButton" />
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center">
 
-                        <RadioButton
-                            android:id="@+id/esterno_tirocinio"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:buttonTint="@color/colorBlack"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="ESTERNO"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="12dp"
-                            android:theme="@style/MyRadioButton" />
-                    </LinearLayout>
+                            <RadioButton
+                                android:id="@+id/interno_tirocinio"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorBlack"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="INTERNO"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12dp"
+                                android:theme="@style/MyRadioButton" />
+
+                            <RadioButton
+                                android:id="@+id/esterno_tirocinio"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorBlack"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="ESTERNO"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12dp"
+                                android:layout_marginStart="40dp"
+                                android:theme="@style/MyRadioButton" />
+                        </RadioGroup>
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/NewStageInput"

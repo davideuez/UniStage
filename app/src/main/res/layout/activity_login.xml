@@ -45,7 +45,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
             android:hint="E-Mail"
-            android:textColorHint="#ffffff">
+            android:textColorHint="@color/colorWhite"
+            app:hintTextColor="@color/colorWhite">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_login_id"
@@ -66,7 +67,8 @@
             android:hint="Password"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="#ffffff"
-            android:textColorHint="#ffffff" >
+            android:textColorHint="@color/colorWhite"
+            app:hintTextColor="@color/colorWhite">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_login_id"
@@ -75,7 +77,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:inputType="textPassword"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorWhite"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +89,7 @@
             android:layout_height="46dp"
             android:layout_gravity="center"
             android:layout_marginTop="18dp"
-            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/colorWhite"
             android:fontFamily="@font/montserrat_semibold"
             android:text="accedi"
             android:textColor="#7E191B" />

@@ -1,8 +1,10 @@
 package com.example.unistage;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -13,6 +15,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class AggiungiTirocinio extends AppCompatActivity {
 
     DatabaseReference fdbr, fdbr2;
@@ -21,6 +27,8 @@ public class AggiungiTirocinio extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aggiungi_tirocinio);
+        createCalendar();
+        createCalendarFine();
 
         final TextInputEditText titolo = findViewById(R.id.titolo_tirocinio_nuovo);
         final TextInputEditText luogo = findViewById(R.id.luogo_tirocinio_nuovo);
@@ -81,5 +89,74 @@ public class AggiungiTirocinio extends AppCompatActivity {
         });
 
     }
-}
 
+    public void createCalendar(){
+
+        final Calendar myCalendar = Calendar.getInstance();
+        final TextInputEditText dataInizio= (TextInputEditText) findViewById(R.id.datainizio_nuovo);
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+            private void updateLabel(){
+                String myFormat = "dd/MM/yy"; //In which you need put here
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ITALY);
+
+                dataInizio.setText(sdf.format(myCalendar.getTime()));
+            }
+
+        };
+
+        dataInizio.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(AggiungiTirocinio.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+    }
+
+    public void createCalendarFine(){
+
+        final Calendar myCalendar = Calendar.getInstance();
+        final TextInputEditText dataFine= (TextInputEditText) findViewById(R.id.datafine_nuovo);
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+            private void updateLabel(){
+                String myFormat = "dd/MM/yy"; //In which you need put here
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ITALY);
+
+                dataFine.setText(sdf.format(myCalendar.getTime()));
+            }
+
+        };
+
+        dataFine.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(AggiungiTirocinio.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+    }
+}
