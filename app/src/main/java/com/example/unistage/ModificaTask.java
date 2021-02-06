@@ -75,7 +75,34 @@ public class ModificaTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Task y = new Task();
 
+                y.setTitolo(titolo.getText().toString());
+                y.setAssegnataIl(assegnatoIl.getText().toString());
+                y.setDataScadenza(entroIl.getText().toString());
+                y.setDescrizione(descrizione.getText().toString());
+
+                LoginActivity.listaTask.get(GestisciTask.posizione).remove(posizione);
+                LoginActivity.listaTask.get(GestisciTask.posizione).add(y);
+                
+                if(y.titolo.equals(x.titolo)){
+
+                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(y);
+                    dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(y);
+
+                } else {
+
+                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(null);
+                    dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(null);
+                    dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(y.getTitolo()).setValue(y);
+                    dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(y.getTitolo()).setValue(y);
+
+                }
+
+                Intent i = new Intent(ModificaTask.this, GestisciTask.class);
+                i.putExtra("posizione", GestisciTask.posizione);
+                i.putExtra("matricola", GestisciTask.matricola);
+                startActivity(i);
 
             }
         });
