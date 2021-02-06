@@ -131,7 +131,7 @@ public class DettagliActivity extends AppCompatActivity {
     }
 
     public void sendOnChannel(){
-        String messaggio = mpt.luogo;
+        String messaggio = mpt.titolo;
         String titolo = "Ti sei candidato a ";
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)
