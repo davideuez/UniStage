@@ -105,7 +105,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
                     } else {
                         LoginActivity.listaTask.get(GestisciTask.posizione).get(position).setCompletata(0);
                         dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(0);
-                        dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(1);
+                        dbref.child("Utenti").child("Studenti").child(String.valueOf(GestisciTask.matricola)).child("tirocinio_in_corso").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(current_item.getTitolo()).child("completata").setValue(0);
                         notifyItemChanged(position);
                     }
                 }

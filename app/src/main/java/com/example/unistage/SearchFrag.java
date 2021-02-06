@@ -62,7 +62,7 @@ public class SearchFrag extends Fragment {
 
             @Override
             public void onSaveClick(int position) {
-                tirocini_salvati.add(LoginActivity.listaTirociniProposti.get(position));
+                LoginActivity.lista_tirocini_salvati.add(LoginActivity.listaTirociniProposti.get(position));
                 LoginActivity.listaTirociniProposti.remove(position);
                 listAdapterTirociniStudente.notifyItemChanged(position);
             }
@@ -71,6 +71,7 @@ public class SearchFrag extends Fragment {
             public void onDetailClick(int position) {
                 Intent i = new Intent(getActivity(), DettagliActivity.class);
                 i.putExtra("posizione" , position);
+                i.putExtra("callFrom", 0);
                 startActivity(i);
             }
         });

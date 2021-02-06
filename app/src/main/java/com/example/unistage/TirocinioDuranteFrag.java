@@ -32,7 +32,7 @@ import static android.widget.LinearLayout.VERTICAL;
 public class TirocinioDuranteFrag extends Fragment {
 
     private DatabaseReference fdbr;
-    String email;
+    String email, nome, cognome;
     String obb;
     View frag_on_create_view;
 
@@ -53,8 +53,16 @@ public class TirocinioDuranteFrag extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 email = dataSnapshot.child("email").getValue(String.class);
+                nome = dataSnapshot.child("nome").getValue(String.class);
+                cognome = dataSnapshot.child("cognome").getValue(String.class);
+
                 final TextView email_docente = frag_on_create_view.findViewById(R.id.card_email_tutor_universitario_id);
+                final TextView docente = frag_on_create_view.findViewById(R.id.card_tutor_universitario_id);
+
+                String nome_completo = nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase() + " " + cognome.substring(0, 1).toUpperCase() + cognome.substring(1).toLowerCase();
+
                 email_docente.setText(email);
+                docente.setText(nome_completo);
             }
 
             @Override
@@ -67,17 +75,17 @@ public class TirocinioDuranteFrag extends Fragment {
         final TextView obiettivi_formativi = frag_on_create_view.findViewById(R.id.obiettivo_formativo);
         obiettivi_formativi.setText(LoginActivity.u_loggato.tirocinio_in_corso.listaObiettivi);
 
+        final TextView descrizione = frag_on_create_view.findViewById(R.id.descrizione);
+        descrizione.setText(LoginActivity.u_loggato.tirocinio_in_corso.descrizione);
+
         final TextView azienda = frag_on_create_view.findViewById(R.id.card_azienda_id);
-        azienda.setText(LoginActivity.u_loggato.tirocinio_in_corso.luogo.toString());
-
-        final TextView docente = frag_on_create_view.findViewById(R.id.card_tutor_universitario_id);
-        docente.setText(LoginActivity.u_loggato.tirocinio_in_corso.docente.toString());
-
+        azienda.setText(LoginActivity.u_loggato.tirocinio_in_corso.luogo);
+        
         final TextView data_inizio = frag_on_create_view.findViewById(R.id.card_data_inizio_id);
-        data_inizio.setText(LoginActivity.u_loggato.tirocinio_in_corso.dataInizio.toString());
+        data_inizio.setText(LoginActivity.u_loggato.tirocinio_in_corso.dataInizio);
 
         final TextView data_fine = frag_on_create_view.findViewById(R.id.card_data_fine_id);
-        data_fine.setText(LoginActivity.u_loggato.tirocinio_in_corso.dataFine.toString());
+        data_fine.setText(LoginActivity.u_loggato.tirocinio_in_corso.dataFine);
 
         final TextView tipo_tirocinio = frag_on_create_view.findViewById(R.id.card_tipotirocinio_id);
         final int tipo = LoginActivity.u_loggato.tirocinio_in_corso.tipologia;

@@ -44,8 +44,14 @@ public class DettagliActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         int pos = i.getIntExtra("posizione", -1);
+        int calledFrom = i.getIntExtra("callFrom", -1);
 
-        mpt = LoginActivity.listaTirociniProposti.get(pos);
+        if(calledFrom == 0){
+            mpt = LoginActivity.listaTirociniProposti.get(pos);
+        } else {
+            mpt = LoginActivity.lista_tirocini_salvati.get(pos);
+        }
+
 
         final TextView titoloSopra = findViewById(R.id.nome_tirocinio);
         final TextView tipologia = findViewById(R.id.interno_est);
@@ -104,7 +110,7 @@ public class DettagliActivity extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoginActivity.lista_tirocini_salvati.add(mpt);
+                //LoginActivity.lista_tirocini_salvati.add(mpt);
                 System.out.println("Tirocinio salvato: " + mpt);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocini_salvati").child(mpt.getTitolo()).setValue(mpt);
                 System.out.println(LoginActivity.u_loggato.toString());

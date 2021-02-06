@@ -63,8 +63,7 @@
 
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/frame_professore"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -243,9 +242,7 @@
                     <Button
                         android:id="@+id/elimina_tirocinio"
                         android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:backgroundTint="@color/red"
                         android:fontFamily="@font/montserrat_semibold"
@@ -256,9 +253,7 @@
                     <Button
                         android:id="@+id/modifica_tirocinio"
                         android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="25dp"
                         android:backgroundTint="#FFA500"
@@ -269,6 +264,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </FrameLayout>
+        </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

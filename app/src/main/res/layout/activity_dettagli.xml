@@ -63,7 +63,7 @@
 
         </LinearLayout>
 
-        <FrameLayout
+        <ScrollView
             android:id="@+id/frame_professore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/rounded_corners"
-                android:padding="20dp">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -266,28 +266,32 @@
                     <Button
                         android:id="@+id/salva_dettagli_id"
                         android:layout_width="150dp"
-                        android:layout_height="46dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/red"
+                        android:backgroundTint="@color/colorWhite"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="salva"
-                        android:textColor="@color/colorWhite" />
+                        android:letterSpacing="0"
+                        android:textColor="@color/red"
+                        android:drawableLeft="@drawable/stella_spenta"
+                        android:paddingLeft="20dp"/>
 
                     <Button
                         android:id="@+id/candidati_dettagli_id"
                         android:layout_width="150dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:backgroundTint="#287233"
+                        android:backgroundTint="@color/red"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="candidati"
+                        android:letterSpacing="0"
                         android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
             </LinearLayout>
 
-        </FrameLayout>
+        </ScrollView>
 
     </LinearLayout>
 
