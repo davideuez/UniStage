@@ -80,7 +80,7 @@ public class TirocinioDuranteFrag extends Fragment {
 
         final TextView azienda = frag_on_create_view.findViewById(R.id.card_azienda_id);
         azienda.setText(LoginActivity.u_loggato.tirocinio_in_corso.luogo);
-        
+
         final TextView data_inizio = frag_on_create_view.findViewById(R.id.card_data_inizio_id);
         data_inizio.setText(LoginActivity.u_loggato.tirocinio_in_corso.dataInizio);
 

@@ -47,6 +47,7 @@ public class T_incorso_professore extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 
+        listAdapterTirociniProfessore.notifyDataSetChanged();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 

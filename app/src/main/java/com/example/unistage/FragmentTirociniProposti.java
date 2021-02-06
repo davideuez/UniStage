@@ -34,6 +34,8 @@ public class FragmentTirociniProposti extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 
+
+        listAdapter.notifyDataSetChanged();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 

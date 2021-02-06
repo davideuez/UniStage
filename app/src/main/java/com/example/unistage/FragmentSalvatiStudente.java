@@ -35,6 +35,7 @@ public class FragmentSalvatiStudente extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 
+        listAdapterTirociniStudente.notifyDataSetChanged();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
