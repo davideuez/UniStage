@@ -48,7 +48,7 @@ public class TirocinioDuranteFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         frag_on_create_view = inflater.inflate(R.layout.fragment_tirocinio_durante, container, false);
 
-        DatabaseReference fdbr = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.tirocinio_in_corso.docente);
+        DatabaseReference fdbr = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.tirocinio_in_corso.getDocente());
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -56,7 +56,7 @@ public class TirocinioDuranteFrag extends Fragment {
                 nome = dataSnapshot.child("nome").getValue(String.class);
                 cognome = dataSnapshot.child("cognome").getValue(String.class);
 
-                final TextView email_docente = frag_on_create_view.findViewById(R.id.card_email_tutor_universitario_id);
+                final TextView email_docente = frag_on_create_view.findViewById(R.id.email_prof);
                 final TextView docente = frag_on_create_view.findViewById(R.id.card_tutor_universitario_id);
 
                 String nome_completo = nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase() + " " + cognome.substring(0, 1).toUpperCase() + cognome.substring(1).toLowerCase();

@@ -84,7 +84,7 @@ public class ModificaTask extends AppCompatActivity {
 
                 LoginActivity.listaTask.get(GestisciTask.posizione).remove(posizione);
                 LoginActivity.listaTask.get(GestisciTask.posizione).add(y);
-                
+
                 if(y.titolo.equals(x.titolo)){
 
                     dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(GestisciTirocinio.x.getTitolo()).child("listaTask").child(x.getTitolo()).setValue(y);
