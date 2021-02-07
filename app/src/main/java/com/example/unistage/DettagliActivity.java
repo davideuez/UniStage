@@ -122,7 +122,7 @@ public class DettagliActivity extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                LoginActivity.lista_tirocini_salvati.add(mpt);
                 System.out.println("Tirocinio salvato: " + mpt);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocini_salvati").child(mpt.getTitolo()).setValue(mpt);
                 System.out.println(LoginActivity.u_loggato.toString());
