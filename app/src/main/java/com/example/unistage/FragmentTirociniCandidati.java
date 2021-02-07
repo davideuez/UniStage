@@ -27,9 +27,8 @@ public class FragmentTirociniCandidati extends Fragment {
     DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View v = inflater.inflate(R.layout.fragment_tirocini_candidati, container, false);
 
         RecyclerView rv = (RecyclerView) v.findViewById(R.id.card_candidature_tirocini);

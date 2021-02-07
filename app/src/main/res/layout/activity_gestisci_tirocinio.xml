@@ -49,6 +49,7 @@
                     android:fontFamily="@font/montserrat_semibold"
                     android:textSize="20dp"
                     android:text="Nome Cognome"
+                    android:textAllCaps="true"
                     android:textColor="#BE1129" />
 
                 <TextView
@@ -215,6 +216,7 @@
                         android:textSize="15dp"
                         android:textColor="@color/colorBlack" />
                     <TextView
+                        android:id="@+id/next_task"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/montserrat_light"
@@ -284,18 +286,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp" />
             </LinearLayout>
-            <Button
-                android:id="@+id/card_concluditirocinio_button"
-                style="@style/BottoneBianco"
-                android:text="concludi tirocinio"
-                android:background="@drawable/rounded_corners"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="250dp"
-                android:textColor="@color/red"
-                android:enabled="false"
-                android:textSize="20dp"/>
+
         </FrameLayout>
 
     </LinearLayout>

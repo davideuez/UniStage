@@ -23,8 +23,6 @@ import java.util.ArrayList;
 
 public class Tirocini_attivi_professore extends AppCompatActivity {
 
-    public static Utente u;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Random;
 
 public class RegistrazioneActivity extends AppCompatActivity {
+
     private DatabaseReference fdbr;
     String emailText, pswText, pswConfermaText;
 

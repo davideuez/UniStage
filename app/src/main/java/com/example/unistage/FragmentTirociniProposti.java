@@ -19,12 +19,6 @@ import static android.widget.LinearLayout.VERTICAL;
 public class FragmentTirociniProposti extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_tirocini_proposti, container, false);
 
@@ -34,20 +28,15 @@ public class FragmentTirociniProposti extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(layoutManager);
 
-
         listAdapter.notifyDataSetChanged();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
         listAdapter.setOnItemClickListener(new AdapterTirociniStudente.OnItemClickedListener() {
+
             @Override
             public void onItemClick(int position) {
                 Log.d(TAG, "onItemClick: Cliccata card");
-            }
-
-            @Override
-            public void onSaveClick(int position) {
-
             }
 
             @Override
@@ -56,6 +45,12 @@ public class FragmentTirociniProposti extends Fragment {
                 i.putExtra("position", position);
                 startActivity(i);
             }
+
+            @Override
+            public void onSaveClick(int position) {
+
+            }
+
         });
 
         return frag_on_crate_view;

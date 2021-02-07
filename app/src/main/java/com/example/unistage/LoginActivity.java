@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     public static String currentTime = sdfStopTime.format(new Date(System.currentTimeMillis() + 3600000));
 
     void init(){
+
+        // salviamo gli account studenti nell'array utenti
         studenti = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti");
         studenti.addChildEventListener(new ChildEventListener() {
             @Override
@@ -89,6 +91,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        // salviamo gli account professore nell'array utenti
         professori = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori");
         professori.addChildEventListener(new ChildEventListener() {
 

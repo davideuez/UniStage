@@ -38,6 +38,7 @@ public class DettagliTirocinio extends AppCompatActivity {
         TextView dataFine = findViewById(R.id.detail_dataFine);
         TextView luogo = findViewById(R.id.detail_luogo);
         TextView obiettiviFormativi = findViewById(R.id.detail_obiettivi);
+        TextView descrizione = findViewById(R.id.detail_descrizione);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
 
         matricolaT.setText("Mat." + matricola);
@@ -46,11 +47,25 @@ public class DettagliTirocinio extends AppCompatActivity {
 
         nomeStud.setText(x.getStudente());
         titolo.setText(x.getTitolo());
-        nomeProf.setText("Gianni Bianchi");
+
+        String nome_prof = "", cognome_prof = "";
+
+        for(int j=0; j<LoginActivity.listaUtenti.size(); j++){
+            if(LoginActivity.listaUtenti.get(j).getCognome().equals(x.getDocente())){
+                nome_prof = LoginActivity.listaUtenti.get(j).getNome();
+                cognome_prof = LoginActivity.listaUtenti.get(j).getCognome();
+
+            }
+        }
+
+        String nome_completo = nome_prof.substring(0, 1).toUpperCase() + nome_prof.substring(1).toLowerCase() + " " + cognome_prof.substring(0, 1).toUpperCase() + cognome_prof.substring(1).toLowerCase();
+
+        nomeProf.setText(nome_completo);
         dataInizio.setText(x.getDataInizio());
         dataFine.setText(x.getDataFine());
         luogo.setText(x.getLuogo());
         obiettiviFormativi.setText(x.getListaObiettivi());
+        descrizione.setText(x.getDescrizione());
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

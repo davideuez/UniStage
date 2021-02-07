@@ -29,8 +29,6 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
 
     public interface OnItemClickedListener{
         void onItemClick(int position);
-        void onSaveClick(int position);
-        void onDetailClick(int position);
     }
 
     public void setOnItemClickListener(AdapterTask.OnItemClickedListener listener){
@@ -38,14 +36,15 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder1> {
     }
 
     public static class ViewHolder1 extends RecyclerView.ViewHolder {
+
         public TextView titolo;
         public TextView descrizione_task;
         public TextView data_assegnazione;
         public TextView data_scadenza;
         public ImageView check;
 
-
         public ViewHolder1(@NonNull View itemView, final OnItemClickedListener listener) {
+
             super(itemView);
             titolo = itemView.findViewById(R.id.titolo_task);
             descrizione_task = itemView.findViewById(R.id.descrizione_task);

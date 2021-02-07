@@ -19,12 +19,6 @@ import static android.widget.LinearLayout.VERTICAL;
 public class FragmentSalvatiStudente extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View frag_on_crate_view = inflater.inflate(R.layout.fragment_salvati_studente, container, false);
 

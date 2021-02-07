@@ -87,15 +87,6 @@ public class GestisciTask extends AppCompatActivity {
 
             }
 
-            @Override
-            public void onSaveClick(int position) {
-
-            }
-
-            @Override
-            public void onDetailClick(int position) {
-
-            }
         });
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
@@ -109,11 +100,9 @@ public class GestisciTask extends AppCompatActivity {
         int j=0;
 
         for(int i=0; i<x.size(); i++) {
-
             if(x.get(i).getCompletata() == 1){
                 j++;
             }
-
         }
 
         return j;

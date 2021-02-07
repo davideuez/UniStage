@@ -29,10 +29,7 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class TaskFrag extends Fragment {
 
-    String commentoText;
     View v = null;
-
-    public static ArrayList<Task> listaTask = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,16 +60,6 @@ public class TaskFrag extends Fragment {
                 Intent i = new Intent(context, Commenti.class);
                 i.putExtra("posizione",position);
                 context.getApplicationContext().startActivity(i);
-            }
-
-            @Override
-            public void onSaveClick(int position) {
-
-            }
-
-            @Override
-            public void onDetailClick(int position) {
-
             }
         });
         return v;

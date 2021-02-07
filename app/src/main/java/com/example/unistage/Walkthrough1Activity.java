@@ -23,41 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Walkthrough1Activity extends AppCompatActivity {
-    public static ArrayList<ModuloPropostaTirocinio> moduloPropostaTirocinio = new ArrayList<>();
 
-    void init(){
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Tirocini_Proposti_Professori");
-        dbref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                ModuloPropostaTirocinio hci = snapshot.getValue(ModuloPropostaTirocinio.class);
-                moduloPropostaTirocinio.add(hci);
-                System.out.println(hci);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-    }
 
 
     @Override
@@ -65,11 +31,6 @@ public class Walkthrough1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walkthrough1);
 
-        Log.d("Carte", "Dettagli carte: " + moduloPropostaTirocinio.toString());
-        init();
-
-        DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         final Button iniziamo = findViewById(R.id.getstartedbutton_id_main);
 
         iniziamo.setOnClickListener(new View.OnClickListener() {

@@ -35,19 +35,21 @@ import static com.example.unistage.LoginActivity.notifiche;
 
 
 public class HomeStudenteDURANTEActivity extends AppCompatActivity {
+
     int i=0;
     String nc;
     int m;
     public static ArrayList<Task> mTask;
     private NotificationManagerCompat nmc;
-    int posizione;
     private DatabaseReference tasks;
     ModuloPropostaTirocinio x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_durante);
+
         if(i==0) {
             i++;
             nmc = NotificationManagerCompat.from(this);
@@ -55,9 +57,6 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
         }
 
         HomeStudenteDURANTEActivity.mTask = LoginActivity.u_loggato.tirocinio_in_corso.listaTask;
-        //x = LoginActivity.listaTirocini.get(posizione);
-
-        mTask = new ArrayList<Task>();
 
         nc = LoginActivity.u_loggato.nome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.nome.substring(1).toLowerCase() + " " + LoginActivity.u_loggato.cognome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.cognome.substring(1).toLowerCase();
         final TextView nomeCognome = findViewById(R.id.nomecognome_durante);
@@ -65,7 +64,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
 
         m = LoginActivity.u_loggato.matricola;
         final TextView matricolaDurante = findViewById(R.id.matricola_durante);
-        matricolaDurante.setText("Mat. "+m);
+        matricolaDurante.setText("Mat. "+ m);
 
 
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentedurante);
@@ -104,41 +103,6 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             return true;
         }
     };
-
-    public void getTasks(){
-
-        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Studenti").child(String.valueOf(LoginActivity.u_loggato.getMatricola())).child("tirocinio_in_corso").child(x.getTitolo()).child("listaTask");
-        tasks.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Task y = snapshot.getValue(Task.class);
-                mTask.add(y);
-                System.out.println("Tasks: " + y);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
 
     public void sendOnChannel(){
 

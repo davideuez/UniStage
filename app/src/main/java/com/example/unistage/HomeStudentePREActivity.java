@@ -17,13 +17,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeStudentePREActivity extends AppCompatActivity {
-    String nomecognome = "";
+
+    String nomecognome;
     int mat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homestudente_pre);
-        final ImageView add = findViewById(R.id.aggiungi);
 
         nomecognome = LoginActivity.u_loggato.nome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.nome.substring(1).toLowerCase() + " " + LoginActivity.u_loggato.cognome.substring(0,1).toUpperCase() + LoginActivity.u_loggato.cognome.substring(1).toLowerCase();
         final TextView nome = findViewById(R.id.nomecognome);
@@ -31,7 +33,7 @@ public class HomeStudentePREActivity extends AppCompatActivity {
 
         mat = LoginActivity.u_loggato.matricola;
         final TextView matricola = findViewById(R.id.matricola);
-        matricola.setText("Mat. "+mat);
+        matricola.setText("Mat. " + mat);
 
 
         final BottomNavigationView btv = findViewById(R.id.bottombar_studentepre);

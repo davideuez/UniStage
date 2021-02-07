@@ -31,18 +31,8 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class TirocinioDuranteFrag extends Fragment {
 
-    private DatabaseReference fdbr;
     String email, nome, cognome;
-    String obb;
     View frag_on_create_view;
-
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -24,6 +24,7 @@ public class DettagliTirocinioProposto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli_tirocinio_proposto);
 

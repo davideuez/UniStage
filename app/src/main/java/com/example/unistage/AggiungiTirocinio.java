@@ -40,6 +40,7 @@ public class AggiungiTirocinio extends AppCompatActivity {
         final TextInputEditText obiettivi = findViewById(R.id.obiettiviformativi_tirocinio_nuovo);
         final RadioButton interno = findViewById(R.id.interno_tirocinio);
         final RadioButton esterno = findViewById(R.id.esterno_tirocinio);
+        final ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
         Button aggTirocinio = findViewById(R.id.inoltra_tirocinio_nuovo);
         Button annTirocinio = findViewById(R.id.annulla_tirocinio_nuovo);
 
@@ -73,8 +74,8 @@ public class AggiungiTirocinio extends AppCompatActivity {
 
                 fdbr.child(x.getTitolo()).setValue(x);
                 fdbr2.child(x.getTitolo()).setValue(x);
-                //LoginActivity.listaTirociniPropostiSingle.add(x);
-                System.out.println(LoginActivity.listaTirociniPropostiSingle.toString());
+                LoginActivity.listaTirociniPropostiSingle.add(x);
+                System.out.println("Lista tirocini dopo aggiunta: " + LoginActivity.listaTirociniPropostiSingle.toString());
 
                 Toast.makeText(AggiungiTirocinio.this, "Il tirocinio è stato aggiunto correttamente", Toast.LENGTH_LONG).show();
                 Intent j = new Intent(AggiungiTirocinio.this, Tirocini_attivi_professore.class);
@@ -89,10 +90,6 @@ public class AggiungiTirocinio extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
-
-        ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

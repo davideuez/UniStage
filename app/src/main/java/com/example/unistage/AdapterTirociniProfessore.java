@@ -17,8 +17,6 @@ public class AdapterTirociniProfessore extends RecyclerView.Adapter<AdapterTiroc
 
     public interface  OnItemClickedListener{
         void onItemClick(int position);
-        void onSaveClick(int position);
-        void onDetailClick(int position);
     }
 
     public void SetTheClick (OnItemClickedListener listener){
@@ -77,6 +75,14 @@ public class AdapterTirociniProfessore extends RecyclerView.Adapter<AdapterTiroc
             holder.vh_tipologia.setText("INTERNO");
         } else{
             holder.vh_tipologia.setText("ESTERNO");
+        }
+
+        if(LoginActivity.listaTask.get(position).size() > 0){
+            int x = LoginActivity.listaTask.get(position).size();
+            String prossimaTask = LoginActivity.listaTask.get(position).get(x-1).getTitolo();
+            holder.vh_task.setText(prossimaTask);
+        } else {
+            holder.vh_task.setText("Non ci sono task da completare");
         }
 
     }

@@ -26,14 +26,15 @@ public class AdapterCandidature extends RecyclerView.Adapter<AdapterCandidature.
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView vh_nomeStudente, vh_matricola, vh_tirocinio;
-        public Button accettaCandidatura, rifiutaCandidatura;
 
+        public TextView vh_nomeStudente, vh_matricola, vh_tirocinio, vh_email;
+        public Button accettaCandidatura, rifiutaCandidatura;
 
         public ViewHolder(@NonNull View itemView, final OnItemClickedListener listener) {
             super(itemView);
             vh_nomeStudente = itemView.findViewById(R.id.nome_candidato);
             vh_matricola = itemView.findViewById(R.id.matricola_candidato);
+            vh_email = itemView.findViewById(R.id.email_candidato);
             vh_tirocinio = itemView.findViewById(R.id.nome_tirocinio);
             accettaCandidatura = itemView.findViewById(R.id.accetta);
             rifiutaCandidatura = itemView.findViewById(R.id.declina);
@@ -81,7 +82,18 @@ public class AdapterCandidature extends RecyclerView.Adapter<AdapterCandidature.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ModuloPropostaTirocinio current_item = lista_tirocini.get(position);
         holder.vh_nomeStudente.setText(current_item.getStudente());
-        holder.vh_matricola.setText("123456");
+
+        String[] nome = current_item.getStudente().split(" ");
+
+        for(int j=0; j<LoginActivity.listaUtenti.size(); j++){
+
+            if(LoginActivity.listaUtenti.get(j).getCognome().equals(nome[1])){
+                holder.vh_email.setText(LoginActivity.listaUtenti.get(j).getEmail());
+                holder.vh_matricola.setText("Matricola " + String.valueOf(LoginActivity.listaUtenti.get(j).getMatricola()));
+            }
+
+        }
+
         holder.vh_tirocinio.setText(current_item.getTitolo());
 
     }

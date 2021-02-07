@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textSize="20dp"
+                    android:textAllCaps="true"
                     android:text="Nome Cognome"
                     android:textColor="#BE1129" />
 
@@ -69,6 +70,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -236,9 +241,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColor="@color/colorBlack"
+                        android:text="Descrizione:"/>
+
+                    <TextView
+                        android:id="@+id/detail_descrizione"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/colorBlack"
+                        android:text="sdbauigvaerbuigtun hrhauifhrui ghui h uigh uifafuiavdfgeag er agag a gsaega" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:padding="10dp"/>
 
             </LinearLayout>
+
+            </ScrollView>
 
         </FrameLayout>
 

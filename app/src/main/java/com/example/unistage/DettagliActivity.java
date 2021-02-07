@@ -1,5 +1,7 @@
 package com.example.unistage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -20,21 +22,27 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 import static com.example.unistage.LoginActivity.CHANNEL_1_ID;
 import static com.example.unistage.LoginActivity.currentTime;
+import static com.example.unistage.LoginActivity.listaUtenti;
 import static com.example.unistage.LoginActivity.notifiche;
 
 
 public class DettagliActivity extends AppCompatActivity {
+
     public static ModuloPropostaTirocinio mpt;
     private DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
     private NotificationManagerCompat nmc;
-
+    public String n_prof;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +82,21 @@ public class DettagliActivity extends AppCompatActivity {
             tipologia.setText("ESTERNO");
         }
 
+        for(int j=0; j<LoginActivity.listaUtenti.size(); j++){
+
+            if(LoginActivity.listaUtenti.get(j).getCognome().equals(mpt.docente)){
+                n_prof = LoginActivity.listaUtenti.get(j).getNome();
+            }
+
+        }
+
+
         String cognome_prof = mpt.docente;
-        //String nome_prof = cercaNome(mpt.docente);
+        String nome_prof = n_prof;
 
-        //String nome_completo = nome_prof.substring(0, 1).toUpperCase() + nome_prof.substring(1).toLowerCase() + " " + cognome_prof.substring(0, 1).toUpperCase() + cognome_prof.substring(1).toLowerCase();
+        String nome_completo = nome_prof.substring(0, 1).toUpperCase() + nome_prof.substring(1).toLowerCase() + " " + cognome_prof.substring(0, 1).toUpperCase() + cognome_prof.substring(1).toLowerCase();
 
-        prof.setText(cognome_prof);
+        prof.setText(nome_completo);
         dataInizio.setText(mpt.getDataInizio());
         dataFine.setText(mpt.getDataFine());
         luogo.setText(mpt.luogo);
@@ -88,18 +105,13 @@ public class DettagliActivity extends AppCompatActivity {
         obiettivi.setText(mpt.getListaObiettivi());
 
 
-
-
         candidati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 sendOnChannel();
                 mpt.setStudente(LoginActivity.u_loggato.nome + " " + LoginActivity.u_loggato.cognome);
-                //dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_avviato").setValue(true);
-                //dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocinio_in_corso").child(mpt.getTitolo()).setValue(mpt);
                 dbref.child("Utenti").child("Professori").child(mpt.docente).child("Tirocini_candidati").child(LoginActivity.u_loggato.getMatricola()+"").setValue(mpt);
-                //mpt.listaTask.add(t);
-                //LoginActivity.u_loggato.tirocinio_in_corso = mpt;
                 Toast.makeText(DettagliActivity.this, "Ti sei candidato al tirocinio", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(DettagliActivity.this, HomeStudentePREActivity.class);
                 startActivity(i);
@@ -110,7 +122,7 @@ public class DettagliActivity extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //LoginActivity.lista_tirocini_salvati.add(mpt);
+
                 System.out.println("Tirocinio salvato: " + mpt);
                 dbref.child("Utenti").child("Studenti").child(LoginActivity.u_loggato.getMatricola()+"").child("tirocini_salvati").child(mpt.getTitolo()).setValue(mpt);
                 System.out.println(LoginActivity.u_loggato.toString());
@@ -129,6 +141,7 @@ public class DettagliActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void sendOnChannel(){
         String messaggio = mpt.titolo;

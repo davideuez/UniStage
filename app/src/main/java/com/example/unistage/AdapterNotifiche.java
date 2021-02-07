@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class AdapterNotifiche extends RecyclerView.Adapter<AdapterNotifiche.ViewHolder3> {
+
     private ArrayList<Notifiche> lista;
 
     public static class ViewHolder3 extends RecyclerView.ViewHolder {
+
         public TextView titolo_notifica;
         public TextView descrizione_notifica;
         public TextView data_notifica;
-
 
         public ViewHolder3(@NonNull View itemView) {
             super(itemView);
@@ -41,10 +42,12 @@ public class AdapterNotifiche extends RecyclerView.Adapter<AdapterNotifiche.View
 
     @Override
     public void onBindViewHolder(@NonNull AdapterNotifiche.ViewHolder3 holder, int position) {
+
         Notifiche current_item = lista.get(position);
         holder.data_notifica.setText(current_item.getData().toString());
         holder.descrizione_notifica.setText(current_item.getDescrizione());
         holder.titolo_notifica.setText(current_item.getTitolo());
+
     }
 
 

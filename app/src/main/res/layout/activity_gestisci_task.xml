@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textSize="20dp"
+                    android:textAllCaps="true"
                     android:text="Nome Cognome"
                     android:textColor="#BE1129" />
 

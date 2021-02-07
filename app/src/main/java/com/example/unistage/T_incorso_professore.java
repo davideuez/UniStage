@@ -60,15 +60,6 @@ public class T_incorso_professore extends Fragment {
                 startActivity(i);
             }
 
-            @Override
-            public void onSaveClick(int position) {
-                Log.d(TAG, "onItemClick: Cliccata card " + position);
-            }
-
-            @Override
-            public void onDetailClick(int position) {
-
-            }
         });
 
         return v;

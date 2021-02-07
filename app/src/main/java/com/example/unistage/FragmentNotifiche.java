@@ -29,14 +29,6 @@ import static android.widget.LinearLayout.VERTICAL;
 
 public class FragmentNotifiche extends Fragment {
 
-    String commentoText;
-    View v = null;
-    int posizione;
-    private DatabaseReference tasks;
-    ModuloPropostaTirocinio x;
-
-    public static ArrayList<Task> listaTask = new ArrayList<>();
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,42 +36,7 @@ public class FragmentNotifiche extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_notifiche, container, false);
-
-        /* Intent i = new Intent();
-        posizione = i.getIntExtra("posizione", -1);
-        x = LoginActivity.listaTirocini.get(posizione);
-
-        tasks = FirebaseDatabase.getInstance().getReference().child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).child("Tasks");
-        tasks.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Task y = snapshot.getValue(Task.class);
-                //listaTask.add(y);
-                System.out.println("Tasks: " + y);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
+        View v = inflater.inflate(R.layout.fragment_notifiche, container, false);
 
         final RecyclerView rv = (RecyclerView) v.findViewById(R.id.recycler_notifiche);
         final AdapterNotifiche listAdapterNotifiche = new AdapterNotifiche(LoginActivity.notifiche);

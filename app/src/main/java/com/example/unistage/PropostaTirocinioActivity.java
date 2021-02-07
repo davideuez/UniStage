@@ -27,7 +27,6 @@ public class PropostaTirocinioActivity extends AppCompatActivity {
         final ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
         final Button inoltra = findViewById(R.id.inoltra_button_tirocinio_proposta_id);
         final TextView titolo = findViewById(R.id.titolo_tirocinio_proposta_id);
-        final TextView docente = findViewById(R.id.docente_tirocinio_proposta_id);
         final TextView durata = findViewById(R.id.durata_tirocinio_proposta_id);
         final TextView cfu = findViewById(R.id.cfu_tirocinio_proposta_id);
         final TextView descrizione = findViewById(R.id.descrizione_tirocinio_proposta_id);

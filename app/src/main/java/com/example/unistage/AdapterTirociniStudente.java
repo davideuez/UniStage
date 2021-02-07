@@ -57,18 +57,6 @@ public class AdapterTirociniStudente extends RecyclerView.Adapter<ViewHolder> {
                 }
             });
 
-            //salva.setOnClickListener(new View.OnClickListener() {
-            //  @Override
-            //public void onClick(View v) {
-            //  if(listener != null){
-            //    int position = getAdapterPosition();
-            //  if (position != RecyclerView.NO_POSITION){
-            //    listener.onSaveClick(position);
-            //}
-            //}
-            //}
-            //});
-
             dettagli.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

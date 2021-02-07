@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class GestisciTirocinio extends AppCompatActivity {
 
     int posizione;
-    public static String nomeTirocinio;
     int matrix;
     private DatabaseReference tasks;
     public static ModuloPropostaTirocinio x;
@@ -42,6 +41,7 @@ public class GestisciTirocinio extends AppCompatActivity {
         TextView dataFine = findViewById(R.id.dataFine);
         TextView taskAssegnati = findViewById(R.id.task_assegnati);
         TextView taskComp = findViewById(R.id.task_completati);
+        TextView nextTask = findViewById(R.id.next_task);
         Button details = findViewById(R.id.vedi_dettagli);
         Button gestTask = findViewById(R.id.card_gestiscitask_button);
         ImageButton back = findViewById(R.id.backarrow_proposta_tirocinio_id);
@@ -73,6 +73,15 @@ public class GestisciTirocinio extends AppCompatActivity {
             } else {
                 tipologia.setText("ESTERNO");
             }
+
+            if(LoginActivity.listaTask.get(posizione).size() > 0){
+                int x = LoginActivity.listaTask.get(posizione).size();
+                String prossimaTask = LoginActivity.listaTask.get(posizione).get(x-1).getTitolo();
+                nextTask.setText(prossimaTask);
+            } else {
+                nextTask.setText("Non ci sono task da completare");
+            }
+
 
             nome_azienda.setText(x.getLuogo());
             dataFine.setText(x.getDataFine());
@@ -118,11 +127,7 @@ public class GestisciTirocinio extends AppCompatActivity {
         for(int i=0; i<LoginActivity.listaUtenti.size(); i++){
 
             if(cognomeI.equals(LoginActivity.listaUtenti.get(i).getCognome())){
-                System.out.println("cognomi coincidono " + cognomeI);
-                System.out.println("Matricola" + LoginActivity.listaUtenti.get(i).getMatricola());
                 return LoginActivity.listaUtenti.get(i).getMatricola();
-
-
             } else {
                 System.out.println("Cognome non presente");
             }
@@ -173,11 +178,9 @@ public class GestisciTirocinio extends AppCompatActivity {
         int j=0;
 
         for(int i=0; i<x.size(); i++) {
-
             if(x.get(i).getCompletata() == 1){
                 j++;
             }
-
         }
 
         return j;
