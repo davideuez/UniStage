@@ -52,7 +52,7 @@ public class TaskFrag extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), VERTICAL);
         rv.addItemDecoration(dividerItemDecoration);
 
-        listAdapterTask.setOnItemClickListener(new AdapterTask.OnItemClickedListener() {
+        /*listAdapterTask.setOnItemClickListener(new AdapterTask.OnItemClickedListener() {
             @Override
             public void onItemClick(int position) {
                 Log.d(TAG, "onItemClick: Cliccata card");
@@ -61,7 +61,7 @@ public class TaskFrag extends Fragment {
                 i.putExtra("posizione",position);
                 context.getApplicationContext().startActivity(i);
             }
-        });
+        });*/
         return v;
     }
 
