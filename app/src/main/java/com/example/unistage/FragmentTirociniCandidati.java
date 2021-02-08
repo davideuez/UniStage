@@ -107,9 +107,7 @@ public class FragmentTirociniCandidati extends Fragment {
 
                         // inizializzo tirocinio avviato lato professore
                         dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_avviati").child(x.getTitolo()).setValue(x);
-                        LoginActivity.getTasks(x.titolo, x);
-                        LoginActivity.listaTirocini.add(x);
-
+                        
                         // elimino proposta tirocinio
                         dbref.child("Utenti").child("Professori").child(LoginActivity.u_loggato.getCognome()).child("Tirocini_Proposti").child(x.getTitolo()).setValue(null);
                         for(int j=0; j < LoginActivity.listaTirociniPropostiSingle.size(); j++){
