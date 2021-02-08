@@ -32,8 +32,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrazione);
 
-        final RadioButton rbprof = findViewById(R.id.profrb_signup_id);
-        final RadioButton rbstud = findViewById(R.id.studenterb_signup_id);
         final Button reg = findViewById(R.id.registbutton_signup_id);
         final TextView accediqui = findViewById(R.id.accediqui);
 
@@ -41,22 +39,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
         final TextInputEditText psw = findViewById(R.id.registrazione_password);
         final TextInputEditText pswConferma = findViewById(R.id.registrazione_confermapassword);
 
-
-        rbprof.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i=1;
-                rbstud.setChecked(false);
-            }
-        });
-
-        rbstud.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i=2;
-                rbprof.setChecked(false);
-            }
-        });
 
         accediqui.setPaintFlags(accediqui.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -78,7 +60,9 @@ public class RegistrazioneActivity extends AppCompatActivity {
                 emailText = email.getText().toString();
                 pswConfermaText = pswConferma.getText().toString();
 
-                if(i == 1) {
+                String[] separaMail = emailText.split("@");
+
+                if(separaMail[1].equals("unitn.it")) {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
@@ -101,10 +85,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         Toast.makeText(RegistrazioneActivity.this, "Completa tutti i campi", Toast.LENGTH_LONG).show();
                     }
 
-                }
-
-
-                if(i == 2) {
+                } else if(separaMail[1].equals("studenti.unitn.it")) {
 
                     if (!TextUtils.isEmpty(pswText) || !TextUtils.isEmpty(emailText) || !TextUtils.isEmpty(pswConfermaText)) {
                         if (pswText.equals(pswConfermaText)) {
@@ -131,6 +112,8 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         Toast.makeText(RegistrazioneActivity.this, "Inserisci tutti i valori.", Toast.LENGTH_LONG).show();
                     }
 
+                } else {
+                    Toast.makeText(RegistrazioneActivity.this, "Inserisci la mail Unitn valida.", Toast.LENGTH_LONG).show();
                 }
             }
         });

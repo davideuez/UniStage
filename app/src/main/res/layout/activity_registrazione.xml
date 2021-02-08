@@ -105,34 +105,7 @@
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="13dp">
-
-            <RadioButton
-                android:id="@+id/studenterb_signup_id"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:text="STUDENTE"
-                android:textSize="11dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:textColor="#ffffff"
-                android:theme="@style/MyRadioButton"/>
-
-            <RadioButton
-                android:id="@+id/profrb_signup_id"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:text="PROFESSORE"
-                android:textSize="11dp"
-                android:layout_marginStart="25dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:textColor="#ffffff"
-                android:theme="@style/MyRadioButton"/>
-
-        </LinearLayout>
+        
 
         <Button
             android:id="@+id/registbutton_signup_id"
