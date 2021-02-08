@@ -77,7 +77,14 @@ public class AdapterTirociniProfessore extends RecyclerView.Adapter<AdapterTiroc
             holder.vh_tipologia.setText("ESTERNO");
         }
 
-        if(LoginActivity.listaTask.get(position).size() > 0){
+        try{
+
+
+        } catch(Exception e) {
+
+        }
+
+        if(!LoginActivity.listaTask.get(position).isEmpty()){
             int x = LoginActivity.listaTask.get(position).size();
             String prossimaTask = LoginActivity.listaTask.get(position).get(x-1).getTitolo();
             holder.vh_task.setText(prossimaTask);

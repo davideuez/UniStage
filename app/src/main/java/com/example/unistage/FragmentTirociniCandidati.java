@@ -16,6 +16,9 @@ import android.view.ViewGroup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 import static android.content.ContentValues.TAG;
 import static android.widget.LinearLayout.VERTICAL;
 
@@ -137,6 +140,9 @@ public class FragmentTirociniCandidati extends Fragment {
                             }
 
                         }
+
+                        ArrayList<Task> y = new ArrayList<Task>();
+                        LoginActivity.listaTask.add(y);
 
                         System.out.println("Grandezza array candidature: " + LoginActivity.listaTirociniCandidati.size());
 
