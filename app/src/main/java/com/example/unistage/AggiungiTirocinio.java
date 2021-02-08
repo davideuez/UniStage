@@ -74,7 +74,6 @@ public class AggiungiTirocinio extends AppCompatActivity {
 
                 fdbr.child(x.getTitolo()).setValue(x);
                 fdbr2.child(x.getTitolo()).setValue(x);
-                LoginActivity.listaTirociniPropostiSingle.add(x);
                 System.out.println("Lista tirocini dopo aggiunta: " + LoginActivity.listaTirociniPropostiSingle.toString());
 
                 Toast.makeText(AggiungiTirocinio.this, "Il tirocinio è stato aggiunto correttamente", Toast.LENGTH_LONG).show();
