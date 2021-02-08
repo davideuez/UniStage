@@ -53,15 +53,23 @@ public class AggiungiTirocinio extends AppCompatActivity {
 
                 ModuloPropostaTirocinio x = new ModuloPropostaTirocinio();
 
-                x.setTitolo(titolo.getText().toString());
-                x.setLuogo(luogo.getText().toString());
-                x.setDataInizio(dataInizio.getText().toString());
-                x.setDataFine(dataFine.getText().toString());
-                x.setCFU(Integer.parseInt(cfu.getText().toString()));
-                x.setDescrizione(descrizione.getText().toString());
-                x.setDocente((LoginActivity.u_loggato.cognome));
-                x.setStudente("");
-                x.setListaObiettivi(obiettivi.getText().toString());
+                try {
+
+                    x.setTitolo(titolo.getText().toString());
+                    x.setLuogo(luogo.getText().toString());
+                    x.setDataInizio(dataInizio.getText().toString());
+                    x.setDataFine(dataFine.getText().toString());
+                    x.setCFU(Integer.parseInt(cfu.getText().toString()));
+                    x.setDescrizione(descrizione.getText().toString());
+                    x.setDocente((LoginActivity.u_loggato.cognome));
+                    x.setStudente("");
+                    x.setListaObiettivi(obiettivi.getText().toString());
+
+                }
+                catch (Exception e){
+                    Toast.makeText(AggiungiTirocinio.this, "errore", Toast.LENGTH_LONG).show();
+                    finish();
+                }
 
                 if(interno.isChecked()){
                     x.setTipologia(0);

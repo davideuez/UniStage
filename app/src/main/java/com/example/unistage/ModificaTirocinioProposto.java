@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
@@ -44,13 +45,20 @@ public class ModificaTirocinioProposto extends AppCompatActivity {
 
         x = LoginActivity.listaTirociniPropostiSingle.get(posizione);
 
-        titolo.setText(x.getTitolo());
-        luogo.setText(x.getLuogo());
-        cfu.setText(String.valueOf(x.getCFU()));
-        dataInizio.setText(x.getDataInizio());
-        dataFine.setText(x.getDataFine());
-        descrizione.setText(x.getDescrizione());
-        obiettivi.setText(x.getListaObiettivi());
+        try {
+            titolo.setText(x.getTitolo());
+            luogo.setText(x.getLuogo());
+            cfu.setText(String.valueOf(x.getCFU()));
+            dataInizio.setText(x.getDataInizio());
+            dataFine.setText(x.getDataFine());
+            descrizione.setText(x.getDescrizione());
+            obiettivi.setText(x.getListaObiettivi());
+        }
+        catch (Exception e){
+            Toast.makeText(ModificaTirocinioProposto.this, "errore", Toast.LENGTH_LONG).show();
+            finish();
+        }
+
 
         if(x.getTipologia() == 0){
             interno.setChecked(true);
