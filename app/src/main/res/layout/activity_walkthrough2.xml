@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_regular"
-            android:text="Pubblica e gestisci I tuoi stage universitari, potrai verificare l'avanzamento e approvare la relazione conclusiva degli studenti."
+            android:text="Pubblica e gestisci gli stage universitari, potrai verificare l'avanzamento dei tirocini in corso assegnando allo studente task periodiche."
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="18dp" />

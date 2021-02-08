@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
@@ -43,6 +44,7 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
     private NotificationManagerCompat nmc;
     private DatabaseReference tasks;
     ModuloPropostaTirocinio x;
+    ConstraintLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             nmc = NotificationManagerCompat.from(this);
             sendOnChannel();
         }
+
+        rl = (ConstraintLayout)findViewById(R.id.bg_durante);
 
         HomeStudenteDURANTEActivity.mTask = LoginActivity.u_loggato.tirocinio_in_corso.listaTask;
 
@@ -81,21 +85,25 @@ public class HomeStudenteDURANTEActivity extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.home:
                     fragment = new TirocinioDuranteFrag();
+                    rl.setBackgroundResource(R.drawable.bg_in_corso);
                     System.out.println("Home");
                     break;
 
                 case R.id.tasks:
                     fragment = new TaskFrag();
+                    rl.setBackgroundResource(R.drawable.task_bg);
                     System.out.println("Tasks");
                     break;
 
                 case R.id.iter_tirocinio_durante:
                     fragment = new IterFrag();
+                    rl.setBackgroundResource(R.drawable.bg_iter);
                     System.out.println("Iter Tirocinio");
                     break;
 
                 case R.id.notifiche:
                     fragment = new FragmentNotifiche();
+                    rl.setBackgroundResource(R.drawable.bg_notifiche);
                     System.out.println("Notifiche");
                     break;
             }

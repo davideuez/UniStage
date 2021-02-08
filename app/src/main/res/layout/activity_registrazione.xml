@@ -105,7 +105,7 @@
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        
+
 
         <Button
             android:id="@+id/registbutton_signup_id"

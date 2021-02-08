@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_regular"
-            android:text="Sfoglia i vari tirocini pubblicati e candidati per poter accedere a tutte le funzionalità di gestione dell'avanzamento."
+            android:text="Sfoglia i vari tirocini pubblicati e invia una candidatura per poter iniziare il percorso di stage e tenerlo monitorato grazie all'app."
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="18dp" />

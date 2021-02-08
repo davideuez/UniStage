@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,10 +24,14 @@ import java.util.ArrayList;
 
 public class Tirocini_attivi_professore extends AppCompatActivity {
 
+    ConstraintLayout rl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tirocini_attivi_professore);
+
+        rl = (ConstraintLayout)findViewById(R.id.bg_prof);
 
         String nome_prof = LoginActivity.u_loggato.getNome();
         String cognome_prof = LoginActivity.u_loggato.getCognome();
@@ -58,16 +63,19 @@ public class Tirocini_attivi_professore extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.Incorso:
                     fragment = new T_incorso_professore();
+                    rl.setBackgroundResource(R.drawable.bg_in_corso);
                     System.out.println("Tirocini in corso");
                     break;
 
                 case R.id.Proposti:
                     fragment = new FragmentTirociniProposti();
+                    rl.setBackgroundResource(R.drawable.bg_proposti);
                     System.out.println("Tirocini proposti");
                     break;
 
                 case R.id.Inattesa:
                     fragment = new FragmentTirociniCandidati();
+                    rl.setBackgroundResource(R.drawable.bg_candidature);
                     System.out.println("Tirocini in attesa");
                     break;
             }
